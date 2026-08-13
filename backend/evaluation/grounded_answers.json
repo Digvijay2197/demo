@@ -1,0 +1,47 @@
+[
+  {
+    "id": "q01",
+    "question": "How much fine sea salt does the 2kg sourdough recipe use?",
+    "expected_answer": "7g (0.35% baker's percentage)",
+    "answer": "The 2kg Country Sourdough Loaf recipe uses 7g of fine sea salt [chunk:structure-sourdough-2kg-ingredients-4].",
+    "citations": [
+      {
+        "chunk_id": "structure-sourdough-2kg-ingredients-4",
+        "recipe_id": "sourdough-2kg",
+        "source_file": "sourdough-2kg.md",
+        "section": "ingredients"
+      }
+    ],
+    "refused": false
+  },
+  {
+    "id": "q05",
+    "question": "What temperature should the milk be heated to when making homemade yogurt?",
+    "expected_answer": "85C",
+    "answer": "According to the recipe, the milk should be heated to 85C. [chunk:structure-yogurt-dairy-method-3]",
+    "citations": [
+      {
+        "chunk_id": "structure-yogurt-dairy-method-3",
+        "recipe_id": "yogurt-dairy",
+        "source_file": "yogurt-dairy.md",
+        "section": "method"
+      }
+    ],
+    "refused": false
+  },
+  {
+    "id": "q07",
+    "question": "What is the allergen note for the homemade miso paste recipe?",
+    "expected_answer": "Contains soy; produced with koji (Aspergillus oryzae cultured rice), no gluten-containing grains used",
+    "answer": "The recipe contains soy. Produced with koji (Aspergillus oryzae cultured rice); no gluten-containing grains used. [chunk:structure-miso-soybean-allergen-6]",
+    "citations": [
+      {
+        "chunk_id": "structure-miso-soybean-allergen-6",
+        "recipe_id": "miso-soybean",
+        "source_file": "miso-soybean.md",
+        "section": "allergen"
+      }
+    ],
+    "refused": false
+  }
+]

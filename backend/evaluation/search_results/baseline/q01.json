@@ -1,0 +1,48 @@
+{
+  "question": "How much fine sea salt does the 2kg sourdough recipe use?",
+  "expected_recipe_id": "sourdough-2kg",
+  "expected_section": "ingredients",
+  "results": [
+    {
+      "chunk_id": "baseline-sourdough-2kg-2",
+      "recipe_id": "sourdough-2kg",
+      "source_file": "sourdough-2kg.md",
+      "section": "unstructured",
+      "score": 0.6276574887721169,
+      "text": "Method\n\nAutolyse the bread flour and water together for 30 minutes before adding anything else. Dissolve the fine sea salt directly into the dough during the initial mix, then add the active sourdough"
+    },
+    {
+      "chunk_id": "baseline-sourdough-2kg-1",
+      "recipe_id": "sourdough-2kg",
+      "source_file": "sourdough-2kg.md",
+      "section": "unstructured",
+      "score": 0.529764348259382,
+      "text": "Percentage |\n|---|---|---|\n| Bread flour | 2000g | 100% |\n| Water | 1500g | 75% |\n| Active sourdough starter | 400g | 20% |\n| Fine sea salt | 7g | 0.35% |\n\n## Method\n\nAutolyse the bread flour and wat"
+    },
+    {
+      "chunk_id": "baseline-kimchi-napa-1",
+      "recipe_id": "kimchi-napa",
+      "source_file": "kimchi-napa.md",
+      "section": "unstructured",
+      "score": 0.5035819542891514,
+      "text": "|---|---|---|\n| Napa cabbage | 1000g | 100% |\n| Coarse sea salt | 50g | 5% |\n| Korean chili flakes (gochugaru) | 60g | 6% |\n| Garlic, minced | 30g | 3% |\n| Ginger, minced | 10g | 1% |\n| Sugar | 20g |"
+    },
+    {
+      "chunk_id": "baseline-sauerkraut-classic-1",
+      "recipe_id": "sauerkraut-classic",
+      "source_file": "sauerkraut-classic.md",
+      "section": "unstructured",
+      "score": 0.47317210978043517,
+      "text": "tage |\n|---|---|---|\n| Green cabbage | 1500g | 100% |\n| Sea salt | 30g | 2% |\n| Caraway seeds | 5g | 0.33% |\n\n## Method\n\nShred the green cabbage finely and place it in a large bowl with the sea salt a"
+    },
+    {
+      "chunk_id": "baseline-kimchi-napa-2",
+      "recipe_id": "kimchi-napa",
+      "source_file": "kimchi-napa.md",
+      "section": "unstructured",
+      "score": 0.4595147380083286,
+      "text": "ger, minced | 10g | 1% |\n| Sugar | 20g | 2% |\n| Soy sauce | 30g | 3% |\n| Scallions, chopped | 50g | 5% |\n\n## Method\n\nCut the napa cabbage into quarters and rub the coarse sea salt between the leaves."
+    }
+  ],
+  "hit_at_5": true
+}

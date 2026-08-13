@@ -1,8 +1,12 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+#
+# This is a monorepo: frontend/ (Next.js) and backend/ (Python/FastAPI).
+# Patterns below are unanchored (no leading slash) so they match at any
+# depth, since the Node/Next tooling lives under frontend/, not the repo root.
 
-# dependencies
-/node_modules
-/.pnp
+# ---- Node / Next.js (frontend/) ----
+node_modules/
+.pnp
 .pnp.*
 .yarn/*
 !.yarn/patches
@@ -10,32 +14,42 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
-/coverage
+.next/
+out/
+build/
+coverage/
+*.tsbuildinfo
+next-env.d.ts
 
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# ---- Python / FastAPI (backend/) ----
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
-# vercel
+# ---- Generated RAG data (regenerate with backend/scripts/ingest.py) ----
+backend/data/vectorstore/
+
+# ---- Env files (never commit secrets; keep .env.example templates) ----
+.env
+.env.local
+.env.*.local
+!.env.example
+!.env.local.example
+
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+*.pem
+
+# ---- Vercel ----
 .vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts

@@ -1,0 +1,48 @@
+{
+  "question": "How long should the homemade miso ferment before it is ready?",
+  "expected_recipe_id": "miso-soybean",
+  "expected_section": "method",
+  "results": [
+    {
+      "chunk_id": "baseline-kombucha-ginger-4",
+      "recipe_id": "kombucha-ginger",
+      "source_file": "kombucha-ginger.md",
+      "section": "unstructured",
+      "score": 0.6214154326830615,
+      "text": "to room temperature before pouring it into a fermentation vessel. Add the SCOBY and starter kombucha liquid, cover with a breathable cloth, and ferment at room temperature for 7-10 days until pleasant"
+    },
+    {
+      "chunk_id": "baseline-sourdough-2kg-4",
+      "recipe_id": "sourdough-2kg",
+      "source_file": "sourdough-2kg.md",
+      "section": "unstructured",
+      "score": 0.5673395553763453,
+      "text": "0 minutes for the first 2 hours. Let the dough continue bulk fermentation until it has grown by about 50%. Shape the dough into a tight boule, place it seam-side up in a floured banneton, and proof ov"
+    },
+    {
+      "chunk_id": "baseline-sourdough-2kg-3",
+      "recipe_id": "sourdough-2kg",
+      "source_file": "sourdough-2kg.md",
+      "section": "unstructured",
+      "score": 0.5456540281619392,
+      "text": "itial mix, then add the active sourdough starter and mix until fully incorporated. Begin bulk fermentation at 24C, performing a set of stretch-and-folds every 30 minutes for the first 2 hours. Let the"
+    },
+    {
+      "chunk_id": "baseline-kombucha-ginger-5",
+      "recipe_id": "kombucha-ginger",
+      "source_file": "kombucha-ginger.md",
+      "section": "unstructured",
+      "score": 0.5393753112271036,
+      "text": "temperature for 7-10 days until pleasantly tart. Strain the kombucha into bottles, add the sliced fresh ginger to each bottle, seal, and leave for a second ferment of 2-3 days at room temperature to b"
+    },
+    {
+      "chunk_id": "baseline-sourdough-2kg-5",
+      "recipe_id": "sourdough-2kg",
+      "source_file": "sourdough-2kg.md",
+      "section": "unstructured",
+      "score": 0.4875250893312583,
+      "text": "e up in a floured banneton, and proof overnight in the refrigerator for 12-15 hours. The next day, bake in a preheated Dutch oven at 230C for 20 minutes with the lid on, then a further 20 minutes with"
+    }
+  ],
+  "hit_at_5": false
+}

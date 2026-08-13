@@ -1,0 +1,79 @@
+{
+  "total_questions": 8,
+  "baseline_hit_at_5": 7,
+  "structure_aware_hit_at_5": 8,
+  "per_question": [
+    {
+      "id": "q01",
+      "question": "How much fine sea salt does the 2kg sourdough recipe use?",
+      "expected_recipe_id": "sourdough-2kg",
+      "expected_section": "ingredients",
+      "ingredient_dependent": true,
+      "baseline_hit": true,
+      "structure_aware_hit": true
+    },
+    {
+      "id": "q02",
+      "question": "What is the hydration percentage of the 2kg sourdough recipe?",
+      "expected_recipe_id": "sourdough-2kg",
+      "expected_section": "ingredients",
+      "ingredient_dependent": true,
+      "baseline_hit": true,
+      "structure_aware_hit": true
+    },
+    {
+      "id": "q03",
+      "question": "What is the weight of coarse sea salt used in the kimchi recipe?",
+      "expected_recipe_id": "kimchi-napa",
+      "expected_section": "ingredients",
+      "ingredient_dependent": true,
+      "baseline_hit": true,
+      "structure_aware_hit": true
+    },
+    {
+      "id": "q04",
+      "question": "How much white sugar is used to brew the kombucha?",
+      "expected_recipe_id": "kombucha-ginger",
+      "expected_section": "ingredients",
+      "ingredient_dependent": true,
+      "baseline_hit": true,
+      "structure_aware_hit": true
+    },
+    {
+      "id": "q05",
+      "question": "What temperature should the milk be heated to when making homemade yogurt?",
+      "expected_recipe_id": "yogurt-dairy",
+      "expected_section": "method",
+      "ingredient_dependent": false,
+      "baseline_hit": true,
+      "structure_aware_hit": true
+    },
+    {
+      "id": "q06",
+      "question": "How long should the homemade miso ferment before it is ready?",
+      "expected_recipe_id": "miso-soybean",
+      "expected_section": "method",
+      "ingredient_dependent": false,
+      "baseline_hit": false,
+      "structure_aware_hit": true
+    },
+    {
+      "id": "q07",
+      "question": "What is the allergen note for the homemade miso paste recipe?",
+      "expected_recipe_id": "miso-soybean",
+      "expected_section": "allergen",
+      "ingredient_dependent": false,
+      "baseline_hit": true,
+      "structure_aware_hit": true
+    },
+    {
+      "id": "q08",
+      "question": "Which cuisine is the classic sauerkraut recipe associated with?",
+      "expected_recipe_id": "sauerkraut-classic",
+      "expected_section": "metadata",
+      "ingredient_dependent": false,
+      "baseline_hit": true,
+      "structure_aware_hit": true
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "question": "How much fine sea salt does the sourdough recipe use, and at what point in the mixing process should it be added?",
+  "baseline": {
+    "retrieved": [
+      {
+        "chunk_id": "baseline-sourdough-2kg-2",
+        "recipe_id": "sourdough-2kg",
+        "recipe_title": "2kg Country Sourdough Loaf",
+        "section": "unstructured",
+        "text": "Method\n\nAutolyse the bread flour and water together for 30 minutes before adding anything else. Dissolve the fine sea salt directly into the dough during the initial mix, then add the active sourdough"
+      }
+    ],
+    "answer": "The fine sea salt is dissolved directly into the dough during the initial mix. \n\nThe fine sea salt is added at the point when the dough is first mixed."
+  },
+  "structure_aware": {
+    "retrieved": [
+      {
+        "chunk_id": "structure-sourdough-2kg-ingredients-4",
+        "recipe_id": "sourdough-2kg",
+        "recipe_title": "2kg Country Sourdough Loaf",
+        "section": "ingredients",
+        "text": "Recipe: 2kg Country Sourdough Loaf\nSection: Ingredients\n\nIngredient: Fine sea salt\nWeight: 7g\nBaker's percentage: 0.35%"
+      }
+    ],
+    "answer": "The fine sea salt is used in the amount of 7g. \n\nI couldn't find enough information in the provided recipe to answer the question about when to add the fine sea salt in the mixing process."
+  }
+}

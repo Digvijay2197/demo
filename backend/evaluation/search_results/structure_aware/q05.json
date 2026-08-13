@@ -1,0 +1,48 @@
+{
+  "question": "What temperature should the milk be heated to when making homemade yogurt?",
+  "expected_recipe_id": "yogurt-dairy",
+  "expected_section": "method",
+  "results": [
+    {
+      "chunk_id": "structure-yogurt-dairy-method-3",
+      "recipe_id": "yogurt-dairy",
+      "source_file": "yogurt-dairy.md",
+      "section": "method",
+      "score": 0.7558249166552945,
+      "text": "Recipe: Homemade Dairy Yogurt\nSection: Method\n\nHeat the whole milk to 85C, stirring occasionally to prevent scorching, and hold it at that temperature for 5 minutes to denature the proteins. Cool the milk down to 43C, then whisk in the live yogurt starter culture until fully combined. Pour the inoculated milk into a clean container, cover, and incubate at a steady 43C for 6-8 hours until set with a gentle wobble. Chill the yogurt in the refrigerator for at least 4 hours before serving to firm it up further."
+    },
+    {
+      "chunk_id": "structure-yogurt-dairy-allergen-4",
+      "recipe_id": "yogurt-dairy",
+      "source_file": "yogurt-dairy.md",
+      "section": "allergen",
+      "score": 0.4569500673446389,
+      "text": "Recipe: Homemade Dairy Yogurt\nSection: Allergen Note\n\nContains dairy (milk). Not suitable for vegans."
+    },
+    {
+      "chunk_id": "structure-yogurt-dairy-ingredients-1",
+      "recipe_id": "yogurt-dairy",
+      "source_file": "yogurt-dairy.md",
+      "section": "ingredients",
+      "score": 0.4532388250844551,
+      "text": "Recipe: Homemade Dairy Yogurt\nSection: Ingredients\n\nIngredient: Whole milk\nWeight: 1000g\nBaker's percentage: 100%"
+    },
+    {
+      "chunk_id": "structure-yogurt-dairy-ingredients-2",
+      "recipe_id": "yogurt-dairy",
+      "source_file": "yogurt-dairy.md",
+      "section": "ingredients",
+      "score": 0.435856518682111,
+      "text": "Recipe: Homemade Dairy Yogurt\nSection: Ingredients\n\nIngredient: Live yogurt starter culture\nWeight: 50g\nBaker's percentage: 5%"
+    },
+    {
+      "chunk_id": "structure-yogurt-dairy-metadata-0",
+      "recipe_id": "yogurt-dairy",
+      "source_file": "yogurt-dairy.md",
+      "section": "metadata",
+      "score": 0.3822958360450363,
+      "text": "Recipe: Homemade Dairy Yogurt\nCuisine: Mediterranean / Middle Eastern\nDietary tags: vegetarian, gluten-free, contains-dairy"
+    }
+  ],
+  "hit_at_5": true
+}

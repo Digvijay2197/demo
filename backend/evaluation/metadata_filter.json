@@ -1,0 +1,110 @@
+{
+  "query": "Which recipe uses a live starter culture incubated with milk to make a creamy fermented dish?",
+  "dietary_tag_filter": "vegan",
+  "unfiltered": [
+    {
+      "chunk_id": "structure-yogurt-dairy-ingredients-2",
+      "recipe_id": "yogurt-dairy",
+      "dietary_tags": [
+        "vegetarian",
+        "gluten-free",
+        "contains-dairy"
+      ],
+      "score": 0.47416118928234424,
+      "text": "Recipe: Homemade Dairy Yogurt\nSection: Ingredients\n\nIngredient: Live yogurt starter culture\nWeight: 50g\nBaker's percentage: 5%"
+    },
+    {
+      "chunk_id": "structure-yogurt-dairy-method-3",
+      "recipe_id": "yogurt-dairy",
+      "dietary_tags": [
+        "vegetarian",
+        "gluten-free",
+        "contains-dairy"
+      ],
+      "score": 0.47057730096157097,
+      "text": "Recipe: Homemade Dairy Yogurt\nSection: Method\n\nHeat the whole milk to 85C, stirring occasionally to prevent scorching, and hold it at that temperature for 5 minutes to denature the proteins. Cool the milk down to 43C, then whisk in the live yogurt starter culture until fully combined. Pour the inoculated milk into a clean container, cover, and incubate at a steady 43C for 6-8 hours until set with a gentle wobble. Chill the yogurt in the refrigerator for at least 4 hours before serving to firm it up further."
+    },
+    {
+      "chunk_id": "structure-yogurt-dairy-metadata-0",
+      "recipe_id": "yogurt-dairy",
+      "dietary_tags": [
+        "vegetarian",
+        "gluten-free",
+        "contains-dairy"
+      ],
+      "score": 0.44273348665971113,
+      "text": "Recipe: Homemade Dairy Yogurt\nCuisine: Mediterranean / Middle Eastern\nDietary tags: vegetarian, gluten-free, contains-dairy"
+    },
+    {
+      "chunk_id": "structure-yogurt-dairy-allergen-4",
+      "recipe_id": "yogurt-dairy",
+      "dietary_tags": [
+        "vegetarian",
+        "gluten-free",
+        "contains-dairy"
+      ],
+      "score": 0.4393745856853866,
+      "text": "Recipe: Homemade Dairy Yogurt\nSection: Allergen Note\n\nContains dairy (milk). Not suitable for vegans."
+    },
+    {
+      "chunk_id": "structure-sourdough-2kg-method-5",
+      "recipe_id": "sourdough-2kg",
+      "dietary_tags": [
+        "vegan"
+      ],
+      "score": 0.4198952524316979,
+      "text": "Recipe: 2kg Country Sourdough Loaf\nSection: Method\n\nAutolyse the bread flour and water together for 30 minutes before adding anything else. Dissolve the fine sea salt directly into the dough during the initial mix, then add the active sourdough starter and mix until fully incorporated. Begin bulk fermentation at 24C, performing a set of stretch-and-folds every 30 minutes for the first 2 hours. Let the dough continue bulk fermentation until it has grown by about 50%. Shape the dough into a tight boule, place it seam-side up in a floured banneton, and proof overnight in the refrigerator for 12-15 hours. The next day, bake in a preheated Dutch oven at 230C for 20 minutes with the lid on, then a further 20 minutes with the lid off until deeply browned."
+    }
+  ],
+  "filtered": [
+    {
+      "chunk_id": "structure-sourdough-2kg-method-5",
+      "recipe_id": "sourdough-2kg",
+      "dietary_tags": [
+        "vegan"
+      ],
+      "score": 0.4198952524316979,
+      "text": "Recipe: 2kg Country Sourdough Loaf\nSection: Method\n\nAutolyse the bread flour and water together for 30 minutes before adding anything else. Dissolve the fine sea salt directly into the dough during the initial mix, then add the active sourdough starter and mix until fully incorporated. Begin bulk fermentation at 24C, performing a set of stretch-and-folds every 30 minutes for the first 2 hours. Let the dough continue bulk fermentation until it has grown by about 50%. Shape the dough into a tight boule, place it seam-side up in a floured banneton, and proof overnight in the refrigerator for 12-15 hours. The next day, bake in a preheated Dutch oven at 230C for 20 minutes with the lid on, then a further 20 minutes with the lid off until deeply browned."
+    },
+    {
+      "chunk_id": "structure-kombucha-ginger-method-7",
+      "recipe_id": "kombucha-ginger",
+      "dietary_tags": [
+        "vegan",
+        "gluten-free"
+      ],
+      "score": 0.4001491971737921,
+      "text": "Recipe: Sweet Kombucha with Ginger Second Ferment\nSection: Method\n\nBring the filtered water to a boil and steep the black tea leaves for 10 minutes, then remove the leaves and dissolve the white sugar into the hot tea. Allow the sweet tea to cool completely to room temperature before pouring it into a fermentation vessel. Add the SCOBY and starter kombucha liquid, cover with a breathable cloth, and ferment at room temperature for 7-10 days until pleasantly tart. Strain the kombucha into bottles, add the sliced fresh ginger to each bottle, seal, and leave for a second ferment of 2-3 days at room temperature to build carbonation before refrigerating."
+    },
+    {
+      "chunk_id": "structure-kombucha-ginger-ingredients-5",
+      "recipe_id": "kombucha-ginger",
+      "dietary_tags": [
+        "vegan",
+        "gluten-free"
+      ],
+      "score": 0.3849464042021412,
+      "text": "Recipe: Sweet Kombucha with Ginger Second Ferment\nSection: Ingredients\n\nIngredient: Starter kombucha liquid\nWeight: 100g\nBaker's percentage: 10%"
+    },
+    {
+      "chunk_id": "structure-kombucha-ginger-metadata-0",
+      "recipe_id": "kombucha-ginger",
+      "dietary_tags": [
+        "vegan",
+        "gluten-free"
+      ],
+      "score": 0.38454115209673095,
+      "text": "Recipe: Sweet Kombucha with Ginger Second Ferment\nCuisine: American / Fermented Beverage\nDietary tags: vegan, gluten-free"
+    },
+    {
+      "chunk_id": "structure-sourdough-2kg-metadata-0",
+      "recipe_id": "sourdough-2kg",
+      "dietary_tags": [
+        "vegan"
+      ],
+      "score": 0.37814599011934485,
+      "text": "Recipe: 2kg Country Sourdough Loaf\nCuisine: Western / Artisan Bread\nDietary tags: vegan"
+    }
+  ],
+  "top1_changed": true
+}

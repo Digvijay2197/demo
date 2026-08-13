@@ -1,0 +1,48 @@
+{
+  "question": "How much fine sea salt does the 2kg sourdough recipe use?",
+  "expected_recipe_id": "sourdough-2kg",
+  "expected_section": "ingredients",
+  "results": [
+    {
+      "chunk_id": "structure-sourdough-2kg-ingredients-4",
+      "recipe_id": "sourdough-2kg",
+      "source_file": "sourdough-2kg.md",
+      "section": "ingredients",
+      "score": 0.7053774331193416,
+      "text": "Recipe: 2kg Country Sourdough Loaf\nSection: Ingredients\n\nIngredient: Fine sea salt\nWeight: 7g\nBaker's percentage: 0.35%"
+    },
+    {
+      "chunk_id": "structure-sourdough-2kg-method-5",
+      "recipe_id": "sourdough-2kg",
+      "source_file": "sourdough-2kg.md",
+      "section": "method",
+      "score": 0.5737730208894948,
+      "text": "Recipe: 2kg Country Sourdough Loaf\nSection: Method\n\nAutolyse the bread flour and water together for 30 minutes before adding anything else. Dissolve the fine sea salt directly into the dough during the initial mix, then add the active sourdough starter and mix until fully incorporated. Begin bulk fermentation at 24C, performing a set of stretch-and-folds every 30 minutes for the first 2 hours. Let the dough continue bulk fermentation until it has grown by about 50%. Shape the dough into a tight boule, place it seam-side up in a floured banneton, and proof overnight in the refrigerator for 12-15 hours. The next day, bake in a preheated Dutch oven at 230C for 20 minutes with the lid on, then a further 20 minutes with the lid off until deeply browned."
+    },
+    {
+      "chunk_id": "structure-miso-soybean-ingredients-3",
+      "recipe_id": "miso-soybean",
+      "source_file": "miso-soybean.md",
+      "section": "ingredients",
+      "score": 0.5438086757252542,
+      "text": "Recipe: Homemade Soybean Miso Paste\nSection: Ingredients\n\nIngredient: Sea salt\nWeight: 150g\nBaker's percentage: 30%"
+    },
+    {
+      "chunk_id": "structure-sauerkraut-classic-ingredients-2",
+      "recipe_id": "sauerkraut-classic",
+      "source_file": "sauerkraut-classic.md",
+      "section": "ingredients",
+      "score": 0.543047990827976,
+      "text": "Recipe: Classic Sauerkraut\nSection: Ingredients\n\nIngredient: Sea salt\nWeight: 30g\nBaker's percentage: 2%"
+    },
+    {
+      "chunk_id": "structure-kimchi-napa-ingredients-2",
+      "recipe_id": "kimchi-napa",
+      "source_file": "kimchi-napa.md",
+      "section": "ingredients",
+      "score": 0.5391516695203742,
+      "text": "Recipe: Napa Cabbage Kimchi\nSection: Ingredients\n\nIngredient: Coarse sea salt\nWeight: 50g\nBaker's percentage: 5%"
+    }
+  ],
+  "hit_at_5": true
+}

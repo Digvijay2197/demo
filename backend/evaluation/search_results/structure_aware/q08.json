@@ -1,0 +1,48 @@
+{
+  "question": "Which cuisine is the classic sauerkraut recipe associated with?",
+  "expected_recipe_id": "sauerkraut-classic",
+  "expected_section": "metadata",
+  "results": [
+    {
+      "chunk_id": "structure-sauerkraut-classic-metadata-0",
+      "recipe_id": "sauerkraut-classic",
+      "source_file": "sauerkraut-classic.md",
+      "section": "metadata",
+      "score": 0.7315306980253334,
+      "text": "Recipe: Classic Sauerkraut\nCuisine: German\nDietary tags: vegan, gluten-free"
+    },
+    {
+      "chunk_id": "structure-sauerkraut-classic-allergen-5",
+      "recipe_id": "sauerkraut-classic",
+      "source_file": "sauerkraut-classic.md",
+      "section": "allergen",
+      "score": 0.7126202502087676,
+      "text": "Recipe: Classic Sauerkraut\nSection: Allergen Note\n\nNo common allergens present."
+    },
+    {
+      "chunk_id": "structure-sauerkraut-classic-ingredients-2",
+      "recipe_id": "sauerkraut-classic",
+      "source_file": "sauerkraut-classic.md",
+      "section": "ingredients",
+      "score": 0.6743410590713499,
+      "text": "Recipe: Classic Sauerkraut\nSection: Ingredients\n\nIngredient: Sea salt\nWeight: 30g\nBaker's percentage: 2%"
+    },
+    {
+      "chunk_id": "structure-sauerkraut-classic-ingredients-3",
+      "recipe_id": "sauerkraut-classic",
+      "source_file": "sauerkraut-classic.md",
+      "section": "ingredients",
+      "score": 0.6498266503413598,
+      "text": "Recipe: Classic Sauerkraut\nSection: Ingredients\n\nIngredient: Caraway seeds\nWeight: 5g\nBaker's percentage: 0.33%"
+    },
+    {
+      "chunk_id": "structure-sauerkraut-classic-method-4",
+      "recipe_id": "sauerkraut-classic",
+      "source_file": "sauerkraut-classic.md",
+      "section": "method",
+      "score": 0.6408650371519277,
+      "text": "Recipe: Classic Sauerkraut\nSection: Method\n\nShred the green cabbage finely and place it in a large bowl with the sea salt and caraway seeds. Massage and squeeze the cabbage by hand for 8-10 minutes until it releases enough liquid to form a brine. Pack the cabbage tightly into a fermentation jar, pressing it down so the brine fully covers the solids, and weigh it down with a fermentation weight. Cover loosely and leave at room temperature for 2-4 weeks, burping the jar daily to release fermentation gas and skimming any surface scum. Taste periodically after week two and refrigerate once the sourness reaches the desired level."
+    }
+  ],
+  "hit_at_5": true
+}

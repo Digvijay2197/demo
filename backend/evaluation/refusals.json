@@ -1,0 +1,20 @@
+[
+  {
+    "question": "What is the exact calorie count of the 2kg sourdough loaf?",
+    "answer": "I couldn't find enough information in the provided recipes to answer that question.",
+    "citations": [],
+    "refused": true
+  },
+  {
+    "question": "How many grams of protein does the napa cabbage kimchi recipe contain per serving?",
+    "answer": "I couldn't find enough information in the provided recipes to answer that question.",
+    "citations": [],
+    "refused": true
+  },
+  {
+    "question": "What is the vitamin B12 content of the homemade soybean miso paste?",
+    "answer": "I couldn't find enough information in the provided recipes to answer that question.",
+    "citations": [],
+    "refused": true
+  }
+]

@@ -1,0 +1,48 @@
+{
+  "question": "How much white sugar is used to brew the kombucha?",
+  "expected_recipe_id": "kombucha-ginger",
+  "expected_section": "ingredients",
+  "results": [
+    {
+      "chunk_id": "baseline-kombucha-ginger-2",
+      "recipe_id": "kombucha-ginger",
+      "source_file": "kombucha-ginger.md",
+      "section": "unstructured",
+      "score": 0.5952817109397788,
+      "text": "SCOBY | 1 piece | - |\n| Starter kombucha liquid | 100g | 10% |\n| Fresh ginger, sliced (second ferment) | 20g | 2% |\n\n## Method\n\nBring the filtered water to a boil and steep the black tea leaves for 1"
+    },
+    {
+      "chunk_id": "baseline-kombucha-ginger-4",
+      "recipe_id": "kombucha-ginger",
+      "source_file": "kombucha-ginger.md",
+      "section": "unstructured",
+      "score": 0.5682514707219115,
+      "text": "to room temperature before pouring it into a fermentation vessel. Add the SCOBY and starter kombucha liquid, cover with a breathable cloth, and ferment at room temperature for 7-10 days until pleasant"
+    },
+    {
+      "chunk_id": "baseline-kombucha-ginger-1",
+      "recipe_id": "kombucha-ginger",
+      "source_file": "kombucha-ginger.md",
+      "section": "unstructured",
+      "score": 0.5401199433146411,
+      "text": "nts\n\n| Ingredient | Weight | Baker's Percentage |\n|---|---|---|\n| Filtered water | 1000g | 100% |\n| Black tea leaves | 10g | 1% |\n| White sugar | 100g | 10% |\n| SCOBY | 1 piece | - |\n| Starter kombuch"
+    },
+    {
+      "chunk_id": "baseline-kombucha-ginger-5",
+      "recipe_id": "kombucha-ginger",
+      "source_file": "kombucha-ginger.md",
+      "section": "unstructured",
+      "score": 0.5115259109766487,
+      "text": "temperature for 7-10 days until pleasantly tart. Strain the kombucha into bottles, add the sliced fresh ginger to each bottle, seal, and leave for a second ferment of 2-3 days at room temperature to b"
+    },
+    {
+      "chunk_id": "baseline-kombucha-ginger-0",
+      "recipe_id": "kombucha-ginger",
+      "source_file": "kombucha-ginger.md",
+      "section": "unstructured",
+      "score": 0.503651736715277,
+      "text": "recipe_id: kombucha-ginger\ntitle: Sweet Kombucha with Ginger Second Ferment\ncuisine: American / Fermented Beverage\ndietary_tags: vegan, gluten-free\n\n## Ingredients\n\n| Ingredient | Weight | Baker's Per"
+    }
+  ],
+  "hit_at_5": true
+}

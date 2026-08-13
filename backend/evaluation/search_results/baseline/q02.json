@@ -1,0 +1,48 @@
+{
+  "question": "What is the hydration percentage of the 2kg sourdough recipe?",
+  "expected_recipe_id": "sourdough-2kg",
+  "expected_section": "ingredients",
+  "results": [
+    {
+      "chunk_id": "baseline-sourdough-2kg-1",
+      "recipe_id": "sourdough-2kg",
+      "source_file": "sourdough-2kg.md",
+      "section": "unstructured",
+      "score": 0.5460484594093616,
+      "text": "Percentage |\n|---|---|---|\n| Bread flour | 2000g | 100% |\n| Water | 1500g | 75% |\n| Active sourdough starter | 400g | 20% |\n| Fine sea salt | 7g | 0.35% |\n\n## Method\n\nAutolyse the bread flour and wat"
+    },
+    {
+      "chunk_id": "baseline-sourdough-2kg-0",
+      "recipe_id": "sourdough-2kg",
+      "source_file": "sourdough-2kg.md",
+      "section": "unstructured",
+      "score": 0.4917810025871194,
+      "text": "recipe_id: sourdough-2kg\ntitle: 2kg Country Sourdough Loaf\ncuisine: Western / Artisan Bread\ndietary_tags: vegan\n\n## Ingredients\n\n| Ingredient | Weight | Baker's Percentage |\n|---|---|---|\n| Bread flou"
+    },
+    {
+      "chunk_id": "baseline-yogurt-dairy-1",
+      "recipe_id": "yogurt-dairy",
+      "source_file": "yogurt-dairy.md",
+      "section": "unstructured",
+      "score": 0.4676267744303873,
+      "text": "ts\n\n| Ingredient | Weight | Baker's Percentage |\n|---|---|---|\n| Whole milk | 1000g | 100% |\n| Live yogurt starter culture | 50g | 5% |\n\n## Method\n\nHeat the whole milk to 85C, stirring occasionally to"
+    },
+    {
+      "chunk_id": "baseline-kombucha-ginger-1",
+      "recipe_id": "kombucha-ginger",
+      "source_file": "kombucha-ginger.md",
+      "section": "unstructured",
+      "score": 0.4530585315525936,
+      "text": "nts\n\n| Ingredient | Weight | Baker's Percentage |\n|---|---|---|\n| Filtered water | 1000g | 100% |\n| Black tea leaves | 10g | 1% |\n| White sugar | 100g | 10% |\n| SCOBY | 1 piece | - |\n| Starter kombuch"
+    },
+    {
+      "chunk_id": "baseline-miso-soybean-1",
+      "recipe_id": "miso-soybean",
+      "source_file": "miso-soybean.md",
+      "section": "unstructured",
+      "score": 0.44305405043331825,
+      "text": "ercentage |\n|---|---|---|\n| Dried soybeans | 500g | 100% |\n| Koji rice | 500g | 100% |\n| Sea salt | 150g | 30% |\n| Reserved bean cooking water | 100g | 20% |\n\n## Method\n\nSoak the dried soybeans overni"
+    }
+  ],
+  "hit_at_5": true
+}

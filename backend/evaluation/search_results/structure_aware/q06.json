@@ -1,0 +1,48 @@
+{
+  "question": "How long should the homemade miso ferment before it is ready?",
+  "expected_recipe_id": "miso-soybean",
+  "expected_section": "method",
+  "results": [
+    {
+      "chunk_id": "structure-miso-soybean-method-5",
+      "recipe_id": "miso-soybean",
+      "source_file": "miso-soybean.md",
+      "section": "method",
+      "score": 0.56072018160192,
+      "text": "Recipe: Homemade Soybean Miso Paste\nSection: Method\n\nSoak the dried soybeans overnight in plenty of water, then drain and simmer them for 3-4 hours until they mash easily between two fingers, reserving some of the cooking water. Mash the warm soybeans until mostly smooth, then mix in the koji rice and sea salt, adding reserved cooking water a little at a time until the mixture holds together like a firm paste. Pack the mixture tightly into a fermentation crock, pressing out air pockets, and smooth the surface. Weigh the paste down with a clean weight, cover, and ferment in a cool, dark place for 6-12 months, checking occasionally for surface mold to remove."
+    },
+    {
+      "chunk_id": "structure-kombucha-ginger-method-7",
+      "recipe_id": "kombucha-ginger",
+      "source_file": "kombucha-ginger.md",
+      "section": "method",
+      "score": 0.4462348983269681,
+      "text": "Recipe: Sweet Kombucha with Ginger Second Ferment\nSection: Method\n\nBring the filtered water to a boil and steep the black tea leaves for 10 minutes, then remove the leaves and dissolve the white sugar into the hot tea. Allow the sweet tea to cool completely to room temperature before pouring it into a fermentation vessel. Add the SCOBY and starter kombucha liquid, cover with a breathable cloth, and ferment at room temperature for 7-10 days until pleasantly tart. Strain the kombucha into bottles, add the sliced fresh ginger to each bottle, seal, and leave for a second ferment of 2-3 days at room temperature to build carbonation before refrigerating."
+    },
+    {
+      "chunk_id": "structure-sourdough-2kg-method-5",
+      "recipe_id": "sourdough-2kg",
+      "source_file": "sourdough-2kg.md",
+      "section": "method",
+      "score": 0.43593011854833386,
+      "text": "Recipe: 2kg Country Sourdough Loaf\nSection: Method\n\nAutolyse the bread flour and water together for 30 minutes before adding anything else. Dissolve the fine sea salt directly into the dough during the initial mix, then add the active sourdough starter and mix until fully incorporated. Begin bulk fermentation at 24C, performing a set of stretch-and-folds every 30 minutes for the first 2 hours. Let the dough continue bulk fermentation until it has grown by about 50%. Shape the dough into a tight boule, place it seam-side up in a floured banneton, and proof overnight in the refrigerator for 12-15 hours. The next day, bake in a preheated Dutch oven at 230C for 20 minutes with the lid on, then a further 20 minutes with the lid off until deeply browned."
+    },
+    {
+      "chunk_id": "structure-miso-soybean-metadata-0",
+      "recipe_id": "miso-soybean",
+      "source_file": "miso-soybean.md",
+      "section": "metadata",
+      "score": 0.33743437326815656,
+      "text": "Recipe: Homemade Soybean Miso Paste\nCuisine: Japanese\nDietary tags: vegan, gluten-free"
+    },
+    {
+      "chunk_id": "structure-miso-soybean-allergen-6",
+      "recipe_id": "miso-soybean",
+      "source_file": "miso-soybean.md",
+      "section": "allergen",
+      "score": 0.3356017576140551,
+      "text": "Recipe: Homemade Soybean Miso Paste\nSection: Allergen Note\n\nContains soy. Produced with koji (Aspergillus oryzae cultured rice); no gluten-containing grains used."
+    }
+  ],
+  "hit_at_5": true
+}

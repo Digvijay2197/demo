@@ -1,0 +1,48 @@
+{
+  "question": "Which cuisine is the classic sauerkraut recipe associated with?",
+  "expected_recipe_id": "sauerkraut-classic",
+  "expected_section": "metadata",
+  "results": [
+    {
+      "chunk_id": "baseline-sauerkraut-classic-0",
+      "recipe_id": "sauerkraut-classic",
+      "source_file": "sauerkraut-classic.md",
+      "section": "unstructured",
+      "score": 0.6449579580814485,
+      "text": "recipe_id: sauerkraut-classic\ntitle: Classic Sauerkraut\ncuisine: German\ndietary_tags: vegan, gluten-free\n\n## Ingredients\n\n| Ingredient | Weight | Baker's Percentage |\n|---|---|---|\n| Green cabbage | 1"
+    },
+    {
+      "chunk_id": "baseline-kimchi-napa-1",
+      "recipe_id": "kimchi-napa",
+      "source_file": "kimchi-napa.md",
+      "section": "unstructured",
+      "score": 0.45004573447812035,
+      "text": "|---|---|---|\n| Napa cabbage | 1000g | 100% |\n| Coarse sea salt | 50g | 5% |\n| Korean chili flakes (gochugaru) | 60g | 6% |\n| Garlic, minced | 30g | 3% |\n| Ginger, minced | 10g | 1% |\n| Sugar | 20g |"
+    },
+    {
+      "chunk_id": "baseline-kimchi-napa-2",
+      "recipe_id": "kimchi-napa",
+      "source_file": "kimchi-napa.md",
+      "section": "unstructured",
+      "score": 0.4125813238296467,
+      "text": "ger, minced | 10g | 1% |\n| Sugar | 20g | 2% |\n| Soy sauce | 30g | 3% |\n| Scallions, chopped | 50g | 5% |\n\n## Method\n\nCut the napa cabbage into quarters and rub the coarse sea salt between the leaves."
+    },
+    {
+      "chunk_id": "baseline-kimchi-napa-4",
+      "recipe_id": "kimchi-napa",
+      "source_file": "kimchi-napa.md",
+      "section": "unstructured",
+      "score": 0.37722409643369337,
+      "text": "drain well. Make a paste from the gochugaru, garlic, ginger, sugar, and soy sauce. Massage the paste and scallions into the salted cabbage, working it into every leaf while wearing gloves. Pack the se"
+    },
+    {
+      "chunk_id": "baseline-kombucha-ginger-0",
+      "recipe_id": "kombucha-ginger",
+      "source_file": "kombucha-ginger.md",
+      "section": "unstructured",
+      "score": 0.3755163070097152,
+      "text": "recipe_id: kombucha-ginger\ntitle: Sweet Kombucha with Ginger Second Ferment\ncuisine: American / Fermented Beverage\ndietary_tags: vegan, gluten-free\n\n## Ingredients\n\n| Ingredient | Weight | Baker's Per"
+    }
+  ],
+  "hit_at_5": true
+}
