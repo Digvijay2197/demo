@@ -1,21 +1,82 @@
+import asyncio
 import os
+from contextlib import asynccontextmanager
 
 from dotenv import load_dotenv
 
 load_dotenv()
 
 from fastapi import FastAPI, File, HTTPException, Query, UploadFile
+from fastapi.concurrency import run_in_threadpool
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
-from rag.config import CORS_ORIGIN, PDF_DIR
+from rag.config import (
+    AUTO_INGEST_ON_STARTUP,
+    CORS_ORIGIN,
+    PDF_DIR,
+    WATCH_PDF_DIR,
+)
 from rag.citations.citations import resolve_citation
 from rag.generation.answer_service import answer_question
-from rag.ingestion.pdf_loader import list_pdf_files, load_pdf
-from rag.ingestion.pipeline import ingest, split_pages
+from rag.ingestion.pdf_loader import list_pdf_files
+from rag.ingestion.pipeline import ingest, ingest_paths
 from rag.vectorstore.store import collection_count, get_vectorstore
 
-app = FastAPI(title="Recipe RAG Backend", version="2.0.0")
+MAX_FILE_SIZE_BYTES = 25 * 1024 * 1024  # 25 MB
+
+
+async def _watch_pdf_dir() -> None:
+    """Re-index PDFs as they are added / changed / removed in PDF_DIR, so you
+    can just drop a file in the folder and ask about it - no manual ingest."""
+    try:
+        from watchfiles import awatch
+    except ImportError:
+        print("[watch] watchfiles not installed - `pip install watchfiles` for live indexing")
+        return
+
+    os.makedirs(PDF_DIR, exist_ok=True)
+    print(f"[watch] watching {PDF_DIR} for PDF changes")
+    try:
+        async for changes in awatch(PDF_DIR):
+            paths = sorted({p for _, p in changes if p.lower().endswith(".pdf")})
+            if not paths:
+                continue
+            await asyncio.sleep(1.0)  # let the file finish being written
+            try:
+                result = await run_in_threadpool(ingest_paths, paths)
+                print(f"[watch] indexed {result.get('files')}: "
+                      f"+{result.get('chunks_new')} chunks "
+                      f"(removed {result.get('removed_stale_chunks')} stale)")
+            except Exception as exc:  # noqa: BLE001
+                print("[watch] ingest failed:", repr(exc))
+    except asyncio.CancelledError:
+        pass
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    if AUTO_INGEST_ON_STARTUP:
+        try:
+            result = await run_in_threadpool(ingest)
+            print(f"[startup] ingest: +{result.get('chunks_new', 0)} new chunks, "
+                  f"{result.get('total_in_collection')} total")
+        except Exception as exc:  # noqa: BLE001 - never block serving on this
+            print("[startup] ingest failed:", repr(exc))
+
+    watcher = asyncio.create_task(_watch_pdf_dir()) if WATCH_PDF_DIR else None
+    try:
+        yield
+    finally:
+        if watcher:
+            watcher.cancel()
+            try:
+                await watcher
+            except asyncio.CancelledError:
+                pass
+
+
+app = FastAPI(title="Recipe RAG Backend", version="2.1.0", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
@@ -24,8 +85,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-MAX_FILE_SIZE_BYTES = 25 * 1024 * 1024  # 25 MB
-
 
 class ChatRequest(BaseModel):
     question: str = Field(..., min_length=1, max_length=1000)
@@ -33,14 +92,19 @@ class ChatRequest(BaseModel):
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "chunks_indexed": collection_count()}
+    return {
+        "status": "ok",
+        "chunks_indexed": collection_count(),
+        "auto_ingest": AUTO_INGEST_ON_STARTUP,
+        "watching": WATCH_PDF_DIR,
+    }
 
 
 @app.post("/chat")
 def chat(req: ChatRequest):
     try:
         return answer_question(req.question)
-    except RuntimeError as exc:  # e.g. missing GROQ_API_KEY
+    except RuntimeError as exc:  # missing GROQ_API_KEY, or Groq rate-limited
         raise HTTPException(status_code=503, detail=str(exc))
     except Exception as exc:  # noqa: BLE001
         print("chat error:", repr(exc))
@@ -49,7 +113,7 @@ def chat(req: ChatRequest):
 
 @app.get("/documents")
 def get_documents():
-    """List every PDF in PDF_DIR and how many chunks of it are in Chroma."""
+    """List every PDF (on disk or indexed) with its chunk counts."""
     indexed = get_vectorstore().get(include=["metadatas"])
     counts: dict[str, int] = {}
     pages: dict[str, set] = {}
@@ -61,8 +125,6 @@ def get_documents():
         pages.setdefault(src, set()).add(meta.get("page"))
 
     on_disk = {os.path.basename(p): p for p in list_pdf_files()}
-    # Show everything that is either sitting in the folder or already indexed,
-    # so a PDF that was ingested and later moved out of the folder still appears.
     names = sorted(set(on_disk) | set(counts))
 
     documents = []
@@ -109,26 +171,14 @@ async def upload_document(file: UploadFile = File(...)):
         fh.write(raw_bytes)
 
     try:
-        pages = load_pdf(dest)
-        if not pages:
+        result = await run_in_threadpool(ingest_paths, [dest])
+        if result.get("chunks_new", 0) == 0 and not result.get("removed_stale_chunks"):
             os.remove(dest)
             raise HTTPException(
                 status_code=400,
                 detail="No extractable text found. Scanned / image-only PDFs are not supported.",
             )
-        chunks = split_pages(pages)
-        store = get_vectorstore()
-        ids = [c.metadata["chunk_id"] for c in chunks]
-        existing = set(store.get(ids=ids).get("ids") or [])
-        new = [(c, i) for c, i in zip(chunks, ids) if i not in existing]
-        if new:
-            store.add_documents(documents=[c for c, _ in new], ids=[i for _, i in new])
-        return {
-            "source_file": os.path.basename(dest),
-            "pages": len(pages),
-            "chunks_new": len(new),
-            "total_chunks": collection_count(),
-        }
+        return {"source_file": os.path.basename(dest), **result}
     except HTTPException:
         raise
     except Exception as exc:  # noqa: BLE001

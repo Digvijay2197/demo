@@ -13,4 +13,7 @@ os.environ.setdefault("PDF_DIR", os.path.join(_TMP, "pdfs"))
 os.environ.setdefault("CHROMA_DIR", os.path.join(_TMP, "chroma"))
 os.environ.setdefault("CHROMA_COLLECTION", "recipes_test")
 os.environ.setdefault("GROQ_API_KEY", "test-key-not-used")
+# tests drive ingestion explicitly - no startup auto-ingest, no folder watcher
+os.environ.setdefault("AUTO_INGEST_ON_STARTUP", "false")
+os.environ.setdefault("WATCH_PDF_DIR", "false")
 os.makedirs(os.environ["PDF_DIR"], exist_ok=True)

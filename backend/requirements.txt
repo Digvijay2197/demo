@@ -4,6 +4,7 @@ uvicorn[standard]==0.34.0
 python-multipart==0.0.20
 pydantic==2.10.4
 python-dotenv==1.0.1
+watchfiles>=0.21          # live PDF-folder auto-indexing (also pulled by uvicorn[standard])
 
 # --- RAG framework (LangChain) ---
 # Unpinned so pip resolves a mutually-compatible set; exact versions are

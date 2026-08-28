@@ -47,16 +47,16 @@ pip install -r requirements.txt
 copy .env.example .env            # then set GROQ_API_KEY (free: https://console.groq.com/keys)
 ```
 
-### 2. Add recipe PDFs and index them
+### 2. Add recipe PDFs
 
-Drop any text-based recipe PDF(s) into `backend/data/pdfs/` (any filename). To try it
-without your own files, generate two sample recipes first:
+Just drop text-based recipe PDF(s) into `backend/data/pdfs/` (any filename). The API
+**auto-indexes** them: once on startup, and then live whenever a file in that folder is
+added, changed, or removed while the server runs — no manual step, no restart. Watch the
+server log for `[watch] indexed [...]`.
 
-```bash
-python scripts/generate_sample_pdfs.py   # writes 2 sample recipe PDFs into data/pdfs/
-```
+To try it without your own files: `python scripts/generate_sample_pdfs.py`.
 
-Then index whatever is in the folder:
+Manual indexing is still available (and needed if you set `AUTO_INGEST_ON_STARTUP=false`):
 
 ```bash
 python scripts/ingest.py            # index new PDFs / chunks
@@ -129,6 +129,8 @@ frontend/                      Next.js chat UI (calls the backend, no server rou
 | `CHROMA_DIR` | `./data/chroma` | vector DB location |
 | `CHROMA_COLLECTION` | `recipes` | collection name |
 | `PDF_DIR` | `./data/pdfs` | source PDF folder |
+| `AUTO_INGEST_ON_STARTUP` | `true` | index any new/changed PDFs when the API starts |
+| `WATCH_PDF_DIR` | `true` | keep watching `PDF_DIR` and index changes live while the API runs |
 | `CHUNK_SIZE` / `CHUNK_OVERLAP` | `550` / `80` | small chunks ≈ one recipe each; also keeps LLM context small |
 | `TOP_K` | `4` | chunks retrieved per question |
 | `MAX_CONTEXT_CHARS` | `4000` | hard cap on retrieved context sent to the LLM (~1k tokens) |

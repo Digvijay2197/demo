@@ -41,6 +41,17 @@ CHROMA_COLLECTION = os.environ.get("CHROMA_COLLECTION", "recipes")
 # --- Source documents ---
 PDF_DIR = _abs(os.environ.get("PDF_DIR", "./data/pdfs"))
 
+
+def _flag(name: str, default: str = "true") -> bool:
+    return os.environ.get(name, default).strip().lower() in ("1", "true", "yes", "on")
+
+
+# Index new/changed PDFs automatically: once when the API starts, and then
+# whenever a file in PDF_DIR changes while it runs. Set either to false to
+# require an explicit `python scripts/ingest.py` / POST /ingest instead.
+AUTO_INGEST_ON_STARTUP = _flag("AUTO_INGEST_ON_STARTUP")
+WATCH_PDF_DIR = _flag("WATCH_PDF_DIR")
+
 # --- Chunking ---
 # Small chunks: in a multi-recipe PDF this lands roughly one recipe per chunk,
 # which both sharpens retrieval and keeps the context sent to the LLM small.

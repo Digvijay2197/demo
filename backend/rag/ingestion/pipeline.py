@@ -5,14 +5,15 @@ re-running after adding a new PDF only inserts the genuinely new chunks and
 never duplicates existing ones.
 """
 import hashlib
+import os
 from collections import defaultdict
-from typing import List
+from typing import Iterable, List
 
 from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from rag.config import CHUNK_OVERLAP, CHUNK_SIZE
-from rag.ingestion.pdf_loader import load_all_pdfs
+from rag.ingestion.pdf_loader import load_all_pdfs, load_pdf
 from rag.ingestion.recipe_splitter import split_recipes
 from rag.vectorstore.store import collection_count, get_vectorstore, reset_collection
 
@@ -94,5 +95,56 @@ def ingest(rebuild: bool = False) -> dict:
         "chunks_new": len(new_chunks),
         "chunks_skipped_duplicate": len(chunks) - len(new_chunks),
         "skipped_files": skipped,
+        "total_in_collection": collection_count(),
+    }
+
+
+def _delete_by_source(store, filenames: set) -> int:
+    """Remove every chunk whose source_file is in `filenames`. Returns count."""
+    got = store.get(include=["metadatas"])
+    stale = [
+        i for i, m in zip(got.get("ids") or [], got.get("metadatas") or [])
+        if m.get("source_file") in filenames
+    ]
+    if stale:
+        store.delete(ids=stale)
+    return len(stale)
+
+
+def ingest_paths(paths: Iterable[str]) -> dict:
+    """(Re)index a specific set of PDFs. Existing chunks for those filenames are
+    deleted first, so this handles both a brand-new file and a replaced one.
+    Used by the folder watcher and the upload endpoint."""
+    pdfs = [p for p in paths if p.lower().endswith(".pdf")]
+    filenames = {os.path.basename(p) for p in pdfs}
+    if not filenames:
+        return {"files": [], "chunks_new": 0}
+
+    store = get_vectorstore()
+    removed = _delete_by_source(store, filenames)
+
+    pages: List[Document] = []
+    missing = []
+    for p in pdfs:
+        if os.path.exists(p):
+            pages.extend(load_pdf(p))
+        else:  # a delete event - chunks already removed above
+            missing.append(os.path.basename(p))
+
+    added = 0
+    if pages:
+        chunks = split_pages(pages)
+        ids = [c.metadata["chunk_id"] for c in chunks]
+        existing = set(store.get(ids=ids).get("ids") or [])
+        new = [(c, i) for c, i in zip(chunks, ids) if i not in existing]
+        if new:
+            store.add_documents(documents=[c for c, _ in new], ids=[i for _, i in new])
+        added = len(new)
+
+    return {
+        "files": sorted(filenames),
+        "removed_stale_chunks": removed,
+        "chunks_new": added,
+        "deleted_files": missing,
         "total_in_collection": collection_count(),
     }
