@@ -49,8 +49,8 @@ export function ChatWindow() {
       <div className="flex-1 space-y-4 overflow-y-auto p-4">
         {messages.length === 0 && (
           <p className="text-sm text-zinc-400">
-            Ask about ingredient weights, hydration, method steps, allergens, cuisine, or dietary tags for the
-            fermentation recipes.
+            Ask about ingredients, quantities, method steps, cooking times, or temperatures from the recipe
+            PDFs you have indexed. Answers are grounded in those documents only.
           </p>
         )}
         {messages.map((m, i) => (

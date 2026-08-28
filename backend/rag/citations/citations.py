@@ -1,29 +1,21 @@
+"""Resolve a chunk_id back to its full stored text + metadata."""
 from typing import Optional
-from rag.vectorstore.store import load_collection
+
+from rag.vectorstore.store import get_vectorstore
 
 
-def resolve_citation(collection: str, chunk_id: str) -> Optional[dict]:
-    """Resolves chunk_id -> recipe -> source_file -> relevant text."""
-    entries = load_collection(collection)
-    for entry in entries:
-        if entry.chunk.chunk_id == chunk_id:
-            chunk = entry.chunk
-            return {
-                "chunk_id": chunk.chunk_id,
-                "recipe_id": chunk.recipe_id,
-                "source_file": chunk.source_file,
-                "section": chunk.section,
-                "recipe_title": chunk.recipe_title,
-                "cuisine": chunk.cuisine,
-                "text": chunk.text,
-            }
-    return None
-
-
-def to_citation(chunk) -> dict:
+def resolve_citation(chunk_id: str) -> Optional[dict]:
+    store = get_vectorstore()
+    got = store.get(ids=[chunk_id])
+    docs = got.get("documents") or []
+    metas = got.get("metadatas") or []
+    if not docs:
+        return None
+    meta = metas[0] if metas else {}
     return {
-        "chunk_id": chunk.chunk_id,
-        "recipe_id": chunk.recipe_id,
-        "source_file": chunk.source_file,
-        "section": chunk.section,
+        "chunk_id": chunk_id,
+        "source_file": meta.get("source_file", "unknown.pdf"),
+        "page": meta.get("page"),
+        "title": meta.get("title"),
+        "text": docs[0],
     }

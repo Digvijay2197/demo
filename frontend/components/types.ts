@@ -1,8 +1,9 @@
 export interface Citation {
   chunk_id: string;
-  recipe_id: string;
   source_file: string;
-  section: string;
+  page: number;
+  snippet: string;
+  score?: number;
 }
 
 export interface ChatMessageData {
@@ -12,11 +13,11 @@ export interface ChatMessageData {
   refused?: boolean;
 }
 
-export interface RecipeDocument {
-  recipe_id: string;
-  title: string;
-  cuisine: string;
-  dietary_tags: string[];
+export interface PdfDocument {
   source_file: string;
+  size_kb: number | null;
+  on_disk: boolean;
+  chunks_indexed: number;
+  pages_indexed: number;
   indexed: boolean;
 }

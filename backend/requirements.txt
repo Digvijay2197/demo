@@ -1,10 +1,27 @@
+# --- Web framework ---
 fastapi==0.115.6
 uvicorn[standard]==0.34.0
-python-dotenv==1.0.1
-groq==0.13.1
-sentence-transformers==3.3.1
-numpy==2.2.1
 python-multipart==0.0.20
 pydantic==2.10.4
+python-dotenv==1.0.1
+
+# --- RAG framework (LangChain) ---
+# Unpinned so pip resolves a mutually-compatible set; exact versions are
+# captured in requirements.lock.txt after `pip install`.
+langchain
+langchain-huggingface
+langchain-chroma
+langchain-groq
+
+# --- Vector database ---
+chromadb>=1.0.20
+
+# --- Embeddings (local, no API key) ---
+sentence-transformers
+
+# --- PDF parsing (text-based PDFs) ---
+pymupdf
+
+# --- Tests ---
 pytest==8.3.4
 httpx==0.28.1

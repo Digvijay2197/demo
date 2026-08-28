@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import { Citation } from "./types";
 import { apiUrl } from "../lib/api";
 
-interface ResolvedCitation extends Citation {
-  recipe_title: string;
-  cuisine: string;
+interface ResolvedCitation {
+  chunk_id: string;
+  source_file: string;
+  page: number | null;
+  title: string | null;
   text: string;
 }
 
@@ -42,13 +44,13 @@ export function SourcePanel({ citation, onClose }: { citation: Citation | null; 
           <p className="text-sm text-zinc-500">Loading...</p>
         ) : (
           <dl className="space-y-2 text-sm">
-            <Row label="Recipe" value={resolved.recipe_title} />
             <Row label="Source file" value={resolved.source_file} />
-            <Row label="Section" value={resolved.section} />
+            <Row label="Page" value={resolved.page != null ? String(resolved.page) : "—"} />
+            {resolved.title && <Row label="Document title" value={resolved.title} />}
             <Row label="Chunk ID" value={resolved.chunk_id} mono />
             <div>
               <dt className="font-medium text-zinc-500 dark:text-zinc-400">Retrieved text</dt>
-              <dd className="mt-1 whitespace-pre-wrap rounded bg-zinc-50 p-2 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200">
+              <dd className="mt-1 max-h-72 overflow-y-auto whitespace-pre-wrap rounded bg-zinc-50 p-2 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200">
                 {resolved.text}
               </dd>
             </div>

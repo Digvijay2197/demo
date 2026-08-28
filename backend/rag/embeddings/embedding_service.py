@@ -1,28 +1,19 @@
-import os
-from typing import List
+"""Embedding model, wrapped as a LangChain Embeddings object.
 
-# Embedding model kept identical across both chunking experiments so that
-# chunking strategy is the only intentional variable (see results.md).
-# Free/open-source local model, no API key required.
-EMBEDDING_MODEL = os.environ.get("EMBEDDING_MODEL", "all-MiniLM-L6-v2")
+Local sentence-transformers model (all-MiniLM-L6-v2 by default): free, runs
+offline, no API key. Loaded lazily and cached so the ~90MB model is read from
+disk only once per process.
+"""
+from functools import lru_cache
 
-_model = None
+from langchain_huggingface import HuggingFaceEmbeddings
 
-
-def _get_model():
-    global _model
-    if _model is None:
-        from sentence_transformers import SentenceTransformer
-
-        _model = SentenceTransformer(EMBEDDING_MODEL)
-    return _model
+from rag.config import EMBEDDING_MODEL
 
 
-def embed_texts(texts: List[str]) -> List[List[float]]:
-    model = _get_model()
-    embeddings = model.encode(texts, normalize_embeddings=True)
-    return [e.tolist() for e in embeddings]
-
-
-def embed_text(text: str) -> List[float]:
-    return embed_texts([text])[0]
+@lru_cache(maxsize=1)
+def get_embeddings() -> HuggingFaceEmbeddings:
+    return HuggingFaceEmbeddings(
+        model_name=EMBEDDING_MODEL,
+        encode_kwargs={"normalize_embeddings": True},
+    )

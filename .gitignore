@@ -38,6 +38,16 @@ __pycache__/
 
 # ---- Generated RAG data (regenerate with backend/scripts/ingest.py) ----
 backend/data/vectorstore/
+backend/data/chroma/
+
+# ---- User-supplied source PDFs (keep the folder, not its contents) ----
+backend/data/pdfs/*
+!backend/data/pdfs/.gitkeep
+!backend/data/pdfs/README.md
+
+# ---- HuggingFace model cache (downloaded on first run) ----
+.cache/
+hf_cache/
 
 # ---- Env files (never commit secrets; keep .env.example templates) ----
 .env

@@ -18,21 +18,28 @@ export function ChatMessage({
         <RefusalMessage text={message.content} />
       ) : (
         <div
-          className={`max-w-xl rounded-lg px-4 py-2 text-sm ${
+          className={`max-w-xl rounded-lg px-4 py-2 text-sm whitespace-pre-wrap ${
             isUser
               ? "bg-emerald-600 text-white"
               : "bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-100"
           }`}
         >
-          {message.content.replace(/\[chunk:[a-zA-Z0-9-]+\]/g, "").trim()}
+          {message.content
+            .replace(
+              /[[【［]\s*(?:source:\s*)?[^\]】］]*?\.[a-z0-9]+\s+p(?:age|\.)?\s*\d+\s*[\]】］]/gi,
+              "",
+            )
+            .replace(/[ \t]+\n/g, "\n")
+            .replace(/[ \t]{2,}/g, " ")
+            .trim()}
         </div>
       )}
       {message.citations && message.citations.length > 0 && (
         <div className="mt-1 flex flex-col gap-1">
           <span className="text-xs font-medium text-zinc-400">Sources</span>
           <div className="flex flex-wrap gap-2">
-            {message.citations.map((c) => (
-              <SourceCitation key={c.chunk_id} citation={c} onClick={onCitationClick} />
+            {message.citations.map((c, i) => (
+              <SourceCitation key={c.chunk_id || i} citation={c} onClick={onCitationClick} />
             ))}
           </div>
         </div>

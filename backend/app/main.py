@@ -1,4 +1,5 @@
 import os
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -6,23 +7,16 @@ load_dotenv()
 from fastapi import FastAPI, File, HTTPException, Query, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
-from typing import Optional
-import json
 
-from rag.ingestion.loader import load_recipe_cards
-from rag.ingestion.index import BASELINE_COLLECTION, STRUCTURE_AWARE_COLLECTION
-from rag.ingestion.parser import parse_recipe_card
-from rag.ingestion.metadata import assert_valid_chunks
-from rag.chunking.baseline_chunker import chunk_recipe_baseline
-from rag.chunking.structure_aware_chunker import chunk_recipe_structure_aware
-from rag.embeddings.embedding_service import embed_texts
-from rag.vectorstore.store import load_collection, append_to_collection, StoredEntry
-from rag.generation.answer_service import answer_question, PRODUCTION_COLLECTION
+from rag.config import CORS_ORIGIN, PDF_DIR
 from rag.citations.citations import resolve_citation
+from rag.generation.answer_service import answer_question
+from rag.ingestion.pdf_loader import list_pdf_files, load_pdf
+from rag.ingestion.pipeline import ingest, split_pages
+from rag.vectorstore.store import collection_count, get_vectorstore
 
-app = FastAPI(title="Recipe RAG Backend")
+app = FastAPI(title="Recipe RAG Backend", version="2.0.0")
 
-CORS_ORIGIN = os.environ.get("CORS_ORIGIN", "http://localhost:3000")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[CORS_ORIGIN],
@@ -30,115 +24,121 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-MAX_FILE_SIZE_BYTES = 200 * 1024
-ALLOWED_EXTENSIONS = {".md", ".txt"}
+MAX_FILE_SIZE_BYTES = 25 * 1024 * 1024  # 25 MB
 
 
 class ChatRequest(BaseModel):
-    question: str = Field(..., min_length=1, max_length=500)
-    dietaryTag: Optional[str] = None
+    question: str = Field(..., min_length=1, max_length=1000)
+
+
+@app.get("/health")
+def health():
+    return {"status": "ok", "chunks_indexed": collection_count()}
 
 
 @app.post("/chat")
 def chat(req: ChatRequest):
     try:
-        return answer_question(req.question, req.dietaryTag)
+        return answer_question(req.question)
+    except RuntimeError as exc:  # e.g. missing GROQ_API_KEY
+        raise HTTPException(status_code=503, detail=str(exc))
     except Exception as exc:  # noqa: BLE001
-        print("chat error", exc)
+        print("chat error:", repr(exc))
         raise HTTPException(status_code=500, detail="Internal server error")
 
 
 @app.get("/documents")
 def get_documents():
-    recipes = load_recipe_cards()
-    indexed = {e.chunk.recipe_id for e in load_collection(STRUCTURE_AWARE_COLLECTION)}
+    """List every PDF in PDF_DIR and how many chunks of it are in Chroma."""
+    indexed = get_vectorstore().get(include=["metadatas"])
+    counts: dict[str, int] = {}
+    pages: dict[str, set] = {}
+    for meta in indexed.get("metadatas") or []:
+        src = meta.get("source_file")
+        if not src:
+            continue
+        counts[src] = counts.get(src, 0) + 1
+        pages.setdefault(src, set()).add(meta.get("page"))
 
-    documents = [
-        {
-            "recipe_id": r.recipe_id,
-            "title": r.title,
-            "cuisine": r.cuisine,
-            "dietary_tags": r.dietary_tags,
-            "source_file": r.source_file,
-            "indexed": r.recipe_id in indexed,
-        }
-        for r in recipes
-    ]
-    return {"documents": documents}
+    on_disk = {os.path.basename(p): p for p in list_pdf_files()}
+    # Show everything that is either sitting in the folder or already indexed,
+    # so a PDF that was ingested and later moved out of the folder still appears.
+    names = sorted(set(on_disk) | set(counts))
+
+    documents = []
+    for name in names:
+        path = on_disk.get(name)
+        documents.append(
+            {
+                "source_file": name,
+                "size_kb": round(os.path.getsize(path) / 1024, 1) if path else None,
+                "on_disk": path is not None,
+                "chunks_indexed": counts.get(name, 0),
+                "pages_indexed": len(pages.get(name, set())),
+                "indexed": counts.get(name, 0) > 0,
+            }
+        )
+    return {"documents": documents, "total_chunks": collection_count()}
+
+
+@app.post("/ingest")
+def run_ingest(rebuild: bool = Query(False)):
+    """(Re)index every PDF currently in PDF_DIR."""
+    try:
+        return ingest(rebuild=rebuild)
+    except Exception as exc:  # noqa: BLE001
+        print("ingest error:", repr(exc))
+        raise HTTPException(status_code=500, detail="Ingestion failed")
 
 
 @app.post("/documents/upload")
 async def upload_document(file: UploadFile = File(...)):
     extension = os.path.splitext(file.filename or "")[1].lower()
-    if extension not in ALLOWED_EXTENSIONS:
-        raise HTTPException(
-            status_code=400,
-            detail=f"Unsupported file type '{extension}'. Allowed: {', '.join(sorted(ALLOWED_EXTENSIONS))}",
-        )
+    if extension != ".pdf":
+        raise HTTPException(status_code=400, detail="Only .pdf files are supported")
 
     raw_bytes = await file.read()
     if len(raw_bytes) > MAX_FILE_SIZE_BYTES:
-        raise HTTPException(status_code=400, detail=f"File too large. Max size is {MAX_FILE_SIZE_BYTES // 1024}KB")
-
-    raw_text = raw_bytes.decode("utf-8", errors="replace")
-
-    try:
-        recipe = parse_recipe_card(raw_text, file.filename or "upload.md")
-        if not recipe.recipe_id or not recipe.title or not recipe.cuisine:
-            raise ValueError("recipe card missing required front-matter fields (recipe_id, title, cuisine)")
-    except Exception as exc:  # noqa: BLE001
-        raise HTTPException(status_code=400, detail=f"Invalid recipe card format: {exc}")
-
-    try:
-        baseline_chunks = chunk_recipe_baseline(recipe)
-        structure_aware_chunks = chunk_recipe_structure_aware(recipe)
-        assert_valid_chunks(baseline_chunks)
-        assert_valid_chunks(structure_aware_chunks)
-
-        baseline_embeddings = embed_texts([c.text for c in baseline_chunks])
-        structure_embeddings = embed_texts([c.text for c in structure_aware_chunks])
-
-        append_to_collection(
-            BASELINE_COLLECTION,
-            [StoredEntry(chunk=c, embedding=e) for c, e in zip(baseline_chunks, baseline_embeddings)],
-        )
-        append_to_collection(
-            STRUCTURE_AWARE_COLLECTION,
-            [StoredEntry(chunk=c, embedding=e) for c, e in zip(structure_aware_chunks, structure_embeddings)],
+        raise HTTPException(
+            status_code=400, detail=f"File too large. Max size is {MAX_FILE_SIZE_BYTES // (1024 * 1024)}MB"
         )
 
+    os.makedirs(PDF_DIR, exist_ok=True)
+    dest = os.path.join(PDF_DIR, os.path.basename(file.filename or "upload.pdf"))
+    with open(dest, "wb") as fh:
+        fh.write(raw_bytes)
+
+    try:
+        pages = load_pdf(dest)
+        if not pages:
+            os.remove(dest)
+            raise HTTPException(
+                status_code=400,
+                detail="No extractable text found. Scanned / image-only PDFs are not supported.",
+            )
+        chunks = split_pages(pages)
+        store = get_vectorstore()
+        ids = [c.metadata["chunk_id"] for c in chunks]
+        existing = set(store.get(ids=ids).get("ids") or [])
+        new = [(c, i) for c, i in zip(chunks, ids) if i not in existing]
+        if new:
+            store.add_documents(documents=[c for c, _ in new], ids=[i for _, i in new])
         return {
-            "recipe_id": recipe.recipe_id,
-            "baseline_chunks_indexed": len(baseline_chunks),
-            "structure_aware_chunks_indexed": len(structure_aware_chunks),
+            "source_file": os.path.basename(dest),
+            "pages": len(pages),
+            "chunks_new": len(new),
+            "total_chunks": collection_count(),
         }
     except HTTPException:
         raise
     except Exception as exc:  # noqa: BLE001
-        print("upload indexing error", exc)
+        print("upload indexing error:", repr(exc))
         raise HTTPException(status_code=500, detail="Internal server error while indexing document")
-
-
-@app.get("/evaluation")
-def get_evaluation():
-    summary_path = os.path.join(os.getcwd(), "evaluation", "summary.json")
-    if not os.path.exists(summary_path):
-        raise HTTPException(status_code=404, detail="Evaluation has not been run yet")
-    with open(summary_path, "r", encoding="utf-8") as f:
-        summary = json.load(f)
-
-    metadata_filter_path = os.path.join(os.getcwd(), "evaluation", "metadata_filter.json")
-    metadata_filter = None
-    if os.path.exists(metadata_filter_path):
-        with open(metadata_filter_path, "r", encoding="utf-8") as f:
-            metadata_filter = json.load(f)
-
-    return {"summary": summary, "metadataFilter": metadata_filter}
 
 
 @app.get("/citations")
 def get_citation(chunkId: str = Query(...)):
-    resolved = resolve_citation(PRODUCTION_COLLECTION, chunkId)
+    resolved = resolve_citation(chunkId)
     if not resolved:
         raise HTTPException(status_code=404, detail="chunk not found")
     return resolved

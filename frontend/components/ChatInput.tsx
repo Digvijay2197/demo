@@ -22,9 +22,9 @@ export function ChatInput({
     <div className="flex items-center gap-2 border-t border-zinc-200 p-3 dark:border-zinc-800">
       <input
         className="flex-1 rounded-full border border-zinc-300 bg-white px-4 py-2 text-sm outline-none focus:border-emerald-500 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
-        placeholder="Ask about recipes..."
+        placeholder="Ask about your recipe PDFs..."
         value={value}
-        maxLength={500}
+        maxLength={1000}
         onChange={(e) => setValue(e.target.value)}
         onKeyDown={(e) => {
           if (e.key === "Enter") submit();
