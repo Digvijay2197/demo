@@ -5,6 +5,7 @@ re-running after adding a new PDF only inserts the genuinely new chunks and
 never duplicates existing ones.
 """
 import hashlib
+from collections import defaultdict
 from typing import List
 
 from langchain_core.documents import Document
@@ -12,24 +13,43 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from rag.config import CHUNK_OVERLAP, CHUNK_SIZE
 from rag.ingestion.pdf_loader import load_all_pdfs
+from rag.ingestion.recipe_splitter import split_recipes
 from rag.vectorstore.store import collection_count, get_vectorstore, reset_collection
 
 
 def _splitter() -> RecursiveCharacterTextSplitter:
+    # Prefer blank-line breaks (which separate recipes in a cookbook page)
+    # over mid-sentence cuts, so a chunk tends to hold one whole recipe.
     return RecursiveCharacterTextSplitter(
         chunk_size=CHUNK_SIZE,
         chunk_overlap=CHUNK_OVERLAP,
+        separators=["\n\n", "\n", ". ", " ", ""],
         add_start_index=True,
     )
 
 
 def _chunk_id(doc: Document) -> str:
-    key = f"{doc.metadata.get('source_file')}::{doc.metadata.get('page')}::{doc.page_content}"
+    key = (
+        f"{doc.metadata.get('source_file')}::{doc.metadata.get('page')}::"
+        f"{doc.metadata.get('recipe_title', '')}::{doc.metadata.get('chunk_index', '')}::"
+        f"{doc.page_content}"
+    )
     return hashlib.sha1(key.encode("utf-8")).hexdigest()
 
 
 def split_pages(pages: List[Document]) -> List[Document]:
-    chunks = _splitter().split_documents(pages)
+    """Chunk each source file: recipe-aware for cookbook-style PDFs (many
+    recipes per page), the plain recursive splitter for everything else."""
+    by_file: "defaultdict[str, List[Document]]" = defaultdict(list)
+    for p in pages:
+        by_file[p.metadata.get("source_file")].append(p)
+
+    chunks: List[Document] = []
+    for file_pages in by_file.values():
+        recipe_chunks = split_recipes(file_pages)
+        chunks.extend(recipe_chunks if recipe_chunks is not None
+                      else _splitter().split_documents(file_pages))
+
     for c in chunks:
         c.metadata["chunk_id"] = _chunk_id(c)
         # a short preview kept in metadata so the API can show a snippet

@@ -20,15 +20,20 @@ the bot refuses instead of guessing.
 ## How it works
 
 ```
-recipe PDFs ─► PyMuPDF loader ─► RecursiveCharacterTextSplitter ─► MiniLM embeddings ─► ChromaDB
-                                                                                          │
+recipe PDFs ─► PyMuPDF loader ─► split (recipe-aware ─or─ recursive) ─► MiniLM embeddings ─► ChromaDB
+                                                                                              │
 question ─► embed ─► Chroma similarity search (top-k) ─► grounding gate ─► Groq LLM ─► answer + citations
 ```
 
+- **Recipe-aware splitting**: a cookbook PDF with many recipes per page is split on
+  recipe boundaries (a title line followed by a contributor name), so each recipe becomes
+  one chunk with its **title prefixed** — a search for "Oatmeal Bread" then reliably finds
+  the chunk that holds its ingredients. Single-recipe PDFs, forms and prose fall back to
+  the plain recursive splitter automatically.
 - **Grounding gate**: if the best retrieved chunk scores below `SIMILARITY_THRESHOLD`,
   the bot refuses without calling the LLM.
-- **Idempotent ingestion**: each chunk's id is a hash of its source file, page and text,
-  so re-running ingestion after adding a PDF only inserts new chunks.
+- **Idempotent ingestion**: each chunk's id is a hash of its source file, page, recipe
+  title and text, so re-running ingestion after adding a PDF only inserts new chunks.
 
 ## Running locally
 
@@ -96,8 +101,9 @@ backend/
   app/main.py                 FastAPI app
   rag/
     config.py                 all env-driven settings
-    ingestion/pdf_loader.py   load text PDFs -> per-page Documents
-    ingestion/pipeline.py     split -> embed -> upsert into Chroma (idempotent)
+    ingestion/pdf_loader.py   load text PDFs -> per-page Documents (+ NFKC cleanup)
+    ingestion/recipe_splitter.py  one chunk per recipe for cookbook-style PDFs
+    ingestion/pipeline.py     split (recipe-aware or recursive) -> embed -> upsert (idempotent)
     embeddings/embedding_service.py   MiniLM HuggingFaceEmbeddings
     vectorstore/store.py      Chroma client (persistent)
     retrieval/retriever.py    similarity search + grounding gate
@@ -118,10 +124,25 @@ frontend/                      Next.js chat UI (calls the backend, no server rou
 |---|---|---|
 | `GROQ_API_KEY` | — | required for answer generation |
 | `GROQ_MODEL` | `openai/gpt-oss-20b` | Groq chat model (must be one your key can access) |
+| `GROQ_REASONING_EFFORT` | `low` | reasoning models (gpt-oss, qwen) burn hidden tokens; keeps you under the free-tier limit |
 | `EMBEDDING_MODEL` | `sentence-transformers/all-MiniLM-L6-v2` | local embedding model |
 | `CHROMA_DIR` | `./data/chroma` | vector DB location |
 | `CHROMA_COLLECTION` | `recipes` | collection name |
 | `PDF_DIR` | `./data/pdfs` | source PDF folder |
-| `CHUNK_SIZE` / `CHUNK_OVERLAP` | `1000` / `150` | splitter settings |
+| `CHUNK_SIZE` / `CHUNK_OVERLAP` | `550` / `80` | small chunks ≈ one recipe each; also keeps LLM context small |
 | `TOP_K` | `4` | chunks retrieved per question |
-| `SIMILARITY_THRESHOLD` | `0.3` | min relevance before the bot answers |
+| `MAX_CONTEXT_CHARS` | `4000` | hard cap on retrieved context sent to the LLM (~1k tokens) |
+| `SIMILARITY_THRESHOLD` | `0.22` | min relevance before the bot answers |
+
+### Large / multi-recipe PDFs
+
+A whole cookbook in one PDF works — the recipe-aware splitter gives each recipe its own
+titled chunk (e.g. the 120-page Nelson Family Recipe Book → ~300 recipe chunks), so
+"give me the Oatmeal Bread recipe" retrieves that exact recipe even when three recipes
+share a page.
+
+The one limit is Groq's **free tier: 8,000 tokens/minute**. The defaults above keep a
+typical question at ~900–1,300 tokens, and the client retries `429`s with backoff. If you
+still hit the limit (rapid-fire questions, a huge retrieved context), the API returns
+`503` "the model is rate-limited, wait a few seconds" rather than failing silently —
+lower `MAX_CONTEXT_CHARS` / `TOP_K`, or upgrade the Groq tier.

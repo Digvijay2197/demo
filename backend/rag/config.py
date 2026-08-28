@@ -23,6 +23,13 @@ def _abs(path: str) -> str:
 # --- LLM ---
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
 GROQ_MODEL = os.environ.get("GROQ_MODEL", "llama-3.1-8b-instant")
+# gpt-oss / qwen on Groq are reasoning models - "low" keeps hidden reasoning
+# tokens (and cost / rate-limit pressure) down. Ignored by non-reasoning models.
+GROQ_REASONING_EFFORT = os.environ.get("GROQ_REASONING_EFFORT", "low")
+# Hard cap on how much retrieved context is sent to the LLM per question.
+# Keeps a big multi-recipe PDF from blowing the Groq free-tier 8k tokens/min
+# limit (~4 chars/token, so 4000 chars ≈ 1k tokens of context).
+MAX_CONTEXT_CHARS = int(os.environ.get("MAX_CONTEXT_CHARS", "4000"))
 
 # --- Embeddings ---
 EMBEDDING_MODEL = os.environ.get("EMBEDDING_MODEL", "sentence-transformers/all-MiniLM-L6-v2")
@@ -35,11 +42,13 @@ CHROMA_COLLECTION = os.environ.get("CHROMA_COLLECTION", "recipes")
 PDF_DIR = _abs(os.environ.get("PDF_DIR", "./data/pdfs"))
 
 # --- Chunking ---
-CHUNK_SIZE = int(os.environ.get("CHUNK_SIZE", "1000"))
-CHUNK_OVERLAP = int(os.environ.get("CHUNK_OVERLAP", "150"))
+# Small chunks: in a multi-recipe PDF this lands roughly one recipe per chunk,
+# which both sharpens retrieval and keeps the context sent to the LLM small.
+CHUNK_SIZE = int(os.environ.get("CHUNK_SIZE", "550"))
+CHUNK_OVERLAP = int(os.environ.get("CHUNK_OVERLAP", "80"))
 
 # --- Retrieval ---
-TOP_K = int(os.environ.get("TOP_K", "5"))
+TOP_K = int(os.environ.get("TOP_K", "4"))
 SIMILARITY_THRESHOLD = float(os.environ.get("SIMILARITY_THRESHOLD", "0.22"))
 
 # --- API ---
