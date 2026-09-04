@@ -10,6 +10,7 @@ watchfiles>=0.21          # live PDF-folder auto-indexing (also pulled by uvicor
 # Unpinned so pip resolves a mutually-compatible set; exact versions are
 # captured in requirements.lock.txt after `pip install`.
 langchain
+langchain-text-splitters   # RecursiveCharacterTextSplitter (no longer a hard dep of langchain 1.x)
 langchain-huggingface
 langchain-chroma
 langchain-groq
