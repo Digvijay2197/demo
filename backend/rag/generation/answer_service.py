@@ -61,8 +61,8 @@ def _citations_from_results(results: List[Tuple[Document, float]]) -> List[dict]
     return citations
 
 
-def answer_question(question: str) -> dict:
-    results = retrieve(question)
+def answer_question(question: str, hybrid: bool = None) -> dict:
+    results = retrieve(question, hybrid=hybrid)
 
     if not has_sufficient_evidence(results):
         return {"answer": REFUSAL_MESSAGE, "citations": [], "refused": True}

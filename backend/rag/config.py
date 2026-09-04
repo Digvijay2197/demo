@@ -61,6 +61,10 @@ CHUNK_OVERLAP = int(os.environ.get("CHUNK_OVERLAP", "80"))
 # --- Retrieval ---
 TOP_K = int(os.environ.get("TOP_K", "4"))
 SIMILARITY_THRESHOLD = float(os.environ.get("SIMILARITY_THRESHOLD", "0.22"))
+# Hybrid search: fuse Chroma's semantic ranking with BM25 keyword search (RRF),
+# so an exact code / rare ingredient name / exact title that ranks low by
+# meaning-similarity alone can still surface (see rag/retrieval/retriever.py).
+HYBRID_SEARCH = _flag("HYBRID_SEARCH")
 
 # --- API ---
 PORT = int(os.environ.get("PORT", "8000"))

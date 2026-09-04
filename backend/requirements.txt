@@ -17,6 +17,9 @@ langchain-groq
 # --- Vector database ---
 chromadb>=1.0.20
 
+# --- Keyword search (hybrid retrieval) ---
+rank_bm25>=0.2.2
+
 # --- Embeddings (local, no API key) ---
 sentence-transformers
 

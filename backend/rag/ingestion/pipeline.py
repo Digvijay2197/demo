@@ -13,8 +13,10 @@ from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from rag.config import CHUNK_OVERLAP, CHUNK_SIZE
+from rag.ingestion.card_splitter import split_cards
 from rag.ingestion.pdf_loader import load_all_pdfs, load_pdf
 from rag.ingestion.recipe_splitter import split_recipes
+from rag.retrieval.keyword_search import invalidate_keyword_index
 from rag.vectorstore.store import collection_count, get_vectorstore, reset_collection
 
 
@@ -40,15 +42,17 @@ def _chunk_id(doc: Document) -> str:
 
 def split_pages(pages: List[Document]) -> List[Document]:
     """Chunk each source file: recipe-aware for cookbook-style PDFs (many
-    recipes per page), the plain recursive splitter for everything else."""
+    recipes per page), structure-aware for a single structured recipe card
+    (title + ingredient table + method + allergens), the plain recursive
+    splitter for everything else."""
     by_file: "defaultdict[str, List[Document]]" = defaultdict(list)
     for p in pages:
         by_file[p.metadata.get("source_file")].append(p)
 
     chunks: List[Document] = []
     for file_pages in by_file.values():
-        recipe_chunks = split_recipes(file_pages)
-        chunks.extend(recipe_chunks if recipe_chunks is not None
+        structured = split_recipes(file_pages) or split_cards(file_pages)
+        chunks.extend(structured if structured is not None
                       else _splitter().split_documents(file_pages))
 
     for c in chunks:
@@ -87,6 +91,7 @@ def ingest(rebuild: bool = False) -> dict:
 
     if new_chunks:
         store.add_documents(documents=new_chunks, ids=new_ids)
+        invalidate_keyword_index()
 
     source_files = sorted({p.metadata["source_file"] for p in pages})
     return {
@@ -122,6 +127,8 @@ def ingest_paths(paths: Iterable[str]) -> dict:
 
     store = get_vectorstore()
     removed = _delete_by_source(store, filenames)
+    if removed:
+        invalidate_keyword_index()
 
     pages: List[Document] = []
     missing = []
@@ -139,6 +146,7 @@ def ingest_paths(paths: Iterable[str]) -> dict:
         new = [(c, i) for c, i in zip(chunks, ids) if i not in existing]
         if new:
             store.add_documents(documents=[c for c, _ in new], ids=[i for _, i in new])
+            invalidate_keyword_index()
         added = len(new)
 
     return {

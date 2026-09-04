@@ -18,6 +18,28 @@ from rag.config import PDF_DIR
 
 _WS_RUN = re.compile(r"[ \t]{2,}")
 _BLANK_RUN = re.compile(r"\n{3,}")
+_KV_PAIR = re.compile(r"([a-zA-Z_]+)=([^;]*)")
+
+
+def _structured_metadata(doc: pymupdf.Document) -> dict:
+    """Recipe metadata (recipe_id, cuisine, dietary_tags, ...) authored into
+    the PDF's `keywords` field as "key=value;key=value" - a generator-side
+    convention (see scripts/generate_fermentation_cards.py), not a PDF
+    standard. Returns {} for PDFs that don't use it (nothing extra to attach).
+    """
+    keywords = (doc.metadata or {}).get("keywords") or ""
+    pairs = {k: v.strip() for k, v in _KV_PAIR.findall(keywords)}
+    if not pairs:
+        return {}
+
+    meta = dict(pairs)
+    tags = {t.strip().lower() for t in meta.get("dietary_tags", "").split(",") if t.strip()}
+    meta["dietary_tags"] = ", ".join(sorted(tags))
+    # Individual booleans too: Chroma's `where` filter needs scalar equality,
+    # it can't test membership in a comma-joined string.
+    for tag in ("vegan", "vegetarian", "gluten-free", "contains-dairy"):
+        meta[f"is_{tag.replace('-', '_')}"] = tag in tags
+    return meta
 
 
 def _clean(text: str) -> str:
@@ -51,6 +73,7 @@ def load_pdf(path: str) -> List[Document]:
     pages: List[Document] = []
     with pymupdf.open(path) as doc:
         doc_title = (doc.metadata or {}).get("title") or source_file
+        extra_meta = _structured_metadata(doc)
         for page_number, page in enumerate(doc, start=1):
             text = _clean(page.get_text("text"))
             if not text:
@@ -62,6 +85,7 @@ def load_pdf(path: str) -> List[Document]:
                         "source_file": source_file,
                         "page": page_number,
                         "title": doc_title.strip() or source_file,
+                        **extra_meta,
                     },
                 )
             )

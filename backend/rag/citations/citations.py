@@ -17,5 +17,6 @@ def resolve_citation(chunk_id: str) -> Optional[dict]:
         "source_file": meta.get("source_file", "unknown.pdf"),
         "page": meta.get("page"),
         "title": meta.get("title"),
+        "recipe_id": meta.get("recipe_id"),
         "text": docs[0],
     }

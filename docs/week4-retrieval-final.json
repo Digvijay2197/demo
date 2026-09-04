@@ -1,0 +1,936 @@
+{
+  "before": [
+    {
+      "id": "r01",
+      "question": "SD-2041",
+      "category": "exact_code",
+      "expected": [
+        "sourdough-loaf-batch-sd-2041.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "weeknight-beef-and-bean-chili.pdf",
+          "page": 1,
+          "score": 0.1368
+        },
+        {
+          "source_file": "teriyaki-glazed-chicken-thighs.pdf",
+          "page": 1,
+          "score": 0.1333
+        },
+        {
+          "source_file": "korean-bulgogi-rice-bowl.pdf",
+          "page": 1,
+          "score": 0.1151
+        }
+      ],
+      "hit_at_3": false,
+      "answer": "I couldn't find enough information in the provided recipes to answer that question.",
+      "refused": true,
+      "keyword_ok": false,
+      "correct": false,
+      "error": null
+    },
+    {
+      "id": "r02",
+      "question": "hydration percentage SD-2041",
+      "category": "exact_code",
+      "expected": [
+        "sourdough-loaf-batch-sd-2041.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "kimchi-fried-rice-gochugaru.pdf",
+          "page": 1,
+          "score": 0.1921
+        },
+        {
+          "source_file": "sourdough-loaf-batch-sd-2041.pdf",
+          "page": 1,
+          "score": 0.1605
+        },
+        {
+          "source_file": "sourdough-loaf-batch-sd-2041.pdf",
+          "page": 1,
+          "score": 0.1471
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "I couldn't find enough information in the provided recipes to answer that question.",
+      "refused": true,
+      "keyword_ok": false,
+      "correct": false,
+      "error": null
+    },
+    {
+      "id": "r03",
+      "question": "REC-118",
+      "category": "exact_code",
+      "expected": [
+        "pantry-chili-con-carne-rec-118.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "teriyaki-glazed-chicken-thighs.pdf",
+          "page": 1,
+          "score": 0.199
+        },
+        {
+          "source_file": "pantry-chili-con-carne-rec-118.pdf",
+          "page": 1,
+          "score": 0.1495
+        },
+        {
+          "source_file": "weeknight-beef-and-bean-chili.pdf",
+          "page": 1,
+          "score": 0.115
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "I couldn't find enough information in the provided recipes to answer that question.",
+      "refused": true,
+      "keyword_ok": false,
+      "correct": false,
+      "error": null
+    },
+    {
+      "id": "r03b",
+      "question": "what temperature does REC-118 recommend",
+      "category": "exact_code",
+      "expected": [
+        "pantry-chili-con-carne-rec-118.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "sourdough-loaf-batch-sd-2041.pdf",
+          "page": 1,
+          "score": 0.2426
+        },
+        {
+          "source_file": "pantry-chili-con-carne-rec-118.pdf",
+          "page": 1,
+          "score": 0.2209
+        },
+        {
+          "source_file": "pantry-chili-con-carne-rec-118.pdf",
+          "page": 1,
+          "score": 0.2021
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "I couldn't find enough information in the provided recipes to answer that question.",
+      "refused": true,
+      "keyword_ok": false,
+      "correct": false,
+      "error": null
+    },
+    {
+      "id": "r04",
+      "question": "how much gochugaru goes in the kimchi fried rice",
+      "category": "rare_ingredient",
+      "expected": [
+        "kimchi-fried-rice-gochugaru.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "kimchi-fried-rice-gochugaru.pdf",
+          "page": 1,
+          "score": 0.8335
+        },
+        {
+          "source_file": "kimchi-fried-rice-gochugaru.pdf",
+          "page": 1,
+          "score": 0.7617
+        },
+        {
+          "source_file": "vegetable-fried-rice.pdf",
+          "page": 1,
+          "score": 0.5038
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "The recipe calls for **2 tablespoons gochugaru** in the kimchi fried rice. [source: kimchi-fried-rice-gochugaru.pdf p.1]",
+      "refused": false,
+      "keyword_ok": true,
+      "correct": true,
+      "error": null
+    },
+    {
+      "id": "r05",
+      "question": "can I use cayenne instead of gochugaru",
+      "category": "rare_ingredient",
+      "expected": [
+        "kimchi-fried-rice-gochugaru.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "kimchi-fried-rice-gochugaru.pdf",
+          "page": 1,
+          "score": 0.3735
+        },
+        {
+          "source_file": "kimchi-fried-rice-gochugaru.pdf",
+          "page": 1,
+          "score": 0.2639
+        },
+        {
+          "source_file": "pantry-chili-con-carne-rec-118.pdf",
+          "page": 1,
+          "score": 0.2249
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "The recipe notes that gochugaru is milder and fruitier than generic chilli flakes and explicitly says **“do not substitute cayenne 1:1”**. [source: kimchi-fried-rice-gochugaru.pdf p.1]",
+      "refused": false,
+      "keyword_ok": false,
+      "correct": false,
+      "error": null
+    },
+    {
+      "id": "r06",
+      "question": "how much mirin is in the miso glazed salmon",
+      "category": "rare_ingredient",
+      "expected": [
+        "miso-glazed-salmon.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "miso-glazed-salmon.pdf",
+          "page": 1,
+          "score": 0.741
+        },
+        {
+          "source_file": "miso-glazed-salmon.pdf",
+          "page": 1,
+          "score": 0.6369
+        },
+        {
+          "source_file": "soy-ginger-glazed-cod.pdf",
+          "page": 1,
+          "score": 0.4937
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "The miso-glazed salmon recipe calls for 2 tablespoons mirin. [source: miso-glazed-salmon.pdf p.1]",
+      "refused": false,
+      "keyword_ok": true,
+      "correct": true,
+      "error": null
+    },
+    {
+      "id": "r07",
+      "question": "what's the difference between shiro miso and red miso in the salmon recipe",
+      "category": "rare_ingredient",
+      "expected": [
+        "miso-glazed-salmon.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "miso-glazed-salmon.pdf",
+          "page": 1,
+          "score": 0.6443
+        },
+        {
+          "source_file": "miso-glazed-salmon.pdf",
+          "page": 1,
+          "score": 0.6365
+        },
+        {
+          "source_file": "soy-ginger-glazed-cod.pdf",
+          "page": 1,
+          "score": 0.4041
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "Shiro (white) miso is sweeter and milder than red miso, and the recipe notes that you should not substitute red miso 1:1; instead use about two-thirds the amount. [source: miso-glazed-salmon.pdf p.1]",
+      "refused": false,
+      "keyword_ok": true,
+      "correct": true,
+      "error": null
+    },
+    {
+      "id": "r08",
+      "question": "how long should the dough chill for Old Norwegian Lefse before rolling",
+      "category": "duplicate_name",
+      "expected": [
+        "old-norwegian-lefse.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "classic-lefse.pdf",
+          "page": 1,
+          "score": 0.676
+        },
+        {
+          "source_file": "old-norwegian-lefse.pdf",
+          "page": 1,
+          "score": 0.6408
+        },
+        {
+          "source_file": "old-norwegian-lefse.pdf",
+          "page": 1,
+          "score": 0.5875
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "The dough for Old Norwegian Lefse should chill overnight before rolling. [source: old-norwegian-lefse.pdf p.1]",
+      "refused": false,
+      "keyword_ok": true,
+      "correct": true,
+      "error": null
+    },
+    {
+      "id": "r09",
+      "question": "what griddle temperature does Classic Lefse cook at",
+      "category": "duplicate_name",
+      "expected": [
+        "classic-lefse.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "classic-lefse.pdf",
+          "page": 1,
+          "score": 0.63
+        },
+        {
+          "source_file": "old-norwegian-lefse.pdf",
+          "page": 1,
+          "score": 0.6267
+        },
+        {
+          "source_file": "old-norwegian-lefse.pdf",
+          "page": 1,
+          "score": 0.3887
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "Classic Lefse is cooked on a dry griddle at 450 °F. [source: classic-lefse.pdf p.1]",
+      "refused": false,
+      "keyword_ok": true,
+      "correct": true,
+      "error": null
+    },
+    {
+      "id": "r10",
+      "question": "pizza dough hydration percentage",
+      "category": "control",
+      "expected": [
+        "neapolitan-margherita-pizza.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "neapolitan-margherita-pizza.pdf",
+          "page": 1,
+          "score": 0.3717
+        },
+        {
+          "source_file": "sourdough-loaf-batch-sd-2041.pdf",
+          "page": 1,
+          "score": 0.3199
+        },
+        {
+          "source_file": "neapolitan-margherita-pizza.pdf",
+          "page": 1,
+          "score": 0.3043
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "The pizza dough has a hydration of 65 %. [source: neapolitan-margherita-pizza.pdf p.1]",
+      "refused": false,
+      "keyword_ok": true,
+      "correct": true,
+      "error": null
+    },
+    {
+      "id": "r11",
+      "question": "what's in the thai green curry paste and how spicy is it",
+      "category": "control",
+      "expected": [
+        "thai-green-chicken-curry.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "thai-green-chicken-curry.pdf",
+          "page": 1,
+          "score": 0.6995
+        },
+        {
+          "source_file": "thai-green-chicken-curry.pdf",
+          "page": 1,
+          "score": 0.5739
+        },
+        {
+          "source_file": "thai-basil-chicken-stir-fry.pdf",
+          "page": 1,
+          "score": 0.5176
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "The recipe does not list the ingredients that make up the Thai green curry paste, nor does it describe its level of spiciness. [source: thai-green-chicken-curry.pdf p.1]",
+      "refused": false,
+      "keyword_ok": true,
+      "correct": true,
+      "error": null
+    },
+    {
+      "id": "r12",
+      "question": "vegetarian version of the pantry chili",
+      "category": "control",
+      "expected": [
+        "pantry-chili-con-carne-rec-118.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "pantry-chili-con-carne-rec-118.pdf",
+          "page": 1,
+          "score": 0.5736
+        },
+        {
+          "source_file": "weeknight-beef-and-bean-chili.pdf",
+          "page": 1,
+          "score": 0.5007
+        },
+        {
+          "source_file": "weeknight-beef-and-bean-chili.pdf",
+          "page": 1,
+          "score": 0.4898
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "The pantry chili recipe notes that for a vegetarian version you should swap the beef for 2 extra cans of beans and use vegetable stock. [source: pantry-chili-con-carne-rec-118.pdf p.1]",
+      "refused": false,
+      "keyword_ok": true,
+      "correct": true,
+      "error": null
+    },
+    {
+      "id": "r13",
+      "question": "honey oat bread baking temperature",
+      "category": "control",
+      "expected": [
+        "honey-oat-sandwich-bread.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "honey-oat-sandwich-bread.pdf",
+          "page": 1,
+          "score": 0.6819
+        },
+        {
+          "source_file": "honey-oat-sandwich-bread.pdf",
+          "page": 1,
+          "score": 0.4921
+        },
+        {
+          "source_file": "everyday-white-sandwich-bread.pdf",
+          "page": 1,
+          "score": 0.3871
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "The honey oat sandwich bread is baked at **190 °C** for 35 minutes. [source: honey-oat-sandwich-bread.pdf p.1]",
+      "refused": false,
+      "keyword_ok": true,
+      "correct": true,
+      "error": null
+    },
+    {
+      "id": "r14",
+      "question": "a simple everyday bread recipe that needs no starter",
+      "category": "control",
+      "expected": [
+        "rustic-country-bread.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "sourdough-loaf-batch-sd-2041.pdf",
+          "page": 1,
+          "score": 0.5526
+        },
+        {
+          "source_file": "rustic-country-bread.pdf",
+          "page": 1,
+          "score": 0.5292
+        },
+        {
+          "source_file": "rustic-country-bread.pdf",
+          "page": 1,
+          "score": 0.5211
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "A simple everyday bread recipe that needs no starter is the **Rustic Country Bread**. \nIt uses instant yeast instead of sourdough starter and is quick to make. \n\n**Ingredients** \n- 450 g bread flour \n- 50 g whole wheat flour \n- 350 g water \n- 7 g instant yeast \n- 10 g fine sea salt \n\n**Method** \n1. Mix the flours, water and yeast; rest 20 minutes. \n2. Add the salt and knead 8 minutes. \n3. Bulk rise 2 hours until doubled. \n4. Shape into a round loaf and proof 45 minutes. \n5. Bake at 220 C for 40 minutes until the loaf sounds hollow when tapped. \n\n[Source: rustic-country-bread.pdf p.1]",
+      "refused": false,
+      "keyword_ok": true,
+      "correct": true,
+      "error": null
+    }
+  ],
+  "after": [
+    {
+      "id": "r01",
+      "question": "SD-2041",
+      "category": "exact_code",
+      "expected": [
+        "sourdough-loaf-batch-sd-2041.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "sourdough-loaf-batch-sd-2041.pdf",
+          "page": 1,
+          "score": 0.0718
+        },
+        {
+          "source_file": "sourdough-loaf-batch-sd-2041.pdf",
+          "page": 1,
+          "score": 0.0527
+        },
+        {
+          "source_file": "weeknight-beef-and-bean-chili.pdf",
+          "page": 1,
+          "score": 0.1368
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "I couldn't find enough information in the provided recipes to answer that question.",
+      "refused": true,
+      "keyword_ok": false,
+      "correct": false,
+      "error": null
+    },
+    {
+      "id": "r02",
+      "question": "hydration percentage SD-2041",
+      "category": "exact_code",
+      "expected": [
+        "sourdough-loaf-batch-sd-2041.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "sourdough-loaf-batch-sd-2041.pdf",
+          "page": 1,
+          "score": 0.1605
+        },
+        {
+          "source_file": "sourdough-loaf-batch-sd-2041.pdf",
+          "page": 1,
+          "score": 0.1471
+        },
+        {
+          "source_file": "whole-wheat-farmhouse-loaf.pdf",
+          "page": 1,
+          "score": 0.0821
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "I couldn't find enough information in the provided recipes to answer that question.",
+      "refused": true,
+      "keyword_ok": false,
+      "correct": false,
+      "error": null
+    },
+    {
+      "id": "r03",
+      "question": "REC-118",
+      "category": "exact_code",
+      "expected": [
+        "pantry-chili-con-carne-rec-118.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "pantry-chili-con-carne-rec-118.pdf",
+          "page": 1,
+          "score": 0.1495
+        },
+        {
+          "source_file": "pantry-chili-con-carne-rec-118.pdf",
+          "page": 1,
+          "score": 0.1024
+        },
+        {
+          "source_file": "teriyaki-glazed-chicken-thighs.pdf",
+          "page": 1,
+          "score": 0.199
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "I couldn't find enough information in the provided recipes to answer that question.",
+      "refused": true,
+      "keyword_ok": false,
+      "correct": false,
+      "error": null
+    },
+    {
+      "id": "r03b",
+      "question": "what temperature does REC-118 recommend",
+      "category": "exact_code",
+      "expected": [
+        "pantry-chili-con-carne-rec-118.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "pantry-chili-con-carne-rec-118.pdf",
+          "page": 1,
+          "score": 0.2209
+        },
+        {
+          "source_file": "pantry-chili-con-carne-rec-118.pdf",
+          "page": 1,
+          "score": 0.2021
+        },
+        {
+          "source_file": "sourdough-loaf-batch-sd-2041.pdf",
+          "page": 1,
+          "score": 0.2426
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "I couldn't find enough information in the provided recipes to answer that question.",
+      "refused": true,
+      "keyword_ok": false,
+      "correct": false,
+      "error": null
+    },
+    {
+      "id": "r04",
+      "question": "how much gochugaru goes in the kimchi fried rice",
+      "category": "rare_ingredient",
+      "expected": [
+        "kimchi-fried-rice-gochugaru.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "kimchi-fried-rice-gochugaru.pdf",
+          "page": 1,
+          "score": 0.8335
+        },
+        {
+          "source_file": "kimchi-fried-rice-gochugaru.pdf",
+          "page": 1,
+          "score": 0.7617
+        },
+        {
+          "source_file": "vegetable-fried-rice.pdf",
+          "page": 1,
+          "score": 0.5038
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "The recipe calls for **2 tablespoons** of gochugaru. [source: kimchi-fried-rice-gochugaru.pdf p.1]",
+      "refused": false,
+      "keyword_ok": true,
+      "correct": true,
+      "error": null
+    },
+    {
+      "id": "r05",
+      "question": "can I use cayenne instead of gochugaru",
+      "category": "rare_ingredient",
+      "expected": [
+        "kimchi-fried-rice-gochugaru.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "kimchi-fried-rice-gochugaru.pdf",
+          "page": 1,
+          "score": 0.3735
+        },
+        {
+          "source_file": "kimchi-fried-rice-gochugaru.pdf",
+          "page": 1,
+          "score": 0.2639
+        },
+        {
+          "source_file": "thai-green-chicken-curry.pdf",
+          "page": 1,
+          "score": 0.1831
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "The recipe notes that you should **not substitute cayenne 1:1 for gochugaru**; it is milder and fruitier than generic chilli flakes. [source: kimchi-fried-rice-gochugaru.pdf p.1]",
+      "refused": false,
+      "keyword_ok": false,
+      "correct": false,
+      "error": null
+    },
+    {
+      "id": "r06",
+      "question": "how much mirin is in the miso glazed salmon",
+      "category": "rare_ingredient",
+      "expected": [
+        "miso-glazed-salmon.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "miso-glazed-salmon.pdf",
+          "page": 1,
+          "score": 0.741
+        },
+        {
+          "source_file": "miso-glazed-salmon.pdf",
+          "page": 1,
+          "score": 0.6369
+        },
+        {
+          "source_file": "soy-ginger-glazed-cod.pdf",
+          "page": 1,
+          "score": 0.4937
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "The miso-glazed salmon recipe calls for **2 tablespoons mirin**. [source: miso-glazed-salmon.pdf p.1]",
+      "refused": false,
+      "keyword_ok": true,
+      "correct": true,
+      "error": null
+    },
+    {
+      "id": "r07",
+      "question": "what's the difference between shiro miso and red miso in the salmon recipe",
+      "category": "rare_ingredient",
+      "expected": [
+        "miso-glazed-salmon.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "miso-glazed-salmon.pdf",
+          "page": 1,
+          "score": 0.6443
+        },
+        {
+          "source_file": "miso-glazed-salmon.pdf",
+          "page": 1,
+          "score": 0.6365
+        },
+        {
+          "source_file": "soy-ginger-glazed-cod.pdf",
+          "page": 1,
+          "score": 0.4041
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "Shiro (white) miso is sweeter and milder than red miso, and the recipe notes that you should not substitute red miso 1:1; instead use about two-thirds the amount of red miso. [source: miso-glazed-salmon.pdf p.1]",
+      "refused": false,
+      "keyword_ok": true,
+      "correct": true,
+      "error": null
+    },
+    {
+      "id": "r08",
+      "question": "how long should the dough chill for Old Norwegian Lefse before rolling",
+      "category": "duplicate_name",
+      "expected": [
+        "old-norwegian-lefse.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "classic-lefse.pdf",
+          "page": 1,
+          "score": 0.676
+        },
+        {
+          "source_file": "old-norwegian-lefse.pdf",
+          "page": 1,
+          "score": 0.6408
+        },
+        {
+          "source_file": "classic-lefse.pdf",
+          "page": 1,
+          "score": 0.5845
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "The dough for Old Norwegian Lefse should chill overnight before rolling. [source: old-norwegian-lefse.pdf p.1]",
+      "refused": false,
+      "keyword_ok": true,
+      "correct": true,
+      "error": null
+    },
+    {
+      "id": "r09",
+      "question": "what griddle temperature does Classic Lefse cook at",
+      "category": "duplicate_name",
+      "expected": [
+        "classic-lefse.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "classic-lefse.pdf",
+          "page": 1,
+          "score": 0.63
+        },
+        {
+          "source_file": "old-norwegian-lefse.pdf",
+          "page": 1,
+          "score": 0.6267
+        },
+        {
+          "source_file": "old-norwegian-lefse.pdf",
+          "page": 1,
+          "score": 0.3887
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "Classic Lefse is cooked on a dry griddle at 450 °F. [source: classic-lefse.pdf p.1]",
+      "refused": false,
+      "keyword_ok": true,
+      "correct": true,
+      "error": null
+    },
+    {
+      "id": "r10",
+      "question": "pizza dough hydration percentage",
+      "category": "control",
+      "expected": [
+        "neapolitan-margherita-pizza.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "neapolitan-margherita-pizza.pdf",
+          "page": 1,
+          "score": 0.3717
+        },
+        {
+          "source_file": "whole-wheat-farmhouse-loaf.pdf",
+          "page": 1,
+          "score": 0.2828
+        },
+        {
+          "source_file": "classic-lefse.pdf",
+          "page": 1,
+          "score": 0.2938
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "The dough for Neapolitan Margherita Pizza is made with 325 g cold water and 500 g Italian 00 flour, which gives a hydration of 65 %[source: neapolitan-margherita-pizza.pdf p.1]",
+      "refused": false,
+      "keyword_ok": true,
+      "correct": true,
+      "error": null
+    },
+    {
+      "id": "r11",
+      "question": "what's in the thai green curry paste and how spicy is it",
+      "category": "control",
+      "expected": [
+        "thai-green-chicken-curry.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "thai-green-chicken-curry.pdf",
+          "page": 1,
+          "score": 0.6995
+        },
+        {
+          "source_file": "thai-green-chicken-curry.pdf",
+          "page": 1,
+          "score": 0.5739
+        },
+        {
+          "source_file": "thai-green-chicken-curry.pdf",
+          "page": 1,
+          "score": 0.506
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "The recipe does not list the individual ingredients that make up the Thai green curry paste. [source: thai-green-chicken-curry.pdf p.1]",
+      "refused": false,
+      "keyword_ok": true,
+      "correct": true,
+      "error": null
+    },
+    {
+      "id": "r12",
+      "question": "vegetarian version of the pantry chili",
+      "category": "control",
+      "expected": [
+        "pantry-chili-con-carne-rec-118.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "pantry-chili-con-carne-rec-118.pdf",
+          "page": 1,
+          "score": 0.5736
+        },
+        {
+          "source_file": "weeknight-beef-and-bean-chili.pdf",
+          "page": 1,
+          "score": 0.5007
+        },
+        {
+          "source_file": "pantry-chili-con-carne-rec-118.pdf",
+          "page": 1,
+          "score": 0.481
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "The pantry chili card notes that a vegetarian version can be made by swapping the beef for 2 extra cans of beans and using vegetable stock. [source: pantry-chili-con-carne-rec-118.pdf p.1]",
+      "refused": false,
+      "keyword_ok": true,
+      "correct": true,
+      "error": null
+    },
+    {
+      "id": "r13",
+      "question": "honey oat bread baking temperature",
+      "category": "control",
+      "expected": [
+        "honey-oat-sandwich-bread.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "honey-oat-sandwich-bread.pdf",
+          "page": 1,
+          "score": 0.6819
+        },
+        {
+          "source_file": "whole-wheat-farmhouse-loaf.pdf",
+          "page": 1,
+          "score": 0.3829
+        },
+        {
+          "source_file": "honey-oat-sandwich-bread.pdf",
+          "page": 1,
+          "score": 0.4921
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "The honey oat sandwich bread is baked at **190 °C** for 35 minutes. [source: honey-oat-sandwich-bread.pdf p.1]",
+      "refused": false,
+      "keyword_ok": true,
+      "correct": true,
+      "error": null
+    },
+    {
+      "id": "r14",
+      "question": "a simple everyday bread recipe that needs no starter",
+      "category": "control",
+      "expected": [
+        "rustic-country-bread.pdf"
+      ],
+      "retrieved": [
+        {
+          "source_file": "sourdough-loaf-batch-sd-2041.pdf",
+          "page": 1,
+          "score": 0.5526
+        },
+        {
+          "source_file": "rustic-country-bread.pdf",
+          "page": 1,
+          "score": 0.5211
+        },
+        {
+          "source_file": "everyday-white-sandwich-bread.pdf",
+          "page": 1,
+          "score": 0.5018
+        }
+      ],
+      "hit_at_3": true,
+      "answer": "**Rustic Country Bread - a simple everyday loaf that needs no starter** \n[source: rustic-country-bread.pdf p.1]\n\n**Ingredients** \n- 450 g bread flour \n- 50 g whole wheat flour \n- 350 g water \n- 7 g instant yeast \n- 10 g fine sea salt \n\n**Method** \n1. Mix the flours, water and yeast; rest 20 minutes. \n2. Add the salt and knead 8 minutes. \n3. Bulk rise 2 hours until doubled. \n4. Shape into a round loaf and proof 45 minutes. \n\n**Notes** \n- A fast, everyday loaf - no starter needed. \n- Freezes well, sliced.",
+      "refused": false,
+      "keyword_ok": true,
+      "correct": true,
+      "error": null
+    }
+  ]
+}
