@@ -1,0 +1,23 @@
+# Week 7 budget-termination log
+# request : r07_curry8  "thai green curry" -> 8 servings, avoid ['fish', 'soy', 'shellfish']
+# model   : openai/gpt-oss-20b
+# Budget.check runs at the top of every lap and tests all four budgets; the first to trip raises BudgetExceeded.
+
+=== expecting max_iterations to fire ===
+# budget: Budget(max_iterations=3, max_tokens=50000, max_cost_usd=1.0, wall_clock_s=120.0)
+{"lap": 1, "tool_calls": ["SearchRecipes"], "lap_tokens": 908, "cum_tokens": 908, "cum_cost_usd": 0.000167, "elapsed_s": 0.73}
+{"lap": 2, "tool_calls": ["SubstituteIngredient"], "lap_tokens": 1102, "cum_tokens": 2010, "cum_cost_usd": 0.000299, "elapsed_s": 1.27}
+{"lap": 3, "tool_calls": ["SubstituteIngredient"], "lap_tokens": 1232, "cum_tokens": 3242, "cum_cost_usd": 0.000449, "elapsed_s": 1.77}
+{"lap": 4, "terminated_by": "max_iterations", "value": 3, "limit": 3, "cum_tokens": 3242, "cum_cost_usd": 0.000449, "elapsed_s": 1.77}
+RESULT: terminated_by='max_iterations'  ok=False  laps=3  tool_calls=3  tokens=3242  cost_usd=0.000449  latency_s=1.774
+
+=== expecting max_tokens to fire ===
+# budget: Budget(max_iterations=20, max_tokens=4000, max_cost_usd=1.0, wall_clock_s=120.0)
+{"lap": 1, "tool_calls": ["SearchRecipes"], "lap_tokens": 803, "cum_tokens": 803, "cum_cost_usd": 0.000115, "elapsed_s": 0.72}
+{"lap": 2, "tool_calls": ["SubstituteIngredient"], "lap_tokens": 1102, "cum_tokens": 1905, "cum_cost_usd": 0.000246, "elapsed_s": 1.11}
+{"lap": 3, "tool_calls": ["SubstituteIngredient"], "lap_tokens": 1233, "cum_tokens": 3138, "cum_cost_usd": 0.000397, "elapsed_s": 1.99}
+{"lap": 4, "tool_calls": ["SubstituteIngredient"], "lap_tokens": 1326, "cum_tokens": 4464, "cum_cost_usd": 0.00055, "elapsed_s": 2.19}
+{"lap": 5, "terminated_by": "max_tokens", "value": 4464, "limit": 4000, "cum_tokens": 4464, "cum_cost_usd": 0.00055, "elapsed_s": 2.19}
+RESULT: terminated_by='max_tokens'  ok=False  laps=4  tool_calls=4  tokens=4464  cost_usd=0.000550  latency_s=2.19
+
+Both runs: the loop caught BudgetExceeded, logged the firing budget, and returned a partial result. It did not iterate again.

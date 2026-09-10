@@ -122,12 +122,36 @@ backend/
     generation/groq_service.py    ChatGroq wrapper
     generation/answer_service.py   full RAG flow + citation extraction
     citations/citations.py    chunk_id -> stored text
+  agent/                      Week 7: recipe-adaptation agent loop vs a fixed workflow
+    recipes.py                6-recipe book + allergen-cascade substitution table
+    tools.py                  search_recipes / get_nutrition / substitute_ingredient (enum-typed)
+    llm.py                    one Groq client + per-lap token & cost metering
+    budget.py                 4 budgets (iterations, tokens, cost, wall-clock), checked every lap
+    loop.py                   the agent loop (model picks the next tool each lap)
+    workflow.py               the same task as fixed steps, one LLM call, no loop
+    contract.py               shared output contract + deterministic pass checks
   scripts/ingest.py           CLI indexer
   scripts/generate_sample_pdfs.py   writes sample recipe PDFs to data/pdfs/
   scripts/generate_fermentation_cards.py   writes 6 structured recipe-card PDFs (Week 3)
+  scripts/race_week7.py       Week 7: race the agent vs the workflow over 10 requests
   data/pdfs/                   <-- put your PDFs here (git-ignored)
   data/chroma/                 persistent vector DB (git-ignored)
 frontend/                      Next.js chat UI (calls the backend, no server routes)
+```
+
+## Week 7 — agent loop vs fixed workflow
+
+A separate, self-contained exercise (no RAG, no vector store): the same
+recipe-adaptation task — *find the recipe, scale it, swap out banned allergens,
+return the method* — built twice, as a hand-rolled agent loop and as a fixed
+3-step workflow, then raced over 10 requests for pass rate, latency, tokens and
+cost. See [`docs/week7-agent-vs-workflow.md`](docs/week7-agent-vs-workflow.md).
+
+```bash
+cd backend
+python scripts/race_week7.py                # 10 requests x 2 systems -> docs/week7-race.csv
+python scripts/race_week7.py --budget-demo   # one clean budget termination
+python scripts/race_week7.py --pace 5         # sleep 5s between LLM calls (Groq free tier)
 ```
 
 ## Configuration (`backend/.env`)

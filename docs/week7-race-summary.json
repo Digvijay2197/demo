@@ -1,0 +1,37 @@
+{
+  "model": "openai/gpt-oss-20b",
+  "price_per_mtok": [
+    0.1,
+    0.5
+  ],
+  "budget": {
+    "max_iterations": 10,
+    "max_tokens": 24000,
+    "max_cost_usd": 0.02,
+    "wall_clock_s": 90.0
+  },
+  "summary": {
+    "agent": {
+      "n": 10,
+      "pass_rate": 0.9,
+      "p50_latency_s": 7.502,
+      "total_tokens": 72759,
+      "mean_cost_per_req_usd": 0.001021,
+      "mean_llm_calls": 5.5,
+      "mean_tool_calls": 4.5,
+      "budget_stops": 0,
+      "errors": 0
+    },
+    "workflow": {
+      "n": 10,
+      "pass_rate": 1.0,
+      "p50_latency_s": 0.661,
+      "total_tokens": 4201,
+      "mean_cost_per_req_usd": 0.000111,
+      "mean_llm_calls": 1,
+      "mean_tool_calls": 4.8,
+      "budget_stops": 0,
+      "errors": 0
+    }
+  }
+}
