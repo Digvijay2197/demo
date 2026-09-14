@@ -134,6 +134,7 @@ backend/
   scripts/generate_sample_pdfs.py   writes sample recipe PDFs to data/pdfs/
   scripts/generate_fermentation_cards.py   writes 6 structured recipe-card PDFs (Week 3)
   scripts/race_week7.py       Week 7: race the agent vs the workflow over 10 requests
+  scripts/trajectory_eval_week8.py   Week 8: score the agent's tool-call path, not just its output
   data/pdfs/                   <-- put your PDFs here (git-ignored)
   data/chroma/                 persistent vector DB (git-ignored)
 frontend/                      Next.js chat UI (calls the backend, no server routes)
@@ -152,6 +153,24 @@ cd backend
 python scripts/race_week7.py                # 10 requests x 2 systems -> docs/week7-race.csv
 python scripts/race_week7.py --budget-demo   # one clean budget termination
 python scripts/race_week7.py --pace 5         # sleep 5s between LLM calls (Groq free tier)
+```
+
+## Week 8 — trajectory eval: outcome-vs-path gap
+
+The Week 7 agent passes its outcome eval 80-100% of the time, but an outcome
+eval can't see *how* it got there — including a run that answers correctly
+without ever calling `substitute_ingredient`, from memory. This scores the
+tool-call trajectory against a minimal, cascade-derived ground truth for the
+same 10 requests, reports the outcome-vs-trajectory gap as a number, and
+measures the before/after/price of one mitigation (tighter tool
+descriptions). See [`docs/week8-trajectory-eval.md`](docs/week8-trajectory-eval.md).
+
+```bash
+cd backend
+python scripts/trajectory_eval_week8.py --tag before   # baseline -> docs/week8-trajectory-before.json
+python scripts/trajectory_eval_week8.py --tag after     # post-mitigation -> docs/week8-trajectory-after.json
+python scripts/trajectory_eval_week8.py --compare       # before/after + regression table
+python -m pytest tests/test_trajectory_eval_week8.py -v # deterministic ground-truth checks, no network
 ```
 
 ## Configuration (`backend/.env`)

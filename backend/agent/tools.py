@@ -57,7 +57,10 @@ class GetNutrition(BaseModel):
     """Scale one already-fetched recipe to a target serving count and return
     the recomputed ingredient amounts plus a per-serving calorie estimate.
     Requires an exact recipe name that search_recipes already returned — it
-    does not search, and it does not change any ingredients."""
+    does not search, and it does not change any ingredients. MANDATORY: call
+    this before writing ANY scaled quantity into your final answer — never
+    compute or state a scaled amount from memory, even when the ratio looks
+    obvious."""
 
     recipe_name: str = Field(description="exact name from a prior search_recipes result")
     servings: int = Field(description="target number of servings to scale to", gt=0)
@@ -68,7 +71,9 @@ class SubstituteIngredient(BaseModel):
     alternative. Returns the single best substitute, its converted amount, and
     the allergen class the substitute itself carries (which may be another
     banned class — if so, call this again on the substitute). One swap per
-    call: it does not search, scale, or return the method."""
+    call: it does not search, scale, or return the method. MANDATORY: call
+    this for EVERY ingredient you remove or replace before finalizing — never
+    state a substitution from memory, even a common one you already know."""
 
     recipe_name: str = Field(description="exact recipe name")
     ingredient: str = Field(description="the ingredient to remove, e.g. 'whole milk'")

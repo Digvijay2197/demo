@@ -1,0 +1,47 @@
+{
+  "top_mode": "tool_skipped",
+  "before_count": 4,
+  "after_count": 1,
+  "price_cost_p50_delta_usd": 0.000121,
+  "price_tokens_delta": 14175,
+  "regressions": [],
+  "new_modes": [],
+  "before_summary": {
+    "n": 10,
+    "outcome_pass_rate": 0.8,
+    "trajectory_pass_rate": 0.6,
+    "gap": 0.2,
+    "tool_choice_accuracy": 1.0,
+    "argument_validity": 1.0,
+    "step_efficiency_mean": 0.841,
+    "cost_p50_usd": 0.00092,
+    "cost_max_usd": 0.00126,
+    "mode_counts": {
+      "tool_skipped": 4,
+      "hallucinated_args": 0,
+      "redundant_calls": 0,
+      "wrong_tool_choice": 0,
+      "budget_exceeded": 0
+    },
+    "culprit_case_id": "r09_noodle4"
+  },
+  "after_summary": {
+    "n": 10,
+    "outcome_pass_rate": 1.0,
+    "trajectory_pass_rate": 0.9,
+    "gap": 0.1,
+    "tool_choice_accuracy": 1.0,
+    "argument_validity": 1.0,
+    "step_efficiency_mean": 0.971,
+    "cost_p50_usd": 0.001041,
+    "cost_max_usd": 0.00139,
+    "mode_counts": {
+      "tool_skipped": 1,
+      "hallucinated_args": 0,
+      "redundant_calls": 0,
+      "wrong_tool_choice": 0,
+      "budget_exceeded": 0
+    },
+    "culprit_case_id": "r07_curry8"
+  }
+}

@@ -1,0 +1,384 @@
+{
+  "model": "openai/gpt-oss-20b",
+  "price_per_mtok": [
+    0.1,
+    0.5
+  ],
+  "tag": "after",
+  "summary": {
+    "n": 10,
+    "outcome_pass_rate": 1.0,
+    "trajectory_pass_rate": 0.9,
+    "gap": 0.1,
+    "tool_choice_accuracy": 1.0,
+    "argument_validity": 1.0,
+    "step_efficiency_mean": 0.971,
+    "cost_p50_usd": 0.001041,
+    "cost_max_usd": 0.00139,
+    "mode_counts": {
+      "tool_skipped": 1,
+      "hallucinated_args": 0,
+      "redundant_calls": 0,
+      "wrong_tool_choice": 0,
+      "budget_exceeded": 0
+    },
+    "culprit_case_id": "r07_curry8"
+  },
+  "rows": [
+    {
+      "id": "r01_p4",
+      "query": "classic pancakes",
+      "servings": 4,
+      "avoid": [
+        "dairy"
+      ],
+      "cascade": false,
+      "alternate_path": true,
+      "outcome_ok": true,
+      "trajectory_ok": true,
+      "modes": [],
+      "tool_choice_accuracy": 1.0,
+      "argument_validity": 1.0,
+      "step_efficiency": 1.0,
+      "steps_taken": 4,
+      "steps_needed": 4,
+      "expected_counts": {
+        "SearchRecipes": 1,
+        "GetNutrition": 1,
+        "SubstituteIngredient": 2
+      },
+      "cost_usd": 0.000911,
+      "prompt_tokens": 6547,
+      "completion_tokens": 513,
+      "actual_call_sequence": [
+        "SearchRecipes",
+        "GetNutrition",
+        "SubstituteIngredient",
+        "SubstituteIngredient"
+      ],
+      "failed_outcome_checks": [],
+      "terminated_by": ""
+    },
+    {
+      "id": "r02_p8",
+      "query": "classic pancakes",
+      "servings": 8,
+      "avoid": [
+        "dairy",
+        "gluten"
+      ],
+      "cascade": true,
+      "alternate_path": true,
+      "outcome_ok": true,
+      "trajectory_ok": true,
+      "modes": [],
+      "tool_choice_accuracy": 1.0,
+      "argument_validity": 1.0,
+      "step_efficiency": 1.0,
+      "steps_taken": 6,
+      "steps_needed": 6,
+      "expected_counts": {
+        "SearchRecipes": 1,
+        "GetNutrition": 1,
+        "SubstituteIngredient": 4
+      },
+      "cost_usd": 0.00139,
+      "prompt_tokens": 10185,
+      "completion_tokens": 743,
+      "actual_call_sequence": [
+        "SearchRecipes",
+        "GetNutrition",
+        "SubstituteIngredient",
+        "SubstituteIngredient",
+        "SubstituteIngredient",
+        "SubstituteIngredient"
+      ],
+      "failed_outcome_checks": [],
+      "terminated_by": ""
+    },
+    {
+      "id": "r03_mac6",
+      "query": "weeknight mac and cheese",
+      "servings": 6,
+      "avoid": [
+        "gluten"
+      ],
+      "cascade": false,
+      "alternate_path": true,
+      "outcome_ok": true,
+      "trajectory_ok": true,
+      "modes": [],
+      "tool_choice_accuracy": 1.0,
+      "argument_validity": 1.0,
+      "step_efficiency": 1.0,
+      "steps_taken": 4,
+      "steps_needed": 4,
+      "expected_counts": {
+        "SearchRecipes": 1,
+        "GetNutrition": 1,
+        "SubstituteIngredient": 2
+      },
+      "cost_usd": 0.000906,
+      "prompt_tokens": 6505,
+      "completion_tokens": 510,
+      "actual_call_sequence": [
+        "SearchRecipes",
+        "GetNutrition",
+        "SubstituteIngredient",
+        "SubstituteIngredient"
+      ],
+      "failed_outcome_checks": [],
+      "terminated_by": ""
+    },
+    {
+      "id": "r04_mac4nut",
+      "query": "weeknight mac and cheese",
+      "servings": 4,
+      "avoid": [
+        "dairy",
+        "tree_nut"
+      ],
+      "cascade": true,
+      "alternate_path": true,
+      "outcome_ok": true,
+      "trajectory_ok": true,
+      "modes": [],
+      "tool_choice_accuracy": 1.0,
+      "argument_validity": 1.0,
+      "step_efficiency": 1.0,
+      "steps_taken": 6,
+      "steps_needed": 6,
+      "expected_counts": {
+        "SearchRecipes": 1,
+        "GetNutrition": 1,
+        "SubstituteIngredient": 4
+      },
+      "cost_usd": 0.001368,
+      "prompt_tokens": 10140,
+      "completion_tokens": 709,
+      "actual_call_sequence": [
+        "SearchRecipes",
+        "GetNutrition",
+        "SubstituteIngredient",
+        "SubstituteIngredient",
+        "SubstituteIngredient",
+        "SubstituteIngredient"
+      ],
+      "failed_outcome_checks": [],
+      "terminated_by": ""
+    },
+    {
+      "id": "r05_curry4",
+      "query": "thai green curry",
+      "servings": 4,
+      "avoid": [
+        "shellfish"
+      ],
+      "cascade": false,
+      "alternate_path": true,
+      "outcome_ok": true,
+      "trajectory_ok": true,
+      "modes": [],
+      "tool_choice_accuracy": 1.0,
+      "argument_validity": 1.0,
+      "step_efficiency": 1.0,
+      "steps_taken": 3,
+      "steps_needed": 3,
+      "expected_counts": {
+        "SearchRecipes": 1,
+        "GetNutrition": 1,
+        "SubstituteIngredient": 1
+      },
+      "cost_usd": 0.000689,
+      "prompt_tokens": 4945,
+      "completion_tokens": 389,
+      "actual_call_sequence": [
+        "SearchRecipes",
+        "GetNutrition",
+        "SubstituteIngredient"
+      ],
+      "failed_outcome_checks": [],
+      "terminated_by": ""
+    },
+    {
+      "id": "r06_curry2",
+      "query": "thai green curry",
+      "servings": 2,
+      "avoid": [
+        "shellfish",
+        "fish"
+      ],
+      "cascade": true,
+      "alternate_path": true,
+      "outcome_ok": true,
+      "trajectory_ok": true,
+      "modes": [],
+      "tool_choice_accuracy": 1.0,
+      "argument_validity": 1.0,
+      "step_efficiency": 1.0,
+      "steps_taken": 5,
+      "steps_needed": 5,
+      "expected_counts": {
+        "SearchRecipes": 1,
+        "GetNutrition": 1,
+        "SubstituteIngredient": 3
+      },
+      "cost_usd": 0.001171,
+      "prompt_tokens": 8384,
+      "completion_tokens": 665,
+      "actual_call_sequence": [
+        "SearchRecipes",
+        "GetNutrition",
+        "SubstituteIngredient",
+        "SubstituteIngredient",
+        "SubstituteIngredient"
+      ],
+      "failed_outcome_checks": [],
+      "terminated_by": ""
+    },
+    {
+      "id": "r07_curry8",
+      "query": "thai green curry",
+      "servings": 8,
+      "avoid": [
+        "fish",
+        "soy",
+        "shellfish"
+      ],
+      "cascade": true,
+      "alternate_path": true,
+      "outcome_ok": true,
+      "trajectory_ok": false,
+      "modes": [
+        "tool_skipped"
+      ],
+      "tool_choice_accuracy": 1.0,
+      "argument_validity": 1.0,
+      "step_efficiency": 0.714,
+      "steps_taken": 5,
+      "steps_needed": 7,
+      "expected_counts": {
+        "SearchRecipes": 1,
+        "GetNutrition": 1,
+        "SubstituteIngredient": 5
+      },
+      "cost_usd": 0.001201,
+      "prompt_tokens": 8399,
+      "completion_tokens": 722,
+      "actual_call_sequence": [
+        "SearchRecipes",
+        "GetNutrition",
+        "SubstituteIngredient",
+        "SubstituteIngredient",
+        "SubstituteIngredient"
+      ],
+      "failed_outcome_checks": [],
+      "terminated_by": ""
+    },
+    {
+      "id": "r08_bread8",
+      "query": "banana bread",
+      "servings": 8,
+      "avoid": [
+        "dairy",
+        "egg"
+      ],
+      "cascade": false,
+      "alternate_path": true,
+      "outcome_ok": true,
+      "trajectory_ok": true,
+      "modes": [],
+      "tool_choice_accuracy": 1.0,
+      "argument_validity": 1.0,
+      "step_efficiency": 1.0,
+      "steps_taken": 4,
+      "steps_needed": 4,
+      "expected_counts": {
+        "SearchRecipes": 1,
+        "GetNutrition": 1,
+        "SubstituteIngredient": 2
+      },
+      "cost_usd": 0.000854,
+      "prompt_tokens": 6238,
+      "completion_tokens": 460,
+      "actual_call_sequence": [
+        "SearchRecipes",
+        "SubstituteIngredient",
+        "SubstituteIngredient",
+        "GetNutrition"
+      ],
+      "failed_outcome_checks": [],
+      "terminated_by": ""
+    },
+    {
+      "id": "r09_noodle4",
+      "query": "veggie stir-fry noodles",
+      "servings": 4,
+      "avoid": [
+        "gluten",
+        "soy"
+      ],
+      "cascade": false,
+      "alternate_path": true,
+      "outcome_ok": true,
+      "trajectory_ok": true,
+      "modes": [],
+      "tool_choice_accuracy": 1.0,
+      "argument_validity": 1.0,
+      "step_efficiency": 1.0,
+      "steps_taken": 5,
+      "steps_needed": 5,
+      "expected_counts": {
+        "SearchRecipes": 1,
+        "GetNutrition": 1,
+        "SubstituteIngredient": 3
+      },
+      "cost_usd": 0.0012,
+      "prompt_tokens": 8351,
+      "completion_tokens": 730,
+      "actual_call_sequence": [
+        "SearchRecipes",
+        "GetNutrition",
+        "SubstituteIngredient",
+        "SubstituteIngredient",
+        "SubstituteIngredient"
+      ],
+      "failed_outcome_checks": [],
+      "terminated_by": ""
+    },
+    {
+      "id": "r10_cookie12",
+      "query": "chocolate chip cookies",
+      "servings": 12,
+      "avoid": [
+        "dairy"
+      ],
+      "cascade": false,
+      "alternate_path": true,
+      "outcome_ok": true,
+      "trajectory_ok": true,
+      "modes": [],
+      "tool_choice_accuracy": 1.0,
+      "argument_validity": 1.0,
+      "step_efficiency": 1.0,
+      "steps_taken": 4,
+      "steps_needed": 4,
+      "expected_counts": {
+        "SearchRecipes": 1,
+        "GetNutrition": 1,
+        "SubstituteIngredient": 2
+      },
+      "cost_usd": 0.000886,
+      "prompt_tokens": 6392,
+      "completion_tokens": 493,
+      "actual_call_sequence": [
+        "SearchRecipes",
+        "GetNutrition",
+        "SubstituteIngredient",
+        "SubstituteIngredient"
+      ],
+      "failed_outcome_checks": [],
+      "terminated_by": ""
+    }
+  ]
+}

@@ -92,8 +92,9 @@ def run_agent(req: RecipeRequest, budget: Optional[Budget] = None,
             messages.append(resp)
 
             called = [tc["name"] for tc in (resp.tool_calls or [])]
+            call_args = [tc.get("args") or {} for tc in (resp.tool_calls or [])]
             laps_log.append({
-                "lap": lap, "tool_calls": called,
+                "lap": lap, "tool_calls": called, "tool_args": call_args,
                 "lap_tokens": step_usage.total_tokens,
                 "cum_tokens": usage.total_tokens,
                 "cum_cost_usd": round(usage.cost_usd, 6),
