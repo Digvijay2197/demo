@@ -1,0 +1,52 @@
+  lap 1: ['search_recipe']
+  lap 2: ['search_recipe']
+  lap 3: ['search_recipe']
+  lap 4: ['search_recipe']
+  lap 5: final answer
+{
+  "query": "Search for banana walnut muffins and tell me its allergens.",
+  "final_text": "**Allergens in \u201cCommunity Walnut Banana Muffins\u201d**\n\n- Dairy (butter)  \n- Egg (egg)  \n- Gluten (all\u2011purpose flour)  \n- Tree nut (walnuts)",
+  "trace": [
+    {
+      "lap": 1,
+      "tool": "search_recipe",
+      "args": {
+        "query": "banana walnut muffins"
+      },
+      "result": "[{\"type\": \"text\", \"text\": \"{\\n  \\\"matches\\\": [],\\n  \\\"error\\\": \\\"no recipe matches 'banana walnut muffins'\\\"\\n}\", \"id\": \"lc_2ac00e62-478c-4569-ab32-8833669fcc85\"}]"
+    },
+    {
+      "lap": 2,
+      "tool": "search_recipe",
+      "args": {
+        "query": "banana walnut muffin"
+      },
+      "result": "[{\"type\": \"text\", \"text\": \"{\\n  \\\"matches\\\": [],\\n  \\\"error\\\": \\\"no recipe matches 'banana walnut muffin'\\\"\\n}\", \"id\": \"lc_393f90cc-515f-4b4a-9f49-c3f88e605455\"}]"
+    },
+    {
+      "lap": 3,
+      "tool": "search_recipe",
+      "args": {
+        "query": "banana walnut muffin recipe"
+      },
+      "result": "[{\"type\": \"text\", \"text\": \"{\\n  \\\"matches\\\": [],\\n  \\\"error\\\": \\\"no recipe matches 'banana walnut muffin recipe'\\\"\\n}\", \"id\": \"lc_7fd9a55b-fdc2-4e3b-9d86-37f84a8b1f0a\"}]"
+    },
+    {
+      "lap": 4,
+      "tool": "search_recipe",
+      "args": {
+        "query": "banana muffin"
+      },
+      "result": "[{\"type\": \"text\", \"text\": \"{\\n  \\\"matches\\\": [\\n    {\\n      \\\"name\\\": \\\"Community Walnut Banana Muffins\\\",\\n      \\\"base_servings\\\": 6,\\n      \\\"ingredients\\\": [\\n        {\\n          \\\"item\\\": \\\"all-purpose flour\\\",\\n          \\\"qty\\\": 220,\\n          \\\"unit\\\": \\\"g\\\",\\n          \\\"allergens\\\": [\\n            \\\"gluten\\\"\\n          ]\\n        },\\n        {\\n          \\\"item\\\": \\\"butter\\\",\\n          \\\"qty\\\": 90,\\n          \\\"unit\\\": \\\"g\\\",\\n          \\\"allergens\\\": [\\n            \\\"dairy\\\"\\n          ]\\n        },\\n        {\\n          \\\"item\\\": \\\"egg\\\",\\n          \\\"qty\\\": 1,\\n          \\\"unit\\\": \\\"\\\",\\n          \\\"allergens\\\": [\\n            \\\"egg\\\"\\n          ]\\n        },\\n        {\\n          \\\"item\\\": \\\"ripe banana\\\",\\n          \\\"qty\\\": 2,\\n          \\\"unit\\\": \\\"\\\",\\n          \\\"allergens\\\": []\\n        },\\n        {\\n          \\\"item\\\": \\\"walnuts\\\",\\n          \\\"qty\\\": 50,\\n          \\\"unit\\\": \\\"g\\\",\\n          \\\"allergens\\\": [\\n            \\\"tree_nut\\\"\\n          ]\\n        },\\n        {\\n          \\\"item\\\": \\\"caster sugar\\\",\\n          \\\"qty\\\": 90,\\n          \\\"unit\\\": \\\"g\\\",\\n          \\\"allergens\\\": []\\n        }\\n      ],\\n      \\\"method\\\": [\\n        \\\"Cream the butter and sugar, then beat in the egg.\\\",\\n        \\\"Mash the banana and mix it in, then fold in the flour.\\\",\\n        \\\"Stir through the chopped walnuts and divide into a muffin tin.\\\",\\n        \\\"Bake at 180 C for about 22 minutes, until risen and golden.\\\"\\n      ],\\n      \\\"allergens\\\": [\\n        \\\"dairy\\\",\\n        \\\"egg\\\",\\n        \\\"gluten\\\",\\n        \\\"tree_nut\\\"\\n      ]\\n    }\\n  ]\\n}\", \"id\": \"lc_b0ba2798-aba6-4562-9996-ac5604a415ed\"}]"
+    }
+  ],
+  "tool_names_discovered": [
+    "get_nutrition",
+    "lookup_ingredient",
+    "search_recipe",
+    "substitute_ingredient"
+  ],
+  "laps": 5,
+  "prompt_tokens": 4882,
+  "completion_tokens": 250
+}

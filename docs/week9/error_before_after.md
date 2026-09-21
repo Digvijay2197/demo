@@ -1,107 +1,74 @@
-# Week 9 Task Set B -- Requirement 5
-## Before/after transcript: docstring-as-prompt + recoverable error rewrite
+<!-- Soft Suave · The AI Engineering League -->
+# Week 9 Task Set B — requirement 5: docstring-as-prompt + recoverable error
 
-### The failing call
+Same tool (`search_recipe`, our own server: `mcp_servers/recipe_server.py`),
+same failing call, same model (`openai/gpt-oss-20b` via Groq), before and
+after one docstring + error-path rewrite. Full raw transcripts are in
+`before_transcript_raw.json` / `after_transcript_raw.json` in this folder.
 
-User query: "What allergens does creme fraiche lite have?"
+**Query sent to the agent (identical both times):**
+> "Search for banana walnut muffins and tell me its allergens."
 
-The ingredient database contains "creme fraiche" but not "creme fraiche lite".
+The only real title in the book is *Community Walnut Banana Muffins* — a
+substring/generic-knowledge match cannot find it from that phrasing.
 
----
+## Before
 
-### BEFORE -- old docstring (unhelpful, opaque error)
-
-**Old docstring on `lookup_ingredient` (hypothetical pre-rewrite version):**
-```
-Look up one ingredient by name and return its data.
-Pass the exact ingredient name. Returns error code 3 if not found.
-```
-
-**BEFORE transcript (model turn 1 -- tool call):**
-```
-Tool: lookup_ingredient
-Args: {"name": "creme fraiche lite"}
-```
-
-**BEFORE server response:**
-```json
-{"error": "Error 3"}
-```
-
-**BEFORE model turn 2 -- final answer (model invents data, cannot recover):**
-> I'm sorry, I wasn't able to find allergen information for creme fraiche lite.
-> Creme fraiche is typically a dairy product, so it likely contains dairy allergens,
-> but I cannot confirm the exact allergen profile from my database.
-
-**Problem:** "Error 3" tells the model nothing about what went wrong or how to
-fix it. The model falls back to hallucinating allergen data -- exactly what the
-system is supposed to prevent.
-
----
-
-### AFTER -- new docstring + recoverable error (current ingredient_server.py)
-
-**New docstring on `lookup_ingredient` (current code):**
-```
-Look up one ingredient by name and return its allergen classes plus
-nutrition per 100g (kcal, protein_g, fat_g, carbs_g). This is a database
-lookup, not a search -- pass the ingredient exactly as it appears in a
-recipe (e.g. "whole milk", not "milk products"). If the name is not on
-file, the error names the closest known ingredient so you can retry with
-that exact name instead of guessing its nutrition or allergens.
-```
-
-The error path in the code:
 ```python
-close = difflib.get_close_matches(key, INGREDIENTS.keys(), n=1, cutoff=0.5)
-if close:
-    return {"error": f"no ingredient matched {name!r}: try {close[0]!r}"}
+def search_recipe(query: str) -> dict:
+    """Locate a recipe by a free-text query ..."""
+    return _search_recipes(query)   # error: "no recipe matches 'X'"
 ```
 
-**AFTER transcript (model turn 1 -- tool call):**
+| lap | tool call | result |
+|---|---|---|
+| 1 | `search_recipe("banana walnut muffins")` | `{"error": "no recipe matches 'banana walnut muffins'"}` |
+| 2 | `search_recipe("banana walnut muffin")` | `{"error": "no recipe matches 'banana walnut muffin'"}` |
+| 3 | `search_recipe("banana walnut muffin recipe")` | `{"error": "no recipe matches 'banana walnut muffin recipe'"}` |
+| 4 | `search_recipe("banana muffin")` | **matches** *Community Walnut Banana Muffins* (found by luck — the substring "banana muffin" happens to appear in the recipe's lowercased name) |
+| 5 | — | final answer |
+
+4 tool calls, 5 laps, 5,132 tokens. The error carries no information beyond
+"not found," so the model can only guess variations of its own query
+blind — it happened to land on a working substring on its fourth try. A
+less lucky rephrasing (e.g. "muffins with walnut and banana") would have
+kept missing indefinitely up to the loop's iteration budget, and a weaker
+model could just as easily have given up or invented ingredients instead.
+
+## After
+
+```python
+def search_recipe(query: str) -> dict:
+    """... If nothing matches, the error names the closest known recipe
+    title on file -- retry ONCE with that exact title. Never guess a second
+    rephrasing of your own query and never invent a recipe ..."""
+    result = _search_recipes(query)
+    if result.get("error"):
+        close = difflib.get_close_matches(query, titles, n=1, cutoff=0.4)
+        result["error"] = (f"no recipe matches {query!r}: try {close[0]!r}"
+                            if close else f"no recipe matches {query!r}; known recipes: ...")
+    return result
 ```
-Tool: lookup_ingredient
-Args: {"name": "creme fraiche lite"}
-```
 
-**AFTER server response:**
-```json
-{"error": "no ingredient matched 'creme fraiche lite': try 'creme fraiche'"}
-```
+| lap | tool call | result |
+|---|---|---|
+| 1 | `search_recipe("banana walnut muffins")` | `{"error": "no recipe matches 'banana walnut muffins': try 'Community Walnut Banana Muffins'"}` |
+| 2 | `search_recipe("Community Walnut Banana Muffins")` | **matches** *Community Walnut Banana Muffins* |
+| 3 | — | final answer |
 
-**AFTER model turn 2 -- tool call (model retries with corrected name):**
-```
-Tool: lookup_ingredient
-Args: {"name": "creme fraiche"}
-```
+2 tool calls, 3 laps, 3,163 tokens — a 38% drop in laps and ~38% drop in
+tokens on this one call, and the retry is now deterministic (the exact
+title the server named) instead of a guess that happened to work.
 
-**AFTER server response (turn 2):**
-```json
-{
-  "name": "creme fraiche",
-  "allergens": ["dairy"],
-  "per_100g": {"kcal": 292, "protein_g": 2.4, "fat_g": 30.0, "carbs_g": 3.0}
-}
-```
+## What changed, precisely
 
-**AFTER model turn 3 -- final answer:**
-> Creme fraiche contains **dairy** allergens.
-> Per 100g: 292 kcal, 2.4g protein, 30.0g fat, 3.0g carbs.
-> Note: your database uses the spelling "creme fraiche" (without "lite").
-
----
-
-### What changed and why it matters
-
-| Aspect | Before | After |
-|--------|--------|-------|
-| Docstring | Terse, no usage guidance | Prompt-style: when to call, how to format input, what error means |
-| Error message | "Error 3" (opaque) | "no ingredient matched 'X': try 'Y'" (actionable) |
-| Model behaviour | Hallucinates allergens | Retries with corrected name, gets real data |
-| Tool calls | 1 (fails silently) | 2 (fail + recover) |
-
-The docstring IS the prompt the model reads before deciding how to call the
-tool -- there is no separate "prompt" the developer writes.  The recoverable
-error message is the payload the model receives as the tool result, which its
-system prompt instructs it to act on: "call a tool again if its result suggests
-a corrected name to retry with."
+1. **The error payload** gained one field of real information: the nearest
+   known title (`difflib.get_close_matches` against the recipe book's real
+   names), computed server-side where the ground truth lives — never
+   fabricated by the model.
+2. **The docstring** (= the prompt the model reads, verbatim, from
+   `tools/list`) now tells the model what that field means and what to do
+   with it: retry once with the suggested title, don't rephrase blindly,
+   don't invent a recipe. Section 7's "common mistake" this fixes:
+   *"Swallowing the unknown-ingredient case into 'Error: lookup failed,' so
+   the model cannot tell a spelling miss from a dead server."*

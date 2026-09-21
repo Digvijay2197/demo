@@ -16,8 +16,11 @@ Run standalone for manual testing:
 """
 from __future__ import annotations
 
+import difflib
+
 from mcp.server.fastmcp import FastMCP
 
+from agent.recipes import RECIPES
 from agent.tools import (
     AllergenClass,
     get_nutrition as _get_nutrition,
@@ -35,8 +38,23 @@ def search_recipe(query: str) -> dict:
     quantities, method steps, and the allergen classes it contains. Call this
     ONCE at the start to pull the recipe you will work on; it does no scaling
     and no substitution. Do not call it again for a recipe you have already
-    fetched."""
-    return _search_recipes(query)
+    fetched.
+
+    If nothing matches, the error names the closest known recipe title on
+    file -- retry ONCE with that exact title. Never guess a second rephrasing
+    of your own query and never invent a recipe: this book has a fixed,
+    small set of titles, and blind retries waste calls that a single correct
+    retry would not."""
+    result = _search_recipes(query)
+    if result.get("error"):
+        titles = [r["name"] for r in RECIPES.values()]
+        close = difflib.get_close_matches(query, titles, n=1, cutoff=0.4)
+        if close:
+            result["error"] = f"no recipe matches {query!r}: try {close[0]!r}"
+        else:
+            result["error"] = (f"no recipe matches {query!r}; known recipes: "
+                                f"{', '.join(sorted(titles))}")
+    return result
 
 
 @mcp.tool()
