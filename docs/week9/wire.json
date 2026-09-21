@@ -1,0 +1,81 @@
+{
+  "_readme": "Raw JSON-RPC frames captured by scripts/wire_capture_week9.py, which speaks the wire protocol directly (no mcp.ClientSession) against the NEW server, mcp_servers/ingredient_server.py, over stdio. wire_raw.json in this folder is the exact byte-for-byte capture; this file adds hand annotations per top-level field and does not alter a single character of any \"raw\" value.",
+  "transport": "stdio -- newline-delimited JSON-RPC 2.0, one message per line, UTF-8, no Content-Length headers (verified against mcp/client/stdio/__init__.py: stdout_reader splits on \"\\n\", stdin_writer appends \"\\n\").",
+  "model_call_location": "The model call (a Groq chat-completion request) happens in agent/mcp_agent.py at `llm.invoke(messages)`, in the gap between frame 4 (the tools/list result reaching the client) and frame 5 (the tools/call request the client then sends) -- the model reads the tool list handed to it, decides lookup_ingredient is the right tool, and the LangChain/Groq tool-calling layer turns that decision into frame 5's JSON-RPC request. None of the seven frames below IS a model call: they are the client library (or, here, this hand-rolled script standing in for it) and the MCP server negotiating a session and executing a plain Python function. The server process (ingredient_server.py) never imports or calls an LLM.",
+
+  "exchange": [
+    {
+      "seq": 1,
+      "direction": "client -> server",
+      "raw": "{\"jsonrpc\": \"2.0\", \"id\": 1, \"method\": \"initialize\", \"params\": {\"protocolVersion\": \"2025-11-25\", \"capabilities\": {}, \"clientInfo\": {\"name\": \"week9-wire-capture\", \"version\": \"0.1\"}}}",
+      "annotations": {
+        "jsonrpc": "Protocol envelope version. Always the literal \"2.0\" -- MCP rides on JSON-RPC 2.0 unchanged, it does not define its own envelope.",
+        "id": "Client-chosen correlation id. The server must echo it back on frame 2 unchanged so the caller can match response to request out of order.",
+        "method": "\"initialize\" -- always the FIRST call of any MCP session, before tools/list or tools/call are legal.",
+        "params.protocolVersion": "The MCP spec date-version this client speaks. The server compares it against what it supports and returns its own choice in the response (frame 2) -- either side can end up downgrading.",
+        "params.capabilities": "Features the CLIENT is offering the SERVER (e.g. sampling, roots, elicitation). Empty object here because this hand-rolled script offers none of those; a real agent's client library would fill this in.",
+        "params.clientInfo": "Free-text self-identification (name/version) for logging and debugging on the server side. Not used for authentication or access control."
+      }
+    },
+    {
+      "seq": 2,
+      "direction": "server -> client",
+      "raw": "{\"jsonrpc\":\"2.0\",\"id\":1,\"result\":{\"protocolVersion\":\"2025-11-25\",\"capabilities\":{\"experimental\":{},\"prompts\":{\"listChanged\":false},\"resources\":{\"subscribe\":false,\"listChanged\":false},\"tools\":{\"listChanged\":false}},\"serverInfo\":{\"name\":\"ingredient-db\",\"version\":\"1.30.0\"}}}",
+      "annotations": {
+        "id": "Echoes frame 1's id=1, confirming this response answers that request.",
+        "result.protocolVersion": "The version the SERVER settled on -- happens to match what we asked for.",
+        "result.capabilities.tools": "Declares the server exposes the tools/* methods, and listChanged:false means it will not push tools/list_changed notifications if its tool set changes at runtime (ours is static).",
+        "result.capabilities.prompts / .resources": "This FastMCP server exposes neither prompts nor resources, but still advertises the (empty/default) capability blocks -- their presence is what tells the client which method families it may legally call.",
+        "result.serverInfo": "Self-reported name (\"ingredient-db\", from FastMCP(\"ingredient-db\") in ingredient_server.py) and version (here, the mcp library's own version, since we did not set one) -- again for logging/UI, not trust."
+      }
+    },
+    {
+      "seq": 3,
+      "direction": "client -> server",
+      "raw": "{\"jsonrpc\": \"2.0\", \"method\": \"notifications/initialized\"}",
+      "annotations": {
+        "method": "\"notifications/initialized\" -- a NOTIFICATION (no \"id\" field, spec-mandated), telling the server the handshake is complete and it may now accept tools/list, tools/call, etc. No response is sent or expected for a notification."
+      }
+    },
+    {
+      "seq": 4,
+      "direction": "client -> server",
+      "raw": "{\"jsonrpc\": \"2.0\", \"id\": 2, \"method\": \"tools/list\", \"params\": {}}",
+      "annotations": {
+        "method": "\"tools/list\" -- the discovery call. This is the ENTIRE mechanism behind \"the agent discovers tools\": there is no separate registration or handshake beyond this one request/response pair.",
+        "params": "Empty; tools/list takes an optional pagination cursor (not used here since this server has only one tool)."
+      }
+    },
+    {
+      "seq": 5,
+      "direction": "server -> client",
+      "raw": "{\"jsonrpc\":\"2.0\",\"id\":2,\"result\":{\"tools\":[{\"name\":\"lookup_ingredient\",\"description\":\"Look up one ingredient by name and return its allergen classes plus\\nnutrition per 100g (kcal, protein_g, fat_g, carbs_g). This is a database\\nlookup, not a search \u2014 pass the ingredient exactly as it appears in a\\nrecipe (e.g. \\\"whole milk\\\", not \\\"milk products\\\"). If the name is not on\\nfile, the error names the closest known ingredient so you can retry with\\nthat exact name instead of guessing its nutrition or allergens.\",\"inputSchema\":{\"properties\":{\"name\":{\"title\":\"Name\",\"type\":\"string\"}},\"required\":[\"name\"],\"title\":\"lookup_ingredientArguments\",\"type\":\"object\"}}]}}",
+        "annotations": {
+        "result.tools": "One entry per @mcp.tool() function in ingredient_server.py -- this server defines exactly one, lookup_ingredient.",
+        "result.tools[].name": "The literal tool identifier the model must use verbatim in a later tools/call -- taken from the Python function's name.",
+        "result.tools[].description": "The Python docstring, sent VERBATIM. This is the actual prompt text the model reads to decide when/how to call the tool -- there is no separate \"prompt\" the developer writes; the docstring IS it.",
+        "result.tools[].inputSchema": "JSON Schema auto-derived from the function's type hints (`name: str` -> {\"type\": \"string\"}), not hand-written -- change the Python signature and this regenerates itself."
+      }
+    },
+    {
+      "seq": 6,
+      "direction": "client -> server",
+      "raw": "{\"jsonrpc\": \"2.0\", \"id\": 3, \"method\": \"tools/call\", \"params\": {\"name\": \"lookup_ingredient\", \"arguments\": {\"name\": \"peanut butter\"}}}",
+      "annotations": {
+        "method": "\"tools/call\" -- the invocation call. Everything before this frame was discovery/negotiation; this is the only frame that actually runs server code.",
+        "params.name": "Must exactly match a name from frame 5's tools/list result -- this is how the model's tool choice becomes a JSON-RPC call.",
+        "params.arguments": "The tool's input, validated by the server against frame 5's inputSchema before lookup_ingredient() ever executes -- a malformed call is rejected here, before touching application logic."
+      }
+    },
+    {
+      "seq": 7,
+      "direction": "server -> client",
+      "raw": "{\"jsonrpc\":\"2.0\",\"id\":3,\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"{\\n  \\\"name\\\": \\\"peanut butter\\\",\\n  \\\"allergens\\\": [\\n    \\\"peanut\\\"\\n  ],\\n  \\\"per_100g\\\": {\\n    \\\"kcal\\\": 588,\\n    \\\"protein_g\\\": 25.0,\\n    \\\"fat_g\\\": 50.0,\\n    \\\"carbs_g\\\": 20.0\\n  }\\n}\"}],\"isError\":false}}",
+      "annotations": {
+        "result.content": "MCP wraps every tool result in a content-block array (here one block of type \"text\") so a tool could equally return images or other media -- the actual Python return value (a dict) has been JSON-stringified into this one text block by FastMCP.",
+        "result.content[].text": "The real payload: lookup_ingredient()'s return dict, serialized -- allergens=[\"peanut\"], per_100g nutrition. This is what gets handed back to the model as the tool result.",
+        "result.isError": "false here because the ingredient was found. Had it been an unknown name, lookup_ingredient() would still return isError:false with an {\"error\": \"...: try 'X'\"} payload in the same text block -- a RECOVERABLE application-level error, not a protocol-level failure (see error_before_after.md)."
+      }
+    }
+  ]
+}

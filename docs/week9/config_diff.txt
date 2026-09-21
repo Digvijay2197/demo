@@ -1,0 +1,36 @@
+Week 9 Task Set B -- Requirement 2 (config diff)
+Config change that added server two: mcp_config.json
+==================================================================
+
+Command run:
+  git diff HEAD backend/mcp_servers/mcp_config.json
+
+diff --git a/backend/mcp_servers/mcp_config.json b/backend/mcp_servers/mcp_config.json
+index 9892bac..11289fb 100644
+--- a/backend/mcp_servers/mcp_config.json
++++ b/backend/mcp_servers/mcp_config.json
+@@ -5,6 +5,12 @@
+       "command": "python",
+       "args": ["-m", "mcp_servers.recipe_server"],
+       "cwd": "."
++    },
++    "ingredient-db": {
++      "transport": "stdio",
++      "command": "python",
++      "args": ["-m", "mcp_servers.ingredient_server"],
++      "cwd": "."
+     }
+   }
+ }
+
+6 lines added, 0 lines removed.  No other file in backend/agent/ changed.
+
+Before (mcp_config.before.json / HEAD state):
+  mcpServers: { recipe-search }          -> tools discovered: 3
+  search_recipe, get_nutrition, substitute_ingredient
+
+After (mcp_config.json / working tree):
+  mcpServers: { recipe-search, ingredient-db }  -> tools discovered: 4
+  get_nutrition, lookup_ingredient, search_recipe, substitute_ingredient
+
+Tool count before -> after:  3 -> 4

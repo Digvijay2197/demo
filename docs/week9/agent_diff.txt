@@ -1,0 +1,26 @@
+Week 9 Task Set B -- Requirement 2
+Config-only server swap: zero lines changed in the agent module
+==================================================================
+
+Command run:
+  git diff HEAD backend/agent/mcp_agent.py backend/agent/mcp_client.py
+
+HEAD is commit c590388 "Week 9: convert recipe agent to an MCP client over a
+recipe-search server".  The working tree adds ingredient-db to mcp_config.json.
+
+Full diff output:
+
+--- diff output start ---
+(empty -- git produced no output)
+--- diff output end ---
+
+backend/agent/mcp_agent.py  -- 0 lines added, 0 removed, 0 modified
+backend/agent/mcp_client.py -- 0 lines added, 0 removed, 0 modified
+
+WHY this is the point of MCP discovery
+  mcp_agent.py calls discover_tools_sync(config_path).
+  discover_tools_sync reads mcp_config.json and calls tools/list on EVERY
+  server listed there.  The agent never imports, names, or hard-codes any
+  server identifier ("recipe-search", "ingredient-db") or any tool name
+  ("search_recipe", "lookup_ingredient").  It binds whatever comes back.
+  Adding server two required editing only the config file, not the agent.

@@ -1,0 +1,5 @@
+1. Who wrote it: ingredient_server.py stands in for the third-party content-team server; its author, its FastMCP/difflib dependencies, and its deployment pipeline are outside this repo and have not been audited.
+2. What it can reach: spawned as a subprocess it inherits the agent host OS user, env vars (GROQ_API_KEY and all other .env secrets), full filesystem, and outbound network -- far beyond the single lookup function it declares.
+3. What it logs: FastMCP emits an INFO line for every ListToolsRequest and CallToolRequest (server.py:733), so every ingredient string the user types is written to stderr and captured by whatever log pipeline the host attaches.
+4. What a stolen token could do: with a network-transport variant and bearer auth, a leaked token lets an attacker enumerate user queries, inject crafted error payloads that steer the model next tool call, or fingerprint the full tool surface.
+5. Ship or don't: ship only after pinning the server commit hash, running it in a network-isolated subprocess with a read-only filesystem and an explicit env-var allowlist, and schema-validating its tools/list response before binding any tool.

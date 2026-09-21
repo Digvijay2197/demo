@@ -1,0 +1,25 @@
+  lap 1: ['lookup_ingredient']
+  lap 2: final answer
+{
+  "query": "What allergens and per-100g nutrition does peanut butter have?",
+  "final_text": "**Allergens in peanut butter:**  \n- Peanut\n\n**Nutrition per 100\u202fg:**  \n- Calories: 588\u202fkcal  \n- Protein: 25.0\u202fg  \n- Fat: 50.0\u202fg  \n- Carbohydrates: 20.0\u202fg",
+  "trace": [
+    {
+      "lap": 1,
+      "tool": "lookup_ingredient",
+      "args": {
+        "name": "peanut butter"
+      },
+      "result": "[{\"type\": \"text\", \"text\": \"{\\n  \\\"name\\\": \\\"peanut butter\\\",\\n  \\\"allergens\\\": [\\n    \\\"peanut\\\"\\n  ],\\n  \\\"per_100g\\\": {\\n    \\\"kcal\\\": 588,\\n    \\\"protein_g\\\": 25.0,\\n    \\\"fat_g\\\": 50.0,\\n    \\\"carbs_g\\\": 20.0\\n  }\\n}\", \"id\": \"lc_54b124d2-efd7-4010-9f28-cd8d28a545cf\"}]"
+    }
+  ],
+  "tool_names_discovered": [
+    "get_nutrition",
+    "lookup_ingredient",
+    "search_recipe",
+    "substitute_ingredient"
+  ],
+  "laps": 2,
+  "prompt_tokens": 1565,
+  "completion_tokens": 96
+}

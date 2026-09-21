@@ -5,6 +5,12 @@
       "command": "python",
       "args": ["-m", "mcp_servers.recipe_server"],
       "cwd": "."
+    },
+    "ingredient-db": {
+      "transport": "stdio",
+      "command": "python",
+      "args": ["-m", "mcp_servers.ingredient_server"],
+      "cwd": "."
     }
   }
 }
