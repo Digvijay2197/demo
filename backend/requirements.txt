@@ -27,6 +27,13 @@ sentence-transformers
 # --- PDF parsing (text-based PDFs) ---
 pymupdf
 
+# --- MCP (Week 9): recipe-search + ingredient-db servers, agent as client ---
+# Pulls in a newer starlette than fastapi's stated ceiling (0.115.6 wants
+# <0.42); harmless here since we only use stdio transport, but don't bump
+# fastapi expecting this to matter for the RAG endpoints.
+mcp
+langchain-mcp-adapters
+
 # --- Tests ---
 pytest==8.3.4
 httpx==0.28.1
