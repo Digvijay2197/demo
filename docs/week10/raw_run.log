@@ -1,0 +1,155 @@
+model: openai/gpt-oss-20b   price $/Mtok: in=0.1 out=0.5
+single-agent budget (one shared loop): Budget(max_iterations=10, max_tokens=24000, max_cost_usd=0.02, wall_clock_s=90.0)
+orchestrator budget (fresh per worker, x3): Budget(max_iterations=10, max_tokens=24000, max_cost_usd=0.02, wall_clock_s=90.0)
+
+r01_p4  "classic pancakes" -> 4 servings, avoid ['dairy']
+  lap 1: ['SearchRecipes']  cum_tokens=946 cum_cost=$0.00015
+  lap 2: ['GetNutrition']  cum_tokens=2138 cum_cost=$0.00028
+  lap 3: ['SubstituteIngredient']  cum_tokens=3620 cum_cost=$0.00046
+  lap 4: ['SubstituteIngredient']  cum_tokens=5190 cum_cost=$0.00063
+  lap 5: final answer  cum_tokens=7066 cum_cost=$0.00091
+    single agent   ok=True    20.16s  tok=  7066  llm=5
+    [nutrition_worker] lap 1: ['SearchRecipes'] cum_tokens=586
+    [nutrition_worker] lap 2: ['GetNutrition'] cum_tokens=1481
+    [nutrition_worker] lap 3: final answer cum_tokens=2860
+    [substitution_worker] lap 3: ['SubstituteIngredient'] cum_tokens=981
+    [substitution_worker] lap 4: ['SubstituteIngredient'] cum_tokens=2089
+    [substitution_worker] lap 5: final answer cum_tokens=3478
+    orchestrator   ok=True    54.62s  tok=  6715  llm=9
+
+r02_p8  "classic pancakes" -> 8 servings, avoid ['dairy', 'gluten']
+  lap 1: ['SearchRecipes']  cum_tokens=925 cum_cost=$0.00013
+  lap 2: ['GetNutrition']  cum_tokens=2113 cum_cost=$0.00027
+  lap 3: ['SubstituteIngredient']  cum_tokens=3600 cum_cost=$0.00045
+  lap 4: ['SubstituteIngredient']  cum_tokens=5201 cum_cost=$0.00063
+  lap 5: ['SubstituteIngredient']  cum_tokens=6932 cum_cost=$0.00084
+  lap 6: ['SubstituteIngredient']  cum_tokens=8755 cum_cost=$0.00105
+  lap 7: final answer  cum_tokens=10887 cum_cost=$0.00137
+    single agent   ok=True    29.45s  tok= 10887  llm=7
+    [nutrition_worker] lap 1: ['SearchRecipes'] cum_tokens=584
+    [nutrition_worker] lap 2: ['GetNutrition'] cum_tokens=1477
+    [nutrition_worker] lap 3: final answer cum_tokens=2863
+    [substitution_worker] lap 6: ['SubstituteIngredient'] cum_tokens=1263
+    [substitution_worker] lap 7: ['SubstituteIngredient'] cum_tokens=2656
+    [substitution_worker] lap 8: ['SubstituteIngredient'] cum_tokens=4150
+    [substitution_worker] lap 9: final answer cum_tokens=5946
+    orchestrator   ok=False  104.67s  tok=  9255  llm=13
+
+r03_mac6  "weeknight mac and cheese" -> 6 servings, avoid ['gluten']
+  lap 1: ['SearchRecipes']  cum_tokens=938 cum_cost=$0.00014
+  lap 2: ['GetNutrition']  cum_tokens=2120 cum_cost=$0.00028
+  lap 3: ['SubstituteIngredient']  cum_tokens=3596 cum_cost=$0.00046
+  lap 4: ['SubstituteIngredient']  cum_tokens=5184 cum_cost=$0.00064
+  lap 5: final answer  cum_tokens=7090 cum_cost=$0.00094
+    single agent   ok=True    38.22s  tok=  7090  llm=5
+    [nutrition_worker] lap 1: ['SearchRecipes'] cum_tokens=595
+    [nutrition_worker] lap 2: ['GetNutrition'] cum_tokens=1487
+    [nutrition_worker] lap 3: final answer cum_tokens=2843
+    [substitution_worker] BUDGET STOP: budget 'wall_clock_s' exceeded: 93.6 >= 90.0
+    orchestrator   ok=False  112.34s  tok=  2843  llm=12
+
+r04_mac4nut  "weeknight mac and cheese" -> 4 servings, avoid ['dairy', 'tree_nut']
+  lap 1: ['SearchRecipes']  cum_tokens=953 cum_cost=$0.00015
+  lap 2: ['SubstituteIngredient']  cum_tokens=2188 cum_cost=$0.00031
+  lap 3: ['SubstituteIngredient']  cum_tokens=3532 cum_cost=$0.00047
+  lap 4: ['SubstituteIngredient']  cum_tokens=4967 cum_cost=$0.00064
+  lap 5: ['SubstituteIngredient']  cum_tokens=6531 cum_cost=$0.00083
+  lap 6: ['GetNutrition']  cum_tokens=8183 cum_cost=$0.00101
+  lap 7: final answer  cum_tokens=10364 cum_cost=$0.00135
+    single agent   ok=True    51.67s  tok= 10364  llm=7
+    [nutrition_worker] lap 1: ['SearchRecipes'] cum_tokens=595
+    [nutrition_worker] lap 2: ['GetNutrition'] cum_tokens=1490
+    [nutrition_worker] lap 3: final answer cum_tokens=2840
+    [substitution_worker] BUDGET STOP: budget 'wall_clock_s' exceeded: 91.3 >= 90.0
+    orchestrator   ok=False  107.86s  tok=  2840  llm=12
+
+r05_curry4  "thai green curry" -> 4 servings, avoid ['shellfish']
+  lap 1: ['SearchRecipes']  cum_tokens=852 cum_cost=$0.00010
+  lap 2: ['GetNutrition']  cum_tokens=2057 cum_cost=$0.00024
+  lap 3: ['SubstituteIngredient']  cum_tokens=3537 cum_cost=$0.00041
+  lap 4: final answer  cum_tokens=5313 cum_cost=$0.00068
+    single agent   ok=True    20.04s  tok=  5313  llm=4
+    [nutrition_worker] lap 1: ['SearchRecipes'] cum_tokens=590
+    [nutrition_worker] lap 2: ['GetNutrition'] cum_tokens=1492
+    [nutrition_worker] lap 3: final answer cum_tokens=2892
+    [substitution_worker] lap 3: ['SubstituteIngredient'] cum_tokens=992
+    [substitution_worker] lap 4: final answer cum_tokens=2234
+    orchestrator   ok=True    43.99s  tok=  5598  llm=8
+
+r06_curry2  "thai green curry" -> 2 servings, avoid ['shellfish', 'fish']
+  lap 1: ['SearchRecipes']  cum_tokens=854 cum_cost=$0.00010
+  lap 2: ['GetNutrition']  cum_tokens=2050 cum_cost=$0.00023
+  lap 3: ['SubstituteIngredient']  cum_tokens=3535 cum_cost=$0.00040
+  lap 4: ['SubstituteIngredient']  cum_tokens=5124 cum_cost=$0.00058
+  lap 5: ['SubstituteIngredient']  cum_tokens=6839 cum_cost=$0.00077
+  lap 6: final answer  cum_tokens=8957 cum_cost=$0.00112
+    single agent   ok=True    47.63s  tok=  8957  llm=6
+    [nutrition_worker] lap 1: ['SearchRecipes'] cum_tokens=592
+    [nutrition_worker] lap 2: ['GetNutrition'] cum_tokens=1492
+    [nutrition_worker] lap 3: final answer cum_tokens=2887
+    [substitution_worker] lap 3: ['SubstituteIngredient'] cum_tokens=988
+    [substitution_worker] lap 4: ['SubstituteIngredient'] cum_tokens=2095
+    [substitution_worker] lap 5: final answer cum_tokens=3539
+    orchestrator   ok=False   60.28s  tok=  6919  llm=9
+
+r07_curry8  "thai green curry" -> 8 servings, avoid ['fish', 'soy', 'shellfish']
+  lap 1: ['SearchRecipes']  cum_tokens=856 cum_cost=$0.00010
+  lap 2: ['GetNutrition']  cum_tokens=2054 cum_cost=$0.00023
+  lap 3: ['SubstituteIngredient']  cum_tokens=3542 cum_cost=$0.00040
+  lap 4: ['SubstituteIngredient']  cum_tokens=5146 cum_cost=$0.00059
+  lap 5: ['SubstituteIngredient']  cum_tokens=6854 cum_cost=$0.00078
+  lap 6: ['SubstituteIngredient']  cum_tokens=8741 cum_cost=$0.00101
+  lap 7: final answer  cum_tokens=10995 cum_cost=$0.00138
+    single agent   ok=True    49.41s  tok= 10995  llm=7
+    [nutrition_worker] lap 1: ['SearchRecipes'] cum_tokens=590
+    [nutrition_worker] lap 2: ['GetNutrition'] cum_tokens=1492
+    [nutrition_worker] lap 3: final answer cum_tokens=2891
+    orchestrator   ok=False   85.08s  tok=  2891  llm=3
+
+r08_bread8  "banana bread" -> 8 servings, avoid ['dairy', 'egg']
+  lap 1: ['SearchRecipes']  cum_tokens=851 cum_cost=$0.00010
+    single agent   ok=False    8.56s  tok=   851  llm=1
+    [nutrition_worker] lap 1: ['SearchRecipes'] cum_tokens=588
+    orchestrator   ok=False    2.57s  tok=     0  llm=0
+
+r09_noodle4  "veggie stir-fry noodles" -> 4 servings, avoid ['gluten', 'soy']
+    single agent   ok=False    0.05s  tok=     0  llm=0
+    orchestrator   ok=False    0.04s  tok=     0  llm=0
+
+r10_cookie12  "chocolate chip cookies" -> 12 servings, avoid ['dairy']
+    single agent   ok=False    0.05s  tok=     0  llm=0
+    orchestrator   ok=False    0.04s  tok=     0  llm=0
+
+==============================================================================
+                 pass   p50 lat   p99 lat    tokens      $/req
+single agent      70%    24.80s    51.67s     61523   0.000786
+orchestrator      20%    57.45s   112.34s     37061   0.000554
+==============================================================================
+context re-send multiplier: 0.6x   dominant hand-off: orchestrator->nutrition_worker (54.2% of orchestrator tokens)
+
+wrote D:\ai_learning\demo\docs\week10\race_table.md, handoffs.log, race_summary.json
+failure demo on r05_curry4: "thai green curry" -> 4 servings, avoid ['shellfish']
+injecting: GetNutrition returns HTTP 500 on every attempt
+
+<!-- Soft Suave · The AI Engineering League -->
+# Week 10 — failure_case.md
+
+**Case:** `r05_curry4` — "thai green curry" -> 4 servings, avoid ['shellfish']
+**Injected failure:** the nutrition/allergen worker's `GetNutrition` tool call returns a simulated HTTP 500 on every attempt (persistent, not transient — the injection does not clear on retry).
+
+## What the orchestrator actually did
+
+(no failure was recorded — injection did not fire; re-run with a live GROQ_API_KEY)
+
+wrote D:\ai_learning\demo\docs\week10\failure_case.md
+<!-- Soft Suave · The AI Engineering League -->
+# Week 10 — verdict.md (KILL)
+
+**KILL the orchestrator.** Pass rate: single agent 70% vs orchestrator 20% on the same 10 requests. Total tokens: single agent 61,523 vs orchestrator 37,061 — a 0.6x re-send multiplier, 54.2% of it in orchestrator->nutrition_worker alone.
+P99 latency also moved: 51.67s single vs 112.34s orchestrator (the number a client screenshots, not p50).
+
+Sunk-cost bias, named out loud: we just spent this task building the orchestrator, which pulls hard toward keeping it to justify the work already done — that pull is not evidence either arm is better.
+
+None of the 10 requests need per-input branching the workflow (agent/workflow.py) cannot already express in three fixed steps; splitting those same three steps across two LLM-driven workers adds hand-off tax without adding a capability. Keep the orchestrator pattern only for a request an enumerable pipeline genuinely cannot express — none of these ten are that.
+
+wrote D:\ai_learning\demo\docs\week10\verdict.md

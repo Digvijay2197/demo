@@ -1,0 +1,21 @@
+request_id,system,ok,latency_s,total_tokens,cost_usd,llm_calls,note
+r01_p4,single_agent,True,20.16,7066,0.00091,5,
+r01_p4,orchestrator,True,54.62,6715,,9,
+r02_p8,single_agent,True,29.45,10887,0.00137,7,
+r02_p8,orchestrator,False,104.67,9255,,13,completed pipeline; failed judge (dropped substitution)
+r03_mac6,single_agent,True,38.22,7090,0.00094,5,
+r03_mac6,orchestrator,False,112.34,2843,,12,substitution_worker budget_stop:wall_clock_s
+r04_mac4nut,single_agent,True,51.67,10364,0.00135,7,
+r04_mac4nut,orchestrator,False,107.86,2840,,12,substitution_worker budget_stop:wall_clock_s
+r05_curry4,single_agent,True,20.04,5313,0.00068,4,
+r05_curry4,orchestrator,True,43.99,5598,,8,
+r06_curry2,single_agent,True,47.63,8957,0.00112,6,
+r06_curry2,orchestrator,False,60.28,6919,,9,completed pipeline; failed judge (dropped substitution)
+r07_curry8,single_agent,True,49.41,10995,0.00138,7,
+r07_curry8,orchestrator,False,85.08,2891,,3,transient RateLimitError on substitution_worker (pre-fix)
+r08_bread8,single_agent,False,8.56,851,0.00010,1,EXCLUDED from race_table.md -- quota cutoff mid-request
+r08_bread8,orchestrator,False,2.57,0,,0,EXCLUDED from race_table.md -- quota cutoff mid-request
+r09_noodle4,single_agent,False,0.05,0,0,0,EXCLUDED from race_table.md -- quota exhausted before any attempt
+r09_noodle4,orchestrator,False,0.04,0,0,0,EXCLUDED from race_table.md -- quota exhausted before any attempt
+r10_cookie12,single_agent,False,0.05,0,0,0,EXCLUDED from race_table.md -- quota exhausted before any attempt
+r10_cookie12,orchestrator,False,0.04,0,0,0,EXCLUDED from race_table.md -- quota exhausted before any attempt
