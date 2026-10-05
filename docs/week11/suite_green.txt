@@ -27,3 +27,4 @@ w11-03  dietary_allergen  9/9  My daughter can't have any dairy - is ghee okay f
   [patient] rate-limited, sleeping 150s (waited 0s)
   [patient] rate-limited, sleeping 150s (waited 150s)
   [patient] rate-limited, sleeping 150s (waited 300s)
+  [patient] rate-limited, sleeping 150s (waited 450s)
