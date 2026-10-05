@@ -16,4 +16,5 @@ os.environ.setdefault("GROQ_API_KEY", "test-key-not-used")
 # tests drive ingestion explicitly - no startup auto-ingest, no folder watcher
 os.environ.setdefault("AUTO_INGEST_ON_STARTUP", "false")
 os.environ.setdefault("WATCH_PDF_DIR", "false")
+os.environ.setdefault("TRACE_LOG", "false")  # tests must not write to logs/traces.jsonl
 os.makedirs(os.environ["PDF_DIR"], exist_ok=True)

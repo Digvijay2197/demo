@@ -31,6 +31,13 @@ GROQ_REASONING_EFFORT = os.environ.get("GROQ_REASONING_EFFORT", "low")
 # limit (~4 chars/token, so 4000 chars ≈ 1k tokens of context).
 MAX_CONTEXT_CHARS = int(os.environ.get("MAX_CONTEXT_CHARS", "4000"))
 
+# --- Cost model (Week 11) ---
+# USD per 1M tokens, ASSUMED Groq list price for openai/gpt-oss-20b (the free
+# tier bills $0 - this is what the same traffic would cost on a paid plan).
+# Verify against https://groq.com/pricing and override via env if it moved.
+PRICE_IN_PER_M = float(os.environ.get("PRICE_IN_PER_M", "0.075"))
+PRICE_OUT_PER_M = float(os.environ.get("PRICE_OUT_PER_M", "0.30"))
+
 # --- Embeddings ---
 EMBEDDING_MODEL = os.environ.get("EMBEDDING_MODEL", "sentence-transformers/all-MiniLM-L6-v2")
 

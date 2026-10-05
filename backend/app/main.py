@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-from fastapi import FastAPI, File, HTTPException, Query, UploadFile
+from fastapi import FastAPI, File, Header, HTTPException, Query, UploadFile
 from fastapi.concurrency import run_in_threadpool
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
@@ -101,9 +101,13 @@ def health():
 
 
 @app.post("/chat")
-def chat(req: ChatRequest):
+def chat(
+    req: ChatRequest,
+    x_user_id: str = Header("anon"),
+    x_session_id: str = Header("none"),
+):
     try:
-        return answer_question(req.question)
+        return answer_question(req.question, user_id=x_user_id, session_id=x_session_id)
     except RuntimeError as exc:  # missing GROQ_API_KEY, or Groq rate-limited
         raise HTTPException(status_code=503, detail=str(exc))
     except Exception as exc:  # noqa: BLE001

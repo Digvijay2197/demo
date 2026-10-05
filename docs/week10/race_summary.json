@@ -1,44 +1,40 @@
 {
   "model": "openai/gpt-oss-20b",
-  "price_per_mtok": [0.1, 0.5],
-  "coverage": {
-    "requested": 10,
-    "completed_both_arms": 7,
-    "completed_ids": ["r01_p4", "r02_p8", "r03_mac6", "r04_mac4nut", "r05_curry4", "r06_curry2", "r07_curry8"],
-    "excluded_ids": ["r08_bread8", "r09_noodle4", "r10_cookie12"],
-    "exclusion_reason": "Groq free-tier 200000-tokens/day quota exhausted mid-run (see docs/week10-race-notes.md); r08 partial, r09/r10 zero real tokens"
-  },
+  "price_per_mtok": [
+    0.1,
+    0.5
+  ],
   "single_agent": {
-    "n": 7,
-    "pass_rate": 1.0,
-    "p50_latency_s": 38.22,
-    "p99_latency_s": 51.67,
-    "total_tokens": 60672,
-    "mean_cost_per_req_usd": 0.001107,
-    "total_cost_usd": 0.00775
+    "n": 10,
+    "pass_rate": 0.9,
+    "p50_latency_s": 41.563,
+    "p99_latency_s": 62.86,
+    "total_tokens": 80204,
+    "mean_cost_per_req_usd": 0.001048,
+    "total_cost_usd": 0.01048,
+    "budget_stops": 0,
+    "errors": 0
   },
   "orchestrator": {
-    "n": 7,
-    "pass_rate": 0.286,
-    "p50_latency_s": 85.08,
-    "p99_latency_s": 112.34,
-    "total_tokens": 37061,
-    "mean_cost_per_req_usd": 0.000791,
-    "total_cost_usd": 0.00554,
-    "cost_note": "derived from the original run's own internal accounting (real Usage totals), not reconstructed per-request from the console log -- see race_table.md methodology note"
+    "n": 10,
+    "pass_rate": 0.3,
+    "p50_latency_s": 101.704,
+    "p99_latency_s": 113.128,
+    "total_tokens": 50783,
+    "mean_cost_per_req_usd": 0.00075,
+    "total_cost_usd": 0.007499,
+    "budget_stops": 5,
+    "errors": 0
   },
   "context_resend_multiplier": 0.6,
-  "dominant_handoff": {"type": "orchestrator->nutrition_worker", "pct_of_total_tokens": 54.2, "tokens": 20076},
-  "handoff_token_totals": {
-    "orchestrator->nutrition_worker": 20076,
-    "orchestrator->substitution_worker": 15197,
-    "orchestrator->synthesis": 1788
+  "dominant_handoff": {
+    "type": "orchestrator->nutrition_worker",
+    "pct_of_total_tokens": 56.3,
+    "tokens": 28578
   },
-  "failure_modes_observed": {
-    "r03_mac6": "substitution_worker budget_stop:wall_clock_s, zero successful laps",
-    "r04_mac4nut": "substitution_worker budget_stop:wall_clock_s, zero successful laps",
-    "r07_curry8": "transient Groq RateLimitError on substitution_worker's first call (pre-dates the WorkerRuntimeError accounting fix)",
-    "r02_p8": "pipeline completed end-to-end, failed the deterministic judge (dropped a substitution)",
-    "r06_curry2": "pipeline completed end-to-end, failed the deterministic judge (dropped a substitution)"
+  "handoff_token_totals": {
+    "orchestrator->nutrition_worker": 28578,
+    "orchestrator->substitution_worker": 20043,
+    "orchestrator->synthesis": 2162
   }
 }

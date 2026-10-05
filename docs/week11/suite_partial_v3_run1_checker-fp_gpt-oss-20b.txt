@@ -1,0 +1,9 @@
+  [patient] rate-limited, sleeping 150s (waited 0s)
+  [patient] rate-limited, sleeping 150s (waited 150s)
+  [patient] rate-limited, sleeping 150s (waited 0s)
+  [patient] rate-limited, sleeping 150s (waited 150s)
+  [patient] rate-limited, sleeping 150s (waited 300s)
+w11-02  dietary_allergen  8/9  I'm allergic to milk, can the chicken biryani be m
+  [patient] rate-limited, sleeping 150s (waited 0s)
+  [patient] rate-limited, sleeping 150s (waited 150s)
+  [patient] rate-limited, sleeping 150s (waited 300s)

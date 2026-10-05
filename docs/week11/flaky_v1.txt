@@ -1,0 +1,6 @@
+prompt_version=v1
+w11-01: 1/5 runs pass   failing checks on bad runs: [['no_dairy_endorsement', 'flags_dairy'], ['no_dairy_endorsement', 'flags_dairy'], ['flags_dairy'], ['no_dairy_endorsement', 'flags_dairy']]
+w11-02: 0/5 runs pass   failing checks on bad runs: [['no_dairy_endorsement', 'flags_dairy'], ['no_dairy_endorsement', 'flags_dairy'], ['no_dairy_endorsement', 'flags_dairy'], ['no_dairy_endorsement', 'flags_dairy'], ['no_dairy_endorsement', 'flags_dairy']]
+w11-03: 2/5 runs pass   failing checks on bad runs: [['keyword_present'], ['keyword_present'], ['keyword_present']]
+e05: 0/5 runs pass   failing checks on bad runs: [['refused_as_expected', 'keyword_present', 'right_page', 'not_bare_refusal'], ['refused_as_expected', 'keyword_present', 'right_page', 'not_bare_refusal'], ['refused_as_expected', 'keyword_present', 'right_page', 'not_bare_refusal'], ['refused_as_expected', 'keyword_present', 'right_page', 'not_bare_refusal'], ['refused_as_expected', 'keyword_present', 'right_page', 'not_bare_refusal']]
+done

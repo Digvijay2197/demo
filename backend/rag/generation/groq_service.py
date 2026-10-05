@@ -18,7 +18,16 @@ from rag.config import (
     GROQ_REASONING_EFFORT,
     MAX_CONTEXT_CHARS,
 )
-from rag.generation.prompt import GROUNDING_SYSTEM_PROMPT, build_context_block
+from rag.observability.tracing import record_llm_usage
+from rag.generation.prompt import (
+    DIETARY_REMINDER,
+    GROUNDING_SYSTEM_PROMPT,
+    PROMPT_VERSION,
+    PROMPTS,
+    REMINDER_VERSIONS,
+    build_context_block,
+)
+from rag.observability.dairy_check import restriction_stated
 
 
 class RateLimitedError(RuntimeError):
@@ -51,16 +60,25 @@ def _fit_context(results: List[Tuple[Document, float]]) -> List[Tuple[Document, 
     return kept
 
 
-def generate_grounded_answer(question: str, results: List[Tuple[Document, float]]) -> str:
+def build_messages(question: str, results: List[Tuple[Document, float]], version: str = None) -> list:
+    """The exact messages sent to the model for a prompt version (pure - no LLM call)."""
+    version = version or PROMPT_VERSION
     context_block = build_context_block(_fit_context(results))
-    messages = [
-        SystemMessage(content=GROUNDING_SYSTEM_PROMPT),
+    reminder = DIETARY_REMINDER if version in REMINDER_VERSIONS and restriction_stated(question) else ""
+    return [
+        SystemMessage(content=PROMPTS[version]),
         HumanMessage(
-            content=f"Retrieved recipe context:\n\n{context_block}\n\nQuestion: {question}"
+            content=f"Retrieved recipe context:\n\n{context_block}\n\n{reminder}Question: {question}"
         ),
     ]
+
+
+def generate_grounded_answer(question: str, results: List[Tuple[Document, float]]) -> str:
+    messages = build_messages(question, results)
     try:
-        return _get_llm().invoke(messages).content or ""
+        response = _get_llm().invoke(messages)
+        record_llm_usage(response)
+        return response.content or ""
     except Exception as exc:  # noqa: BLE001
         if "rate_limit" in str(exc).lower() or "429" in str(exc):
             raise RateLimitedError(

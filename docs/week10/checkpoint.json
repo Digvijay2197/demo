@@ -1,0 +1,1562 @@
+{
+  "r01_p4": {
+    "single": {
+      "output": {
+        "recipe": "Classic Pancakes",
+        "servings": 4,
+        "ingredients": [
+          {
+            "item": "all-purpose flour",
+            "qty": 200,
+            "unit": "g"
+          },
+          {
+            "item": "oat milk",
+            "qty": 300,
+            "unit": "ml"
+          },
+          {
+            "item": "egg",
+            "qty": 2,
+            "unit": ""
+          },
+          {
+            "item": "coconut oil",
+            "qty": 24,
+            "unit": "g"
+          },
+          {
+            "item": "caster sugar",
+            "qty": 20,
+            "unit": "g"
+          },
+          {
+            "item": "baking powder",
+            "qty": 8,
+            "unit": "g"
+          },
+          {
+            "item": "fine salt",
+            "qty": null,
+            "unit": "pinch"
+          }
+        ],
+        "substitutions": [
+          {
+            "from": "whole milk",
+            "to": "oat milk",
+            "reason": "remove dairy"
+          },
+          {
+            "from": "butter",
+            "to": "coconut oil",
+            "reason": "remove dairy"
+          }
+        ],
+        "method": [
+          "Whisk the flour, sugar, baking powder and salt in a large bowl.",
+          "Beat in the oat milk and egg until just smooth, then stir in the melted coconut oil.",
+          "Rest the batter 10 minutes while a non-stick pan heats over medium heat.",
+          "Cook 3 tablespoons of batter per pancake, about 2 minutes a side, until golden."
+        ]
+      },
+      "error": "",
+      "checks": {
+        "is_object": true,
+        "right_recipe": true,
+        "servings_set": true,
+        "has_ingredients": true,
+        "has_method": true,
+        "allergen_free": true,
+        "originals_removed": true,
+        "scaled": true
+      },
+      "request_id": "r01_p4",
+      "prompt_tokens": 6547,
+      "system": "agent",
+      "completion_tokens": 514,
+      "terminated_by": "",
+      "latency_s": 2.87,
+      "llm_calls": 5,
+      "ok": true,
+      "tool_calls": 4,
+      "handoffs": []
+    },
+    "multi": {
+      "output": {
+        "recipe": "Classic Pancakes",
+        "servings": 4,
+        "ingredients": [
+          {
+            "item": "all-purpose flour",
+            "qty": 200.0,
+            "unit": "g"
+          },
+          {
+            "item": "oat milk",
+            "qty": 300.0,
+            "unit": "ml"
+          },
+          {
+            "item": "flax egg",
+            "qty": 2.0,
+            "unit": ""
+          },
+          {
+            "item": "coconut oil",
+            "qty": 24.0,
+            "unit": "g"
+          },
+          {
+            "item": "caster sugar",
+            "qty": 20.0,
+            "unit": "g"
+          },
+          {
+            "item": "baking powder",
+            "qty": 8.0,
+            "unit": "g"
+          },
+          {
+            "item": "fine salt",
+            "qty": null,
+            "unit": "pinch"
+          }
+        ],
+        "substitutions": [
+          {
+            "from": "whole milk",
+            "to": "oat milk",
+            "reason": "removed dairy allergen"
+          },
+          {
+            "from": "egg",
+            "to": "flax egg",
+            "reason": "removed dairy allergen"
+          },
+          {
+            "from": "butter",
+            "to": "coconut oil",
+            "reason": "removed dairy allergen"
+          }
+        ],
+        "method": [
+          "Whisk the flour, sugar, baking powder and salt in a large bowl.",
+          "Beat in the milk and flax egg until just smooth, then stir in the melted coconut oil.",
+          "Rest the batter 10 minutes while a non-stick pan heats over medium heat.",
+          "Cook 3 tablespoons of batter per pancake, about 2 minutes a side, until golden."
+        ]
+      },
+      "error": "",
+      "checks": {
+        "is_object": true,
+        "right_recipe": true,
+        "servings_set": true,
+        "has_ingredients": true,
+        "has_method": true,
+        "allergen_free": true,
+        "originals_removed": true,
+        "scaled": true
+      },
+      "request_id": "r01_p4",
+      "prompt_tokens": 7173,
+      "system": "orchestrator",
+      "completion_tokens": 879,
+      "terminated_by": "",
+      "latency_s": 58.075,
+      "llm_calls": 10,
+      "ok": true,
+      "tool_calls": 5,
+      "handoffs": [
+        {
+          "handoff": "orchestrator->nutrition_worker",
+          "prompt_tokens": 2516,
+          "completion_tokens": 344,
+          "total_tokens": 2860,
+          "laps": 3,
+          "tool_calls": 2,
+          "outcome": "ok"
+        },
+        {
+          "handoff": "orchestrator->substitution_worker",
+          "prompt_tokens": 4399,
+          "completion_tokens": 394,
+          "total_tokens": 4793,
+          "laps": 6,
+          "tool_calls": 3,
+          "outcome": "ok"
+        },
+        {
+          "handoff": "orchestrator->synthesis",
+          "prompt_tokens": 258,
+          "completion_tokens": 141,
+          "total_tokens": 399,
+          "laps": 1,
+          "tool_calls": 0,
+          "outcome": "ok"
+        }
+      ]
+    }
+  },
+  "r02_p8": {
+    "single": {
+      "output": {
+        "recipe": "Classic Pancakes",
+        "servings": 8,
+        "ingredients": [
+          {
+            "item": "almond flour",
+            "qty": 400.0,
+            "unit": "g"
+          },
+          {
+            "item": "rice milk",
+            "qty": 600.0,
+            "unit": "ml"
+          },
+          {
+            "item": "egg",
+            "qty": 4.0,
+            "unit": ""
+          },
+          {
+            "item": "butter",
+            "qty": 60.0,
+            "unit": "g"
+          },
+          {
+            "item": "caster sugar",
+            "qty": 40.0,
+            "unit": "g"
+          },
+          {
+            "item": "baking powder",
+            "qty": 16.0,
+            "unit": "g"
+          },
+          {
+            "item": "fine salt",
+            "qty": null,
+            "unit": "pinch"
+          }
+        ],
+        "substitutions": [
+          {
+            "from": "all-purpose flour",
+            "to": "almond flour",
+            "reason": "remove gluten"
+          },
+          {
+            "from": "whole milk",
+            "to": "rice milk",
+            "reason": "remove dairy and gluten"
+          },
+          {
+            "from": "butter",
+            "to": "butter",
+            "reason": "no substitution needed; dairy allergen not requested"
+          },
+          {
+            "from": "egg",
+            "to": "egg",
+            "reason": "no substitution needed; egg allergen not requested"
+          }
+        ],
+        "method": [
+          "Whisk the almond flour, caster sugar, baking powder and fine salt in a large bowl.",
+          "Beat in the rice milk and egg until just smooth, then stir in the melted butter.",
+          "Rest the batter 10 minutes while a non\u2011stick pan heats over medium heat.",
+          "Cook 3 tablespoons of batter per pancake, about 2 minutes a side, until golden."
+        ]
+      },
+      "error": "",
+      "checks": {
+        "is_object": true,
+        "right_recipe": true,
+        "servings_set": true,
+        "has_ingredients": true,
+        "has_method": true,
+        "allergen_free": false,
+        "originals_removed": false,
+        "scaled": true
+      },
+      "request_id": "r02_p8",
+      "prompt_tokens": 8321,
+      "system": "agent",
+      "completion_tokens": 686,
+      "terminated_by": "",
+      "latency_s": 48.699,
+      "llm_calls": 6,
+      "ok": false,
+      "tool_calls": 5,
+      "handoffs": []
+    },
+    "multi": {
+      "output": {
+        "recipe": "Classic Pancakes",
+        "servings": 8,
+        "ingredients": [
+          {
+            "item": "almond flour",
+            "qty": 400.0,
+            "unit": "g"
+          },
+          {
+            "item": "oat milk",
+            "qty": 600.0,
+            "unit": "ml"
+          },
+          {
+            "item": "egg",
+            "qty": 4.0,
+            "unit": ""
+          },
+          {
+            "item": "coconut oil",
+            "qty": 48.0,
+            "unit": "g"
+          },
+          {
+            "item": "caster sugar",
+            "qty": 40.0,
+            "unit": "g"
+          },
+          {
+            "item": "baking powder",
+            "qty": 16.0,
+            "unit": "g"
+          },
+          {
+            "item": "fine salt",
+            "qty": null,
+            "unit": "pinch"
+          }
+        ],
+        "substitutions": [
+          {
+            "from": "all-purpose flour",
+            "to": "almond flour",
+            "reason": "avoid gluten"
+          },
+          {
+            "from": "whole milk",
+            "to": "oat milk",
+            "reason": "avoid dairy"
+          },
+          {
+            "from": "butter",
+            "to": "coconut oil",
+            "reason": "avoid dairy"
+          }
+        ],
+        "method": [
+          "Whisk the almond flour, sugar, baking powder and salt in a large bowl.",
+          "Beat in the oat milk and egg until just smooth, then stir in the melted coconut oil.",
+          "Rest the batter 10 minutes while a non\u2011stick pan heats over medium heat.",
+          "Cook 3 tablespoons of batter per pancake, about 2 minutes a side, until golden."
+        ]
+      },
+      "error": "",
+      "checks": {
+        "is_object": true,
+        "right_recipe": true,
+        "servings_set": true,
+        "has_ingredients": true,
+        "has_method": true,
+        "allergen_free": false,
+        "originals_removed": true,
+        "scaled": true
+      },
+      "request_id": "r02_p8",
+      "prompt_tokens": 7583,
+      "system": "orchestrator",
+      "completion_tokens": 889,
+      "terminated_by": "",
+      "latency_s": 76.641,
+      "llm_calls": 11,
+      "ok": false,
+      "tool_calls": 5,
+      "handoffs": [
+        {
+          "handoff": "orchestrator->nutrition_worker",
+          "prompt_tokens": 2522,
+          "completion_tokens": 341,
+          "total_tokens": 2863,
+          "laps": 3,
+          "tool_calls": 2,
+          "outcome": "ok"
+        },
+        {
+          "handoff": "orchestrator->substitution_worker",
+          "prompt_tokens": 4798,
+          "completion_tokens": 367,
+          "total_tokens": 5165,
+          "laps": 7,
+          "tool_calls": 3,
+          "outcome": "ok"
+        },
+        {
+          "handoff": "orchestrator->synthesis",
+          "prompt_tokens": 263,
+          "completion_tokens": 181,
+          "total_tokens": 444,
+          "laps": 1,
+          "tool_calls": 0,
+          "outcome": "ok"
+        }
+      ]
+    }
+  },
+  "r03_mac6": {
+    "single": {
+      "output": {
+        "recipe": "Weeknight Mac and Cheese",
+        "servings": 6,
+        "ingredients": [
+          {
+            "item": "brown-rice macaroni",
+            "qty": 450.0,
+            "unit": "g"
+          },
+          {
+            "item": "whole milk",
+            "qty": 600.0,
+            "unit": "ml"
+          },
+          {
+            "item": "butter",
+            "qty": 60.0,
+            "unit": "g"
+          },
+          {
+            "item": "almond flour",
+            "qty": 45.0,
+            "unit": "g"
+          },
+          {
+            "item": "cheddar cheese",
+            "qty": 300.0,
+            "unit": "g"
+          },
+          {
+            "item": "fine salt",
+            "qty": null,
+            "unit": "pinch"
+          }
+        ],
+        "substitutions": [
+          {
+            "from": "macaroni",
+            "to": "brown-rice macaroni",
+            "reason": "remove gluten"
+          },
+          {
+            "from": "all-purpose flour",
+            "to": "almond flour",
+            "reason": "remove gluten"
+          }
+        ],
+        "method": [
+          "Boil the brown-rice macaroni in salted water until just al dente, then drain.",
+          "Melt the butter in the pot, stir in the almond flour and cook 1 minute to a paste.",
+          "Whisk in the milk and simmer until it thickens enough to coat a spoon.",
+          "Off the heat, stir in the cheddar until glossy, fold in the macaroni and season."
+        ]
+      },
+      "error": "",
+      "checks": {
+        "is_object": true,
+        "right_recipe": true,
+        "servings_set": true,
+        "has_ingredients": true,
+        "has_method": true,
+        "allergen_free": true,
+        "originals_removed": true,
+        "scaled": true
+      },
+      "request_id": "r03_mac6",
+      "prompt_tokens": 6505,
+      "system": "agent",
+      "completion_tokens": 573,
+      "terminated_by": "",
+      "latency_s": 42.156,
+      "llm_calls": 5,
+      "ok": true,
+      "tool_calls": 4,
+      "handoffs": []
+    },
+    "multi": {
+      "output": {},
+      "error": "",
+      "checks": {
+        "is_object": false
+      },
+      "request_id": "r03_mac6",
+      "prompt_tokens": 2492,
+      "system": "orchestrator",
+      "completion_tokens": 351,
+      "terminated_by": "wall_clock_s",
+      "latency_s": 113.128,
+      "llm_calls": 12,
+      "ok": false,
+      "tool_calls": 2,
+      "handoffs": [
+        {
+          "handoff": "orchestrator->nutrition_worker",
+          "prompt_tokens": 2492,
+          "completion_tokens": 351,
+          "total_tokens": 2843,
+          "laps": 3,
+          "tool_calls": 2,
+          "outcome": "ok"
+        },
+        {
+          "handoff": "orchestrator->substitution_worker",
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0,
+          "laps": 9,
+          "tool_calls": 0,
+          "outcome": "budget_stop:wall_clock_s"
+        }
+      ]
+    }
+  },
+  "r04_mac4nut": {
+    "single": {
+      "output": {
+        "recipe": "Weeknight Mac and Cheese",
+        "servings": 4,
+        "ingredients": [
+          {
+            "item": "macaroni",
+            "qty": 300,
+            "unit": "g"
+          },
+          {
+            "item": "oat milk",
+            "qty": 400,
+            "unit": "ml"
+          },
+          {
+            "item": "coconut oil",
+            "qty": 32,
+            "unit": "g"
+          },
+          {
+            "item": "all-purpose flour",
+            "qty": 30,
+            "unit": "g"
+          },
+          {
+            "item": "nutritional-yeast sauce",
+            "qty": 120,
+            "unit": "ml"
+          },
+          {
+            "item": "fine salt",
+            "qty": null,
+            "unit": "pinch"
+          }
+        ],
+        "substitutions": [
+          {
+            "from": "whole milk",
+            "to": "oat milk",
+            "reason": "avoid dairy"
+          },
+          {
+            "from": "butter",
+            "to": "coconut oil",
+            "reason": "avoid dairy"
+          },
+          {
+            "from": "cheddar cheese",
+            "to": "cashew cheese",
+            "reason": "avoid dairy"
+          },
+          {
+            "from": "cashew cheese",
+            "to": "nutritional-yeast sauce",
+            "reason": "avoid tree_nut"
+          }
+        ],
+        "method": [
+          "Boil the macaroni in salted water until just al dente, then drain.",
+          "Melt the coconut oil in the pot, stir in the flour and cook 1 minute to a paste.",
+          "Whisk in the oat milk and simmer until it thickens enough to coat a spoon.",
+          "Off the heat, stir in the nutritional-yeast sauce until glossy, fold in the macaroni and season."
+        ]
+      },
+      "error": "",
+      "checks": {
+        "is_object": true,
+        "right_recipe": true,
+        "servings_set": true,
+        "has_ingredients": true,
+        "has_method": true,
+        "allergen_free": true,
+        "originals_removed": true,
+        "scaled": true
+      },
+      "request_id": "r04_mac4nut",
+      "prompt_tokens": 10140,
+      "system": "agent",
+      "completion_tokens": 746,
+      "terminated_by": "",
+      "latency_s": 62.86,
+      "llm_calls": 7,
+      "ok": true,
+      "tool_calls": 6,
+      "handoffs": []
+    },
+    "multi": {
+      "output": {},
+      "error": "",
+      "checks": {
+        "is_object": false
+      },
+      "request_id": "r04_mac4nut",
+      "prompt_tokens": 2504,
+      "system": "orchestrator",
+      "completion_tokens": 336,
+      "terminated_by": "wall_clock_s",
+      "latency_s": 112.51,
+      "llm_calls": 12,
+      "ok": false,
+      "tool_calls": 2,
+      "handoffs": [
+        {
+          "handoff": "orchestrator->nutrition_worker",
+          "prompt_tokens": 2504,
+          "completion_tokens": 336,
+          "total_tokens": 2840,
+          "laps": 3,
+          "tool_calls": 2,
+          "outcome": "ok"
+        },
+        {
+          "handoff": "orchestrator->substitution_worker",
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0,
+          "laps": 9,
+          "tool_calls": 0,
+          "outcome": "budget_stop:wall_clock_s"
+        }
+      ]
+    }
+  },
+  "r05_curry4": {
+    "single": {
+      "output": {
+        "recipe": "Thai Green Curry",
+        "servings": 4,
+        "ingredients": [
+          {
+            "item": "coconut milk",
+            "qty": 400,
+            "unit": "ml"
+          },
+          {
+            "item": "chicken thigh",
+            "qty": 500,
+            "unit": "g"
+          },
+          {
+            "item": "green curry paste",
+            "qty": 60,
+            "unit": "g"
+          },
+          {
+            "item": "fish sauce",
+            "qty": 2.17,
+            "unit": "tbsp"
+          },
+          {
+            "item": "palm sugar",
+            "qty": 1,
+            "unit": "tbsp"
+          },
+          {
+            "item": "thai basil",
+            "qty": 20,
+            "unit": "g"
+          }
+        ],
+        "substitutions": [
+          {
+            "from": "shrimp paste",
+            "to": "fish sauce",
+            "reason": "remove shellfish allergen"
+          }
+        ],
+        "method": [
+          "Fry the curry paste and fish sauce in the thick coconut cream until it splits and smells fragrant.",
+          "Add the chicken and turn it in the paste until the outside is opaque.",
+          "Pour in the rest of the coconut milk, then season with fish sauce and palm sugar.",
+          "Simmer 15 minutes until the chicken is cooked, then stir the basil through off the heat."
+        ]
+      },
+      "error": "",
+      "checks": {
+        "is_object": true,
+        "right_recipe": true,
+        "servings_set": true,
+        "has_ingredients": true,
+        "has_method": true,
+        "allergen_free": true,
+        "originals_removed": true,
+        "scaled": true
+      },
+      "request_id": "r05_curry4",
+      "prompt_tokens": 4779,
+      "system": "agent",
+      "completion_tokens": 683,
+      "terminated_by": "",
+      "latency_s": 26.638,
+      "llm_calls": 4,
+      "ok": true,
+      "tool_calls": 3,
+      "handoffs": []
+    },
+    "multi": {
+      "output": {
+        "recipe": "Thai Green Curry",
+        "servings": 4,
+        "ingredients": [
+          {
+            "item": "coconut milk",
+            "qty": 400,
+            "unit": "ml"
+          },
+          {
+            "item": "chicken thigh",
+            "qty": 500,
+            "unit": "g"
+          },
+          {
+            "item": "green curry paste",
+            "qty": 60,
+            "unit": "g"
+          },
+          {
+            "item": "fish sauce",
+            "qty": 2,
+            "unit": "tbsp"
+          },
+          {
+            "item": "fish sauce",
+            "qty": 0.5,
+            "unit": "tsp"
+          },
+          {
+            "item": "palm sugar",
+            "qty": 1,
+            "unit": "tbsp"
+          },
+          {
+            "item": "thai basil",
+            "qty": 20,
+            "unit": "g"
+          }
+        ],
+        "substitutions": [
+          {
+            "from": "shrimp paste",
+            "to": "fish sauce",
+            "reason": "avoid shellfish allergen"
+          }
+        ],
+        "method": [
+          "Fry the curry paste and fish sauce in the thick coconut cream until it splits and smells fragrant.",
+          "Add the chicken and turn it in the paste until the outside is opaque.",
+          "Pour in the rest of the coconut milk, then season with fish sauce and palm sugar.",
+          "Simmer 15 minutes until the chicken is cooked, then stir the basil through off the heat."
+        ]
+      },
+      "error": "",
+      "checks": {
+        "is_object": true,
+        "right_recipe": true,
+        "servings_set": true,
+        "has_ingredients": true,
+        "has_method": true,
+        "allergen_free": true,
+        "originals_removed": true,
+        "scaled": true
+      },
+      "request_id": "r05_curry4",
+      "prompt_tokens": 4744,
+      "system": "orchestrator",
+      "completion_tokens": 912,
+      "terminated_by": "",
+      "latency_s": 50.675,
+      "llm_calls": 8,
+      "ok": true,
+      "tool_calls": 3,
+      "handoffs": [
+        {
+          "handoff": "orchestrator->nutrition_worker",
+          "prompt_tokens": 2537,
+          "completion_tokens": 341,
+          "total_tokens": 2878,
+          "laps": 3,
+          "tool_calls": 2,
+          "outcome": "ok"
+        },
+        {
+          "handoff": "orchestrator->substitution_worker",
+          "prompt_tokens": 1973,
+          "completion_tokens": 333,
+          "total_tokens": 2306,
+          "laps": 4,
+          "tool_calls": 1,
+          "outcome": "ok"
+        },
+        {
+          "handoff": "orchestrator->synthesis",
+          "prompt_tokens": 234,
+          "completion_tokens": 238,
+          "total_tokens": 472,
+          "laps": 1,
+          "tool_calls": 0,
+          "outcome": "ok"
+        }
+      ]
+    }
+  },
+  "r06_curry2": {
+    "single": {
+      "output": {
+        "recipe": "Thai Green Curry",
+        "servings": 2,
+        "ingredients": [
+          {
+            "item": "coconut milk",
+            "qty": 200,
+            "unit": "ml"
+          },
+          {
+            "item": "chicken thigh",
+            "qty": 250,
+            "unit": "g"
+          },
+          {
+            "item": "green curry paste",
+            "qty": 30,
+            "unit": "g"
+          },
+          {
+            "item": "light soy sauce",
+            "qty": 1.08,
+            "unit": "tbsp"
+          },
+          {
+            "item": "palm sugar",
+            "qty": 0.5,
+            "unit": "tbsp"
+          },
+          {
+            "item": "thai basil",
+            "qty": 10,
+            "unit": "g"
+          }
+        ],
+        "substitutions": [
+          {
+            "from": "fish sauce",
+            "to": "light soy sauce",
+            "reason": "avoid fish allergen"
+          },
+          {
+            "from": "shrimp paste",
+            "to": "light soy sauce",
+            "reason": "avoid shellfish allergen"
+          }
+        ],
+        "method": [
+          "Fry the curry paste and light soy sauce in the thick coconut cream until it splits and smells fragrant.",
+          "Add the chicken and turn it in the paste until the outside is opaque.",
+          "Pour in the rest of the coconut milk, then season with light soy sauce and palm sugar.",
+          "Simmer 15 minutes until the chicken is cooked, then stir the basil through off the heat."
+        ]
+      },
+      "error": "",
+      "checks": {
+        "is_object": true,
+        "right_recipe": true,
+        "servings_set": true,
+        "has_ingredients": true,
+        "has_method": true,
+        "allergen_free": true,
+        "originals_removed": true,
+        "scaled": true
+      },
+      "request_id": "r06_curry2",
+      "prompt_tokens": 8384,
+      "system": "agent",
+      "completion_tokens": 771,
+      "terminated_by": "",
+      "latency_s": 43.045,
+      "llm_calls": 6,
+      "ok": true,
+      "tool_calls": 5,
+      "handoffs": []
+    },
+    "multi": {
+      "output": {
+        "recipe": "Thai Green Curry",
+        "servings": 2,
+        "ingredients": [
+          {
+            "item": "coconut milk",
+            "qty": 200.0,
+            "unit": "ml"
+          },
+          {
+            "item": "chicken thigh",
+            "qty": 250.0,
+            "unit": "g"
+          },
+          {
+            "item": "green curry paste",
+            "qty": 30.0,
+            "unit": "g"
+          },
+          {
+            "item": "light soy sauce",
+            "qty": 1.0,
+            "unit": "tbsp"
+          },
+          {
+            "item": "fish sauce",
+            "qty": 0.5,
+            "unit": "tsp"
+          },
+          {
+            "item": "palm sugar",
+            "qty": 0.5,
+            "unit": "tbsp"
+          },
+          {
+            "item": "thai basil",
+            "qty": 10.0,
+            "unit": "g"
+          }
+        ],
+        "substitutions": [
+          {
+            "from": "fish sauce",
+            "to": "light soy sauce",
+            "reason": "removed fish allergen"
+          },
+          {
+            "from": "shrimp paste",
+            "to": "fish sauce",
+            "reason": "removed shellfish allergen"
+          }
+        ],
+        "method": [
+          "Fry the curry paste and fish sauce in the thick coconut cream until it splits and smells fragrant.",
+          "Add the chicken and turn it in the paste until the outside is opaque.",
+          "Pour in the rest of the coconut milk, then season with fish sauce and palm sugar.",
+          "Simmer 15 minutes until the chicken is cooked, then stir the basil through off the heat."
+        ]
+      },
+      "error": "",
+      "checks": {
+        "is_object": true,
+        "right_recipe": true,
+        "servings_set": true,
+        "has_ingredients": true,
+        "has_method": true,
+        "allergen_free": false,
+        "originals_removed": false,
+        "scaled": true
+      },
+      "request_id": "r06_curry2",
+      "prompt_tokens": 6782,
+      "system": "orchestrator",
+      "completion_tokens": 952,
+      "terminated_by": "",
+      "latency_s": 96.016,
+      "llm_calls": 12,
+      "ok": false,
+      "tool_calls": 4,
+      "handoffs": [
+        {
+          "handoff": "orchestrator->nutrition_worker",
+          "prompt_tokens": 2543,
+          "completion_tokens": 350,
+          "total_tokens": 2893,
+          "laps": 3,
+          "tool_calls": 2,
+          "outcome": "ok"
+        },
+        {
+          "handoff": "orchestrator->substitution_worker",
+          "prompt_tokens": 4005,
+          "completion_tokens": 364,
+          "total_tokens": 4369,
+          "laps": 8,
+          "tool_calls": 2,
+          "outcome": "ok"
+        },
+        {
+          "handoff": "orchestrator->synthesis",
+          "prompt_tokens": 234,
+          "completion_tokens": 238,
+          "total_tokens": 472,
+          "laps": 1,
+          "tool_calls": 0,
+          "outcome": "ok"
+        }
+      ]
+    }
+  },
+  "r07_curry8": {
+    "single": {
+      "output": {
+        "recipe": "Thai Green Curry",
+        "servings": 8,
+        "ingredients": [
+          {
+            "item": "coconut milk",
+            "qty": 800,
+            "unit": "ml"
+          },
+          {
+            "item": "chicken thigh",
+            "qty": 1000,
+            "unit": "g"
+          },
+          {
+            "item": "green curry paste",
+            "qty": 120,
+            "unit": "g"
+          },
+          {
+            "item": "coconut aminos",
+            "qty": 4,
+            "unit": "tbsp"
+          },
+          {
+            "item": "palm sugar",
+            "qty": 2,
+            "unit": "tbsp"
+          },
+          {
+            "item": "thai basil",
+            "qty": 40,
+            "unit": "g"
+          }
+        ],
+        "substitutions": [
+          {
+            "from": "fish sauce",
+            "to": "coconut aminos",
+            "reason": "remove fish allergen"
+          },
+          {
+            "from": "shrimp paste",
+            "to": "coconut aminos",
+            "reason": "remove shellfish allergen"
+          }
+        ],
+        "method": [
+          "Fry the curry paste in the thick coconut cream until it splits and smells fragrant.",
+          "Add the chicken and turn it in the paste until the outside is opaque.",
+          "Pour in the rest of the coconut milk, then season with coconut aminos and palm sugar.",
+          "Simmer 15 minutes until the chicken is cooked, then stir the basil through off the heat."
+        ]
+      },
+      "error": "",
+      "checks": {
+        "is_object": true,
+        "right_recipe": true,
+        "servings_set": true,
+        "has_ingredients": true,
+        "has_method": true,
+        "allergen_free": true,
+        "originals_removed": true,
+        "scaled": true
+      },
+      "request_id": "r07_curry8",
+      "prompt_tokens": 8399,
+      "system": "agent",
+      "completion_tokens": 613,
+      "terminated_by": "",
+      "latency_s": 49.305,
+      "llm_calls": 6,
+      "ok": true,
+      "tool_calls": 5,
+      "handoffs": []
+    },
+    "multi": {
+      "output": {},
+      "error": "",
+      "checks": {
+        "is_object": false
+      },
+      "request_id": "r07_curry8",
+      "prompt_tokens": 2550,
+      "system": "orchestrator",
+      "completion_tokens": 341,
+      "terminated_by": "wall_clock_s",
+      "latency_s": 108.039,
+      "llm_calls": 12,
+      "ok": false,
+      "tool_calls": 2,
+      "handoffs": [
+        {
+          "handoff": "orchestrator->nutrition_worker",
+          "prompt_tokens": 2550,
+          "completion_tokens": 341,
+          "total_tokens": 2891,
+          "laps": 3,
+          "tool_calls": 2,
+          "outcome": "ok"
+        },
+        {
+          "handoff": "orchestrator->substitution_worker",
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0,
+          "laps": 9,
+          "tool_calls": 0,
+          "outcome": "budget_stop:wall_clock_s"
+        }
+      ]
+    }
+  },
+  "r08_bread8": {
+    "single": {
+      "output": {
+        "recipe": "Banana Bread",
+        "servings": 8,
+        "ingredients": [
+          {
+            "item": "all-purpose flour",
+            "qty": 250,
+            "unit": "g"
+          },
+          {
+            "item": "coconut oil",
+            "qty": 80,
+            "unit": "g"
+          },
+          {
+            "item": "flax egg",
+            "qty": 2,
+            "unit": ""
+          },
+          {
+            "item": "ripe banana",
+            "qty": 3,
+            "unit": ""
+          },
+          {
+            "item": "caster sugar",
+            "qty": 150,
+            "unit": "g"
+          },
+          {
+            "item": "walnuts",
+            "qty": 60,
+            "unit": "g"
+          },
+          {
+            "item": "baking soda",
+            "qty": 5,
+            "unit": "g"
+          }
+        ],
+        "substitutions": [
+          {
+            "from": "butter",
+            "to": "coconut oil",
+            "reason": "avoid dairy"
+          },
+          {
+            "from": "egg",
+            "to": "flax egg",
+            "reason": "avoid egg"
+          }
+        ],
+        "method": [
+          "Cream the coconut oil and sugar, then beat in the flax eggs one at a time.",
+          "Mash the bananas and mix them in, then fold in the flour and baking soda.",
+          "Stir through the chopped walnuts and scrape into a lined loaf tin.",
+          "Bake at 175 C for about 55 minutes, until a skewer comes out clean."
+        ]
+      },
+      "error": "",
+      "checks": {
+        "is_object": true,
+        "right_recipe": true,
+        "servings_set": true,
+        "has_ingredients": true,
+        "has_method": true,
+        "allergen_free": true,
+        "originals_removed": true,
+        "scaled": true
+      },
+      "request_id": "r08_bread8",
+      "prompt_tokens": 6238,
+      "system": "agent",
+      "completion_tokens": 460,
+      "terminated_by": "",
+      "latency_s": 27.151,
+      "llm_calls": 5,
+      "ok": true,
+      "tool_calls": 4,
+      "handoffs": []
+    },
+    "multi": {
+      "output": {
+        "recipe": "Banana Bread",
+        "servings": 8,
+        "ingredients": [
+          {
+            "item": "all-purpose flour",
+            "qty": 250.0,
+            "unit": "g"
+          },
+          {
+            "item": "coconut oil",
+            "qty": 80.0,
+            "unit": "g"
+          },
+          {
+            "item": "flax egg",
+            "qty": 2.0,
+            "unit": ""
+          },
+          {
+            "item": "ripe banana",
+            "qty": 3.0,
+            "unit": ""
+          },
+          {
+            "item": "caster sugar",
+            "qty": 150.0,
+            "unit": "g"
+          },
+          {
+            "item": "walnuts",
+            "qty": 60.0,
+            "unit": "g"
+          },
+          {
+            "item": "baking soda",
+            "qty": 5.0,
+            "unit": "g"
+          }
+        ],
+        "substitutions": [
+          {
+            "from": "butter",
+            "to": "coconut oil",
+            "reason": "avoids dairy"
+          },
+          {
+            "from": "egg",
+            "to": "flax egg",
+            "reason": "avoids egg"
+          }
+        ],
+        "method": [
+          "Cream the coconut oil and sugar, then beat in the flax eggs one at a time.",
+          "Mash the bananas and mix them in, then fold in the flour and baking soda.",
+          "Stir through the chopped walnuts and scrape into a lined loaf tin.",
+          "Bake at 175 C for about 55 minutes, until a skewer comes out clean."
+        ]
+      },
+      "error": "",
+      "checks": {
+        "is_object": true,
+        "right_recipe": true,
+        "servings_set": true,
+        "has_ingredients": true,
+        "has_method": true,
+        "allergen_free": true,
+        "originals_removed": true,
+        "scaled": true
+      },
+      "request_id": "r08_bread8",
+      "prompt_tokens": 5924,
+      "system": "orchestrator",
+      "completion_tokens": 733,
+      "terminated_by": "",
+      "latency_s": 52.05,
+      "llm_calls": 9,
+      "ok": true,
+      "tool_calls": 4,
+      "handoffs": [
+        {
+          "handoff": "orchestrator->nutrition_worker",
+          "prompt_tokens": 2530,
+          "completion_tokens": 342,
+          "total_tokens": 2872,
+          "laps": 3,
+          "tool_calls": 2,
+          "outcome": "ok"
+        },
+        {
+          "handoff": "orchestrator->substitution_worker",
+          "prompt_tokens": 3153,
+          "completion_tokens": 257,
+          "total_tokens": 3410,
+          "laps": 5,
+          "tool_calls": 2,
+          "outcome": "ok"
+        },
+        {
+          "handoff": "orchestrator->synthesis",
+          "prompt_tokens": 241,
+          "completion_tokens": 134,
+          "total_tokens": 375,
+          "laps": 1,
+          "tool_calls": 0,
+          "outcome": "ok"
+        }
+      ]
+    }
+  },
+  "r09_noodle4": {
+    "single": {
+      "output": {
+        "recipe": "Veggie Stir-Fry Noodles",
+        "servings": 4,
+        "ingredients": [
+          {
+            "item": "rice noodles",
+            "qty": 400.0,
+            "unit": "g"
+          },
+          {
+            "item": "coconut aminos",
+            "qty": 6.0,
+            "unit": "tbsp"
+          },
+          {
+            "item": "sesame oil",
+            "qty": 2.0,
+            "unit": "tbsp"
+          },
+          {
+            "item": "chickpea tofu",
+            "qty": 400.0,
+            "unit": "g"
+          },
+          {
+            "item": "broccoli",
+            "qty": 300.0,
+            "unit": "g"
+          },
+          {
+            "item": "garlic",
+            "qty": 6.0,
+            "unit": "cloves"
+          }
+        ],
+        "substitutions": [
+          {
+            "from": "wheat noodles",
+            "to": "rice noodles",
+            "reason": "remove gluten"
+          },
+          {
+            "from": "soy sauce",
+            "to": "coconut aminos",
+            "reason": "remove soy"
+          },
+          {
+            "from": "firm tofu",
+            "to": "chickpea tofu",
+            "reason": "remove soy"
+          }
+        ],
+        "method": [
+          "Boil the rice noodles until just done, drain and toss with a little of the sesame oil.",
+          "Fry the garlic in the rest of the oil, then add the chickpea tofu and colour it on all sides.",
+          "Add the broccoli with a splash of water and stir-fry until bright and just tender.",
+          "Return the noodles, pour over the coconut aminos and toss over high heat for a minute."
+        ]
+      },
+      "error": "",
+      "checks": {
+        "is_object": true,
+        "right_recipe": true,
+        "servings_set": true,
+        "has_ingredients": true,
+        "has_method": true,
+        "allergen_free": true,
+        "originals_removed": true,
+        "scaled": true
+      },
+      "request_id": "r09_noodle4",
+      "prompt_tokens": 8351,
+      "system": "agent",
+      "completion_tokens": 611,
+      "terminated_by": "",
+      "latency_s": 40.97,
+      "llm_calls": 6,
+      "ok": true,
+      "tool_calls": 5,
+      "handoffs": []
+    },
+    "multi": {
+      "output": {},
+      "error": "",
+      "checks": {
+        "is_object": false
+      },
+      "request_id": "r09_noodle4",
+      "prompt_tokens": 2528,
+      "system": "orchestrator",
+      "completion_tokens": 338,
+      "terminated_by": "wall_clock_s",
+      "latency_s": 107.393,
+      "llm_calls": 12,
+      "ok": false,
+      "tool_calls": 2,
+      "handoffs": [
+        {
+          "handoff": "orchestrator->nutrition_worker",
+          "prompt_tokens": 2528,
+          "completion_tokens": 338,
+          "total_tokens": 2866,
+          "laps": 3,
+          "tool_calls": 2,
+          "outcome": "ok"
+        },
+        {
+          "handoff": "orchestrator->substitution_worker",
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0,
+          "laps": 9,
+          "tool_calls": 0,
+          "outcome": "budget_stop:wall_clock_s"
+        }
+      ]
+    }
+  },
+  "r10_cookie12": {
+    "single": {
+      "output": {
+        "recipe": "Chocolate Chip Cookies",
+        "servings": 12,
+        "ingredients": [
+          {
+            "item": "all-purpose flour",
+            "qty": 150.0,
+            "unit": "g"
+          },
+          {
+            "item": "coconut oil",
+            "qty": 68.0,
+            "unit": "g"
+          },
+          {
+            "item": "egg",
+            "qty": 0.5,
+            "unit": ""
+          },
+          {
+            "item": "brown sugar",
+            "qty": 75.0,
+            "unit": "g"
+          },
+          {
+            "item": "dairy-free chocolate chips",
+            "qty": 100.0,
+            "unit": "g"
+          },
+          {
+            "item": "vanilla extract",
+            "qty": 0.5,
+            "unit": "tsp"
+          }
+        ],
+        "substitutions": [
+          {
+            "from": "butter",
+            "to": "coconut oil",
+            "reason": "dairy"
+          },
+          {
+            "from": "chocolate chips",
+            "to": "dairy-free chocolate chips",
+            "reason": "dairy"
+          }
+        ],
+        "method": [
+          "Cream the coconut oil and brown sugar, then beat in the egg and vanilla.",
+          "Fold in the flour, then the dairy-free chocolate chips, to a stiff dough.",
+          "Scoop walnut-sized balls onto lined trays, spaced well apart.",
+          "Bake at 180 C for 11 minutes, until the edges are set but the centres still look soft."
+        ]
+      },
+      "error": "",
+      "checks": {
+        "is_object": true,
+        "right_recipe": true,
+        "servings_set": true,
+        "has_ingredients": true,
+        "has_method": true,
+        "allergen_free": true,
+        "originals_removed": true,
+        "scaled": true
+      },
+      "request_id": "r10_cookie12",
+      "prompt_tokens": 6392,
+      "system": "agent",
+      "completion_tokens": 491,
+      "terminated_by": "",
+      "latency_s": 28.374,
+      "llm_calls": 5,
+      "ok": true,
+      "tool_calls": 4,
+      "handoffs": []
+    },
+    "multi": {
+      "output": {},
+      "error": "",
+      "checks": {
+        "is_object": false
+      },
+      "request_id": "r10_cookie12",
+      "prompt_tokens": 2451,
+      "system": "orchestrator",
+      "completion_tokens": 321,
+      "terminated_by": "wall_clock_s",
+      "latency_s": 111.813,
+      "llm_calls": 12,
+      "ok": false,
+      "tool_calls": 2,
+      "handoffs": [
+        {
+          "handoff": "orchestrator->nutrition_worker",
+          "prompt_tokens": 2451,
+          "completion_tokens": 321,
+          "total_tokens": 2772,
+          "laps": 3,
+          "tool_calls": 2,
+          "outcome": "ok"
+        },
+        {
+          "handoff": "orchestrator->substitution_worker",
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0,
+          "laps": 9,
+          "tool_calls": 0,
+          "outcome": "budget_stop:wall_clock_s"
+        }
+      ]
+    }
+  }
+}

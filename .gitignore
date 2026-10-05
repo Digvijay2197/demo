@@ -63,3 +63,7 @@ Thumbs.db
 
 # ---- Vercel ----
 .vercel
+
+# ---- Week 11 generated logs (reproduce with scripts/w11_*.py); keep the real captured pool ----
+backend/logs/*
+!backend/logs/real_pool.jsonl

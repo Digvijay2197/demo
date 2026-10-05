@@ -1,21 +1,21 @@
-request_id,system,ok,latency_s,total_tokens,cost_usd,llm_calls,note
-r01_p4,single_agent,True,20.16,7066,0.00091,5,
-r01_p4,orchestrator,True,54.62,6715,,9,
-r02_p8,single_agent,True,29.45,10887,0.00137,7,
-r02_p8,orchestrator,False,104.67,9255,,13,completed pipeline; failed judge (dropped substitution)
-r03_mac6,single_agent,True,38.22,7090,0.00094,5,
-r03_mac6,orchestrator,False,112.34,2843,,12,substitution_worker budget_stop:wall_clock_s
-r04_mac4nut,single_agent,True,51.67,10364,0.00135,7,
-r04_mac4nut,orchestrator,False,107.86,2840,,12,substitution_worker budget_stop:wall_clock_s
-r05_curry4,single_agent,True,20.04,5313,0.00068,4,
-r05_curry4,orchestrator,True,43.99,5598,,8,
-r06_curry2,single_agent,True,47.63,8957,0.00112,6,
-r06_curry2,orchestrator,False,60.28,6919,,9,completed pipeline; failed judge (dropped substitution)
-r07_curry8,single_agent,True,49.41,10995,0.00138,7,
-r07_curry8,orchestrator,False,85.08,2891,,3,transient RateLimitError on substitution_worker (pre-fix)
-r08_bread8,single_agent,False,8.56,851,0.00010,1,EXCLUDED from race_table.md -- quota cutoff mid-request
-r08_bread8,orchestrator,False,2.57,0,,0,EXCLUDED from race_table.md -- quota cutoff mid-request
-r09_noodle4,single_agent,False,0.05,0,0,0,EXCLUDED from race_table.md -- quota exhausted before any attempt
-r09_noodle4,orchestrator,False,0.04,0,0,0,EXCLUDED from race_table.md -- quota exhausted before any attempt
-r10_cookie12,single_agent,False,0.05,0,0,0,EXCLUDED from race_table.md -- quota exhausted before any attempt
-r10_cookie12,orchestrator,False,0.04,0,0,0,EXCLUDED from race_table.md -- quota exhausted before any attempt
+request_id,system,ok,latency_s,total_tokens,cost_usd,llm_calls
+r01_p4,single_agent,True,2.87,7061,0.000912,5
+r02_p8,single_agent,False,48.699,9007,0.001175,6
+r03_mac6,single_agent,True,42.156,7078,0.000937,5
+r04_mac4nut,single_agent,True,62.86,10886,0.001387,7
+r05_curry4,single_agent,True,26.638,5462,0.000819,4
+r06_curry2,single_agent,True,43.045,9155,0.001224,6
+r07_curry8,single_agent,True,49.305,9012,0.001146,6
+r08_bread8,single_agent,True,27.151,6698,0.000854,5
+r09_noodle4,single_agent,True,40.97,8962,0.001141,6
+r10_cookie12,single_agent,True,28.374,6883,0.000885,5
+r01_p4,orchestrator,True,58.075,8052,0.001157,10
+r02_p8,orchestrator,False,76.641,8472,0.001203,11
+r03_mac6,orchestrator,False,113.128,2843,0.000425,12
+r04_mac4nut,orchestrator,False,112.51,2840,0.000418,12
+r05_curry4,orchestrator,True,50.675,5656,0.00093,8
+r06_curry2,orchestrator,False,96.016,7734,0.001154,12
+r07_curry8,orchestrator,False,108.039,2891,0.000425,12
+r08_bread8,orchestrator,True,52.05,6657,0.000959,9
+r09_noodle4,orchestrator,False,107.393,2866,0.000422,12
+r10_cookie12,orchestrator,False,111.813,2772,0.000406,12

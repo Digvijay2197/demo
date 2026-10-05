@@ -1,0 +1,80 @@
+{
+  "trace_id": "tr_6988ef145c4d",
+  "ts": "2026-10-03T00:07:54.394+00:00",
+  "user_id": "u_004",
+  "session_id": "s_d2852e50",
+  "prompt_version": "v1",
+  "model": "openai/gpt-oss-20b",
+  "input_type": "dietary_restriction",
+  "question": "I'm dairy-free - can I use the ghee in the chicken biryani",
+  "answer": "The recipe lists “Oil or ghee - 3 tbsp” as an ingredient, so you can use either oil or ghee. [source: Chicken_Biryani_Recipe.pdf p.1]",
+  "refused": false,
+  "retrieved": [
+    {
+      "chunk_id": "6fb8551a0d6b27c5a5e50f99304e5f738330c2ec",
+      "source_file": "Chicken_Biryani_Recipe.pdf",
+      "page": 1,
+      "score": 0.4003
+    },
+    {
+      "chunk_id": "5b2ca4030b21ae7d7e5d9cbc6b82e8b2008f2af0",
+      "source_file": "(Book) - Cookbook - Nelson Family Recipe Book.pdf",
+      "page": 58,
+      "score": 0.3905
+    },
+    {
+      "chunk_id": "7efe00bd1c6d2a1d34cb27e309675980b248d388",
+      "source_file": "Chicken_Biryani_Recipe.pdf",
+      "page": 1,
+      "score": 0.3365
+    },
+    {
+      "chunk_id": "69214d1d45f43751b592acc7a83108993cf0fb87",
+      "source_file": "(Book) - Cookbook - Nelson Family Recipe Book.pdf",
+      "page": 58,
+      "score": 0.4614
+    }
+  ],
+  "spans": [
+    {
+      "name": "retrieval",
+      "latency_ms": 53.4,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "n_chunks": 4,
+      "start_ms": 0.1
+    },
+    {
+      "name": "generation",
+      "latency_ms": 621.2,
+      "tokens_in": 1133,
+      "tokens_out": 103,
+      "cost_usd": 0.000115875,
+      "model": "openai/gpt-oss-20b",
+      "start_ms": 53.5,
+      "reasoning_tokens": 51
+    },
+    {
+      "name": "tools",
+      "latency_ms": 0.0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "tool": "citation_resolver",
+      "start_ms": 674.7
+    }
+  ],
+  "error": null,
+  "answer_flags": {
+    "dairy_restriction_in_question": true,
+    "dairy_free_violation": true,
+    "dairy_terms_in_answer": [
+      "ghee"
+    ]
+  },
+  "latency_ms": 674.8,
+  "tokens_in": 1133,
+  "tokens_out": 103,
+  "cost_usd": 0.00011587
+}

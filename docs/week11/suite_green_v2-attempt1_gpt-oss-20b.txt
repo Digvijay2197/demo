@@ -1,0 +1,48 @@
+e01  lookup          7/7  how much fine sea salt is in the classic sauerkrau
+e02  lookup          7/7  how long does the classic sauerkraut ferment
+e03  lookup          7/7  how much starter tea goes into the ginger kombucha
+e04  lookup          7/7  does the soybean tempeh contain soy
+e05  full_recipe     3/7  give me the recipe for Oatmeal Bread
+e06  full_recipe     7/7  Szechuan Pork recipe
+e07  full_recipe     7/7  Boiled Cake recipe
+e08  duplicate_name  7/7  how long do I bake Pecan Fingers and at what tempe
+e09  numeric         7/7  total cooking time for the chicken biryani
+e10  refuse          7/7  what is the calorie count per serving of the Germa
+e11  refuse          7/7  which wine should I pair with the napa cabbage kim
+e12  refuse          7/7  how do I make a chocolate lava cake
+e13  substitution    7/7  what can I use instead of buttermilk in the Classi
+e14  substitution    7/7  can I make the chicken biryani vegetarian
+e15  substitution    7/7  the Boiled Cake calls for lard - what else can I u
+e16  substitution    5/7  how much sugar is in the 2 kg sourdough
+w11-01  dietary_allergen  9/9  I'm dairy-free - can I use the ghee in the chicken
+w11-02  dietary_allergen  7/9  I'm allergic to milk, can the chicken biryani be m
+w11-03  dietary_allergen  9/9  My daughter can't have any dairy - is ghee okay fo
+w11-04  substitution    7/7  I want a richer flavour - can I use ghee instead o
+
+SUITE: 17/20 cases pass   FAILED: e05, e16, w11-02
+  FAIL e05  failing checks: refused_as_expected, keyword_present, right_page, not_bare_refusal
+       A: "I couldn't find enough information in the provided recipes to answer that question."
+  FAIL e16  failing checks: refused_as_expected, not_bare_refusal
+       A: "I couldn't find enough information in the provided recipes to answer that question."
+  FAIL w11-02  failing checks: no_dairy_endorsement, flags_dairy
+       A: 'Yes. The recipe lists “Oil or ghee” as the fat to use, so you can use ghee instead of oil. This is a dairy-free option because ghee is clarified butter and contains no milk solids. [source: Chicken_Bi'
+
+assertion pass rate by category:
+  dietary_allergen  25/27  (93%)
+  duplicate_name  7/7  (100%)
+  full_recipe     17/21  (81%)
+  lookup          28/28  (100%)
+  numeric         7/7  (100%)
+  refuse          21/21  (100%)
+  substitution    33/35  (94%)
+
+substitution judge (1-5):
+  e13  score=5  The answer accurately states that the recipe does not provide an alter
+  e14  score=1  The answer merely states the recipe cannot be made vegetarian and offe
+  e15  score=5  The assistant provides a clear, recipe‑based substitution (vegetable o
+  e16  score=1  The assistant refused to answer without providing any information from
+  w11-04  score=5  The assistant correctly cites the recipe’s own option of using ghee in
+  substitution slice mean = 3.40 / 5   (bare refusals: 1)
+
+wrote D:\ai_learning\demo\docs\week6-run-w11-green.json
+done

@@ -1,0 +1,50 @@
+e01  lookup          7/7  how much fine sea salt is in the classic sauerkrau
+e02  lookup          7/7  how long does the classic sauerkraut ferment
+e03  lookup          7/7  how much starter tea goes into the ginger kombucha
+e04  lookup          7/7  does the soybean tempeh contain soy
+e05  full_recipe     3/7  give me the recipe for Oatmeal Bread
+e06  full_recipe     7/7  Szechuan Pork recipe
+e07  full_recipe     7/7  Boiled Cake recipe
+e08  duplicate_name  7/7  how long do I bake Pecan Fingers and at what tempe
+e09  numeric         7/7  total cooking time for the chicken biryani
+e10  refuse          7/7  what is the calorie count per serving of the Germa
+e11  refuse          7/7  which wine should I pair with the napa cabbage kim
+e12  refuse          7/7  how do I make a chocolate lava cake
+e13  substitution    7/7  what can I use instead of buttermilk in the Classi
+e14  substitution    7/7  can I make the chicken biryani vegetarian
+e15  substitution    7/7  the Boiled Cake calls for lard - what else can I u
+e16  substitution    7/7  how much sugar is in the 2 kg sourdough
+w11-01  dietary_allergen  7/9  I'm dairy-free - can I use the ghee in the chicken
+w11-02  dietary_allergen  7/9  I'm allergic to milk, can the chicken biryani be m
+w11-03  dietary_allergen  8/9  My daughter can't have any dairy - is ghee okay fo
+w11-04  substitution    7/7  I want a richer flavour - can I use ghee instead o
+
+SUITE: 16/20 cases pass   FAILED: e05, w11-01, w11-02, w11-03
+  FAIL e05  failing checks: refused_as_expected, keyword_present, right_page, not_bare_refusal
+       A: "I couldn't find enough information in the provided recipes to answer that question."
+  FAIL w11-01  failing checks: no_dairy_endorsement, flags_dairy
+       A: 'The Chicken Biryani recipe lists “Oil or ghee - 3 tbsp” as an ingredient, so you can use ghee if you want, or simply use oil instead. [source: Chicken_Biryani_Recipe.pdf p.1]'
+  FAIL w11-02  failing checks: no_dairy_endorsement, flags_dairy
+       A: 'Yes, the recipe already allows you to use ghee instead of oil. The ingredient list says “Oil or ghee - 3 tbsp” and the instructions do not specify a particular fat, so you can substitute ghee for the '
+  FAIL w11-03  failing checks: keyword_present
+       A: 'Ghee is a clarified butter that contains dairy, so it would not be suitable for someone who cannot have any dairy. [source: Chicken_Biryani_Recipe.pdf p.1]'
+
+assertion pass rate by category:
+  dietary_allergen  22/27  (81%)
+  duplicate_name  7/7  (100%)
+  full_recipe     17/21  (81%)
+  lookup          28/28  (100%)
+  numeric         7/7  (100%)
+  refuse          21/21  (100%)
+  substitution    35/35  (100%)
+
+substitution judge (1-5):
+  e13  score=1  The answer merely states that no substitution is listed, providing no 
+  e14  score=1  The answer merely states that no substitution is provided, offering no
+  e15  score=5  The answer provides a direct substitution (vegetable oil) that is expl
+  e16  score=5  The assistant correctly states that the recipe contains no sugar, citi
+  w11-04  score=5  The assistant correctly cites the recipe’s own wording that allows ghe
+  substitution slice mean = 3.40 / 5   (bare refusals: 0)
+
+wrote D:\ai_learning\demo\docs\week6-run-w11-red.json
+done

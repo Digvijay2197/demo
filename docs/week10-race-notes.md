@@ -1,6 +1,12 @@
 <!-- Soft Suave · The AI Engineering League -->
 # Week 10 — race execution notes (the quota story)
 
+> **UPDATE 2026-09-30:** the quota refilled and the race was re-run live on
+> all 10 requests, both arms. `docs/week10/` now reports n=10 (single 90%,
+> orchestrator 30%); the 7-case reconstruction described below is superseded.
+> Raw output: [week10/raw_run_full10.log](week10/raw_run_full10.log). The
+> history below is kept for the record.
+
 The live race against Groq (`openai/gpt-oss-20b`, same key every other week's
 scripts use) hit the account's free-tier **200,000-tokens/day** quota
 partway through the 10-request race. This is what happened and why the final

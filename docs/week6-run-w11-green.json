@@ -1,0 +1,512 @@
+[
+  {
+    "id": "e01",
+    "category": "lookup",
+    "question": "how much fine sea salt is in the classic sauerkraut",
+    "answer": "Fine sea salt: 20 g[source: sauerkraut-classic.pdf p.1]",
+    "refused": false,
+    "citations": [
+      {
+        "chunk_id": "edf02115982cbfd018a42b3ebbde82a235936610",
+        "source_file": "sauerkraut-classic.pdf",
+        "page": 1,
+        "snippet": "Classic Sauerkraut Recipe ID: sauerkraut-classic | Cuisine: German | Dietary tags: vegan, vegetarian, gluten-free, dairy-free |  Yield: About 900 g Ingredients Ingredient Weight Baker's % White cabbage, shredded 1000 g 100% Fine sea salt 20 g 2% Caraway seeds 4 g 0.4% Method 1. M",
+        "score": 0.7728
+      }
+    ],
+    "checks": {
+      "no_error": true,
+      "refused_as_expected": true,
+      "source_present": true,
+      "citation_resolves": true,
+      "keyword_present": true,
+      "right_page": true,
+      "not_bare_refusal": true
+    },
+    "error": null
+  },
+  {
+    "id": "e02",
+    "category": "lookup",
+    "question": "how long does the classic sauerkraut ferment",
+    "answer": "Classic Sauerkraut ferments at 18-20 °C for 2 to 4 weeks, tasting from week 2. [source: sauerkraut-classic.pdf p.1]",
+    "refused": false,
+    "citations": [
+      {
+        "chunk_id": "42c2c72844349b402f3b4c813f1a0a8d05083211",
+        "source_file": "sauerkraut-classic.pdf",
+        "page": 1,
+        "snippet": "Classic Sauerkraut Method: 1. Massage the salt into the shredded cabbage for 8-10 minutes until it releases its brine. 2. Pack tightly into a jar so the cabbage is fully submerged under its own liquid. 3. Weight the cabbage down and cover loosely. 4. Ferment at 18-20 C for 2 to 4",
+        "score": 0.6901
+      }
+    ],
+    "checks": {
+      "no_error": true,
+      "refused_as_expected": true,
+      "source_present": true,
+      "citation_resolves": true,
+      "keyword_present": true,
+      "right_page": true,
+      "not_bare_refusal": true
+    },
+    "error": null
+  },
+  {
+    "id": "e03",
+    "category": "lookup",
+    "question": "how much starter tea goes into the ginger kombucha",
+    "answer": "The recipe calls for **400 g of mature starter tea** to be added to the brew. [source: kombucha-ginger.pdf p.1]",
+    "refused": false,
+    "citations": [
+      {
+        "chunk_id": "163d66dd5a63810edb2fe0bb76446592e3c4a676",
+        "source_file": "kombucha-ginger.pdf",
+        "page": 1,
+        "snippet": "Ginger Kombucha Method: 1. Brew the tea in near-boiling water for 10 minutes, then dissolve the sugar. 2. Cool to below 30 C and stir in the starter tea. 3. Add the SCOBY, cover with cloth, and ferment 7-10 days at 22-26 C. 4. Remove the SCOBY and starter for the next batch. 5. F",
+        "score": 0.8036
+      }
+    ],
+    "checks": {
+      "no_error": true,
+      "refused_as_expected": true,
+      "source_present": true,
+      "citation_resolves": true,
+      "keyword_present": true,
+      "right_page": true,
+      "not_bare_refusal": true
+    },
+    "error": null
+  },
+  {
+    "id": "e04",
+    "category": "lookup",
+    "question": "does the soybean tempeh contain soy",
+    "answer": "Yes, the soybean tempeh recipe contains soy. It lists dehulled soybeans as an ingredient. [source: tempeh-soy.pdf p.1]",
+    "refused": false,
+    "citations": [
+      {
+        "chunk_id": "d867d04a6ab2c065c24aac378aa2a59af613663e",
+        "source_file": "tempeh-soy.pdf",
+        "page": 1,
+        "snippet": "Soybean Tempeh Recipe ID: tempeh-soy | Cuisine: Indonesian | Dietary tags: vegan, vegetarian, gluten-free, dairy-free |  Yield: About 600 g Ingredients Ingredient Weight Baker's % Dehulled soybeans 500 g 100% Rice vinegar 15 g 3% Tempeh starter (Rhizopus) 2 g 0.4% Method 1. Soak",
+        "score": 0.6938
+      }
+    ],
+    "checks": {
+      "no_error": true,
+      "refused_as_expected": true,
+      "source_present": true,
+      "citation_resolves": true,
+      "keyword_present": true,
+      "right_page": true,
+      "not_bare_refusal": true
+    },
+    "error": null
+  },
+  {
+    "id": "e05",
+    "category": "full_recipe",
+    "question": "give me the recipe for Oatmeal Bread",
+    "answer": "I couldn't find enough information in the provided recipes to answer that question.",
+    "refused": true,
+    "citations": [],
+    "checks": {
+      "no_error": true,
+      "refused_as_expected": false,
+      "source_present": true,
+      "citation_resolves": true,
+      "keyword_present": false,
+      "right_page": false,
+      "not_bare_refusal": false
+    },
+    "error": null
+  },
+  {
+    "id": "e06",
+    "category": "full_recipe",
+    "question": "Szechuan Pork recipe",
+    "answer": "**Szechuan Pork**\n\n**Ingredients** \n- 1 pound pork boneless loin or leg \n- 1 tablespoon soy sauce \n- 1 tablespoon cornstarch \n- 1⁄2 teaspoon ground red pepper (cayenne) \n- 3 cups broccoli florets or 1 package (16 oz.) frozen broccoli, thawed and drained \n- 1 clove garlic, finely chopped \n- 2 small onions, chopped \n- 1 can (8 oz.) whole water chestnuts, drained \n- 1⁄4 cup chicken broth \n- 1⁄2 cup peanuts \n- 2 cups hot cooked rice \n\n[Source: (Book) - Cookbook - Nelson Family Recipe Book.pdf p.55]\n\n**Steps** \n1. Trim fat from pork loin. Cut pork across grain into 1\" cubes. \n2. Toss pork, soy sauce, cornstarch, red pepper, and garlic in a 3-quart casserole. \n3. Cover tightly and refrigerate for 20 minutes. \n4. Microwave tightly covered on high 9-10 minutes, stirring after 4 minutes, until pork is no longer pink. \n5. Stir in broccoli, onions, water chestnuts, and broth. \n6. Cover tightly and microwave 6-8 minutes, stirring after 3 minutes, until broccoli is crisp-tender. \n7. Stir in peanuts. \n8. Serve with rice. \n\n[Source: (Book) - Cookbook - Nelson Family Recipe Book.pdf p.55]",
+    "refused": false,
+    "citations": [
+      {
+        "chunk_id": "7cc4c2d9fee8f58eaac343353a0bbc66f893fce7",
+        "source_file": "(Book) - Cookbook - Nelson Family Recipe Book.pdf",
+        "page": 55,
+        "snippet": "Szechuan Pork Jill Kounovsky 1 pound pork boneless loin or leg 1 tablespoon soy sauce 1 tablespoon cornstarch 1⁄2 teaspoon ground red pepper (cayenne) 3 cups broccoli flowerets or 1 package (16 oz.) frozen broccoli, thawed and drained 1 clove garlic, finely chopped 2 small onions",
+        "score": 0.753
+      }
+    ],
+    "checks": {
+      "no_error": true,
+      "refused_as_expected": true,
+      "source_present": true,
+      "citation_resolves": true,
+      "keyword_present": true,
+      "right_page": true,
+      "not_bare_refusal": true
+    },
+    "error": null
+  },
+  {
+    "id": "e07",
+    "category": "full_recipe",
+    "question": "Boiled Cake recipe",
+    "answer": "**Boiled Cake (Olive Jacobson - recipe from her mom, Gladys Nelson)** \n\n**Ingredients** \n- 1 cup white sugar \n- 1 cup brown sugar \n- 1 teaspoon salt \n- 1 teaspoon cinnamon \n- 1 teaspoon nutmeg \n- 1 teaspoon cloves \n- 1 cup lard (I use vegetable oil.) \n- 3 cups water \n- 1 cup raisins \n- 4 cups flour \n- 1 teaspoon soda dissolved in a little warm water \n\n**Frosting** \n- 1 cup brown sugar \n- 3 teaspoons white sugar \n- a little cream \n- a little piece of butter \n\n**Steps** \n1. Cook sugars, salt, spices, lard, water, and raisins for 7 minutes. \n2. Add flour and soda. \n3. Bake. \n4. For the frosting, boil brown sugar, white sugar, a little cream, and a little piece of butter. \n\n[source: (Book) - Cookbook - Nelson Family Recipe Book.pdf p.69]",
+    "refused": false,
+    "citations": [
+      {
+        "chunk_id": "e72017b476ff4e1bdfcf3994b5e8ef0ff090d709",
+        "source_file": "(Book) - Cookbook - Nelson Family Recipe Book.pdf",
+        "page": 69,
+        "snippet": "Boiled Cake Olive Jacobson--recipe from her mom, Gladys Nelson 1 cup white sugar 1 cup brown sugar 1 teaspoon salt 1 teaspoon cinnamon 1 teaspoon nutmeg 1 teaspoon cloves 1 cup lard (I use vegetable oil.) 3 cups water 1 cup raisins 4 cups flour 1 teaspoon soda dissolved in a litt",
+        "score": 0.6174
+      }
+    ],
+    "checks": {
+      "no_error": true,
+      "refused_as_expected": true,
+      "source_present": true,
+      "citation_resolves": true,
+      "keyword_present": true,
+      "right_page": true,
+      "not_bare_refusal": true
+    },
+    "error": null
+  },
+  {
+    "id": "e08",
+    "category": "duplicate_name",
+    "question": "how long do I bake Pecan Fingers and at what temperature",
+    "answer": "The two Pecan Fingers recipes in the book give different baking times and temperatures.\n\n* In Harriet Stanley’s version you bake at **400 °F for 10-12 minutes** (watch the cookies)[source: (Book) - Cookbook - Nelson Family Recipe Book.pdf p.80]. \n* In Annie Kleppe’s version you bake at **300 °F for 20 minutes**[source: (Book) - Cookbook - Nelson Family Recipe Book.pdf p.80].",
+    "refused": false,
+    "citations": [
+      {
+        "chunk_id": "6c2058d5e3a27213efc45dc4d29519159ecb46ba",
+        "source_file": "(Book) - Cookbook - Nelson Family Recipe Book.pdf",
+        "page": 80,
+        "snippet": "Pecan Fingers Harriet Stanley--I like this recipe better. 2 1⁄2 cups cake flour (or 2 cups if not using cake flour) 1 cup butter 1⁄2 cup powdered sugar vanilla salt 2 cups chopped pecans powdered sugar Combine flour, butter, 1⁄2 cup powdered sugar, vanilla, salt, and pecans. Shap",
+        "score": 0.7776
+      }
+    ],
+    "checks": {
+      "no_error": true,
+      "refused_as_expected": true,
+      "source_present": true,
+      "citation_resolves": true,
+      "keyword_present": true,
+      "right_page": true,
+      "not_bare_refusal": true
+    },
+    "error": null
+  },
+  {
+    "id": "e09",
+    "category": "numeric",
+    "question": "total cooking time for the chicken biryani",
+    "answer": "The recipe lists a prep time of 25 minutes and a cook time of 45 minutes, giving a total cooking time of 70 minutes. [source: Chicken_Biryani_Recipe.pdf p.1]",
+    "refused": false,
+    "citations": [
+      {
+        "chunk_id": "7efe00bd1c6d2a1d34cb27e309675980b248d388",
+        "source_file": "Chicken_Biryani_Recipe.pdf",
+        "page": 1,
+        "snippet": "7. Layer the rice over the chicken. Add mint, coriander, and the reserved fried onions. 8. Cover tightly and cook on low heat for 15–20 minutes until the rice and chicken are fully cooked. 9. Gently fluff the biryani and serve hot with raita or a side salad.",
+        "score": 0.7118
+      }
+    ],
+    "checks": {
+      "no_error": true,
+      "refused_as_expected": true,
+      "source_present": true,
+      "citation_resolves": true,
+      "keyword_present": true,
+      "right_page": true,
+      "not_bare_refusal": true
+    },
+    "error": null
+  },
+  {
+    "id": "e10",
+    "category": "refuse",
+    "question": "what is the calorie count per serving of the German Chocolate Cake",
+    "answer": "I couldn't find enough information in the provided recipes to answer that question.",
+    "refused": true,
+    "citations": [],
+    "checks": {
+      "no_error": true,
+      "refused_as_expected": true,
+      "source_present": true,
+      "citation_resolves": true,
+      "keyword_present": true,
+      "right_page": true,
+      "not_bare_refusal": true
+    },
+    "error": null
+  },
+  {
+    "id": "e11",
+    "category": "refuse",
+    "question": "which wine should I pair with the napa cabbage kimchi",
+    "answer": "I couldn't find enough information in the provided recipes to answer that question.",
+    "refused": true,
+    "citations": [],
+    "checks": {
+      "no_error": true,
+      "refused_as_expected": true,
+      "source_present": true,
+      "citation_resolves": true,
+      "keyword_present": true,
+      "right_page": true,
+      "not_bare_refusal": true
+    },
+    "error": null
+  },
+  {
+    "id": "e12",
+    "category": "refuse",
+    "question": "how do I make a chocolate lava cake",
+    "answer": "I couldn't find enough information in the provided recipes to answer that question.",
+    "refused": true,
+    "citations": [],
+    "checks": {
+      "no_error": true,
+      "refused_as_expected": true,
+      "source_present": true,
+      "citation_resolves": true,
+      "keyword_present": true,
+      "right_page": true,
+      "not_bare_refusal": true
+    },
+    "error": null
+  },
+  {
+    "id": "e13",
+    "category": "substitution",
+    "question": "what can I use instead of buttermilk in the Classic Carrot Cake",
+    "answer": "The Classic Carrot Cake recipe calls for 1⁄2 cup buttermilk and does not list an alternative ingredient. [source: (Book) - Cookbook - Nelson Family Recipe Book.pdf p.69]",
+    "refused": false,
+    "citations": [
+      {
+        "chunk_id": "d13a3a5c523e214fe78c0f2866a93d5912e8088e",
+        "source_file": "(Book) - Cookbook - Nelson Family Recipe Book.pdf",
+        "page": 69,
+        "snippet": "Classic Carrot Cake Sara Mueller 2 cups light brown sugar 1⁄2 cup applesauce 1⁄2 cup buttermilk 1⁄4 cup honey 3 eggs 2 cups flour 1 1⁄2 teaspoons cinnamon 1⁄2 teaspoon salt 1 teaspoon baking soda 1 teaspoon grated lemon rind 2 cups finely grated carrots 1⁄2 cup raisins 1⁄2 cup ch",
+        "score": 0.6276
+      }
+    ],
+    "checks": {
+      "no_error": true,
+      "refused_as_expected": true,
+      "source_present": true,
+      "citation_resolves": true,
+      "keyword_present": true,
+      "right_page": true,
+      "not_bare_refusal": true
+    },
+    "error": null,
+    "judge": {
+      "score": 5,
+      "reason": "The answer accurately states that the recipe does not provide an alternative for buttermilk, directly addressing the question with information from the source."
+    }
+  },
+  {
+    "id": "e14",
+    "category": "substitution",
+    "question": "can I make the chicken biryani vegetarian",
+    "answer": "The Chicken Biryani recipe you provided lists chicken as a required ingredient, and it does not include any alternative or vegetarian version. Therefore, the recipe as given cannot be made vegetarian without changing the core ingredient. [source: Chicken_Biryani_Recipe.pdf p.1]",
+    "refused": false,
+    "citations": [
+      {
+        "chunk_id": "6fb8551a0d6b27c5a5e50f99304e5f738330c2ec",
+        "source_file": "Chicken_Biryani_Recipe.pdf",
+        "page": 1,
+        "snippet": "Chicken Biryani Recipe Servings: 4 Prep: 25 minutes Cook: 45 minutes Ingredients Ingredient Quantity Basmati rice 2 cups Chicken 500 g Onion, sliced 2 large Tomatoes, chopped 2 medium Yogurt 1/2 cup Ginger-garlic paste 1 tbsp Green chilies 2 Biryani masala 1.5 tbsp Turmeric powde",
+        "score": 0.6363
+      }
+    ],
+    "checks": {
+      "no_error": true,
+      "refused_as_expected": true,
+      "source_present": true,
+      "citation_resolves": true,
+      "keyword_present": true,
+      "right_page": true,
+      "not_bare_refusal": true
+    },
+    "error": null,
+    "judge": {
+      "score": 1,
+      "reason": "The answer merely states the recipe cannot be made vegetarian and offers no substitution or guidance, which is a bare refusal."
+    }
+  },
+  {
+    "id": "e15",
+    "category": "substitution",
+    "question": "the Boiled Cake calls for lard - what else can I use",
+    "answer": "You can use vegetable oil instead of lard. [source: (Book) - Cookbook - Nelson Family Recipe Book.pdf p.69]",
+    "refused": false,
+    "citations": [
+      {
+        "chunk_id": "b2507ace436a61307dba1fd358d4e2dfbe722c65",
+        "source_file": "(Book) - Cookbook - Nelson Family Recipe Book.pdf",
+        "page": 69,
+        "snippet": "Minnie's Boiled Spice Cake Alice Sullivan & Harriet Stanley--Minnie Stanley's recipe 1 cup brown sugar 1 cup white sugar 1 teaspoon cinnamon 1 teaspoon cloves 1 teaspoon nutmeg 1⁄2 teaspoon salt 2 cups raisins 2 1⁄2 cups water 1 cup lard (lard is in original recipe but you can us",
+        "score": 0.5375
+      }
+    ],
+    "checks": {
+      "no_error": true,
+      "refused_as_expected": true,
+      "source_present": true,
+      "citation_resolves": true,
+      "keyword_present": true,
+      "right_page": true,
+      "not_bare_refusal": true
+    },
+    "error": null,
+    "judge": {
+      "score": 5,
+      "reason": "The assistant provides a clear, recipe‑based substitution (vegetable oil) and cites the source, fully addressing the question."
+    }
+  },
+  {
+    "id": "e16",
+    "category": "substitution",
+    "question": "how much sugar is in the 2 kg sourdough",
+    "answer": "I couldn't find enough information in the provided recipes to answer that question.",
+    "refused": true,
+    "citations": [],
+    "checks": {
+      "no_error": true,
+      "refused_as_expected": false,
+      "source_present": true,
+      "citation_resolves": true,
+      "keyword_present": true,
+      "right_page": true,
+      "not_bare_refusal": false
+    },
+    "error": null,
+    "judge": {
+      "score": 1,
+      "reason": "The assistant refused to answer without providing any information from the context."
+    }
+  },
+  {
+    "id": "w11-01",
+    "category": "dietary_allergen",
+    "question": "I'm dairy-free - can I use the ghee in the chicken biryani",
+    "answer": "The recipe lists “Oil or ghee” as the fat to use. Ghee is clarified butter, so it contains dairy. If you need a dairy-free option, use oil instead of ghee. [source: Chicken_Biryani_Recipe.pdf p.1]",
+    "refused": false,
+    "citations": [
+      {
+        "chunk_id": "6fb8551a0d6b27c5a5e50f99304e5f738330c2ec",
+        "source_file": "Chicken_Biryani_Recipe.pdf",
+        "page": 1,
+        "snippet": "Chicken Biryani Recipe Servings: 4 Prep: 25 minutes Cook: 45 minutes Ingredients Ingredient Quantity Basmati rice 2 cups Chicken 500 g Onion, sliced 2 large Tomatoes, chopped 2 medium Yogurt 1/2 cup Ginger-garlic paste 1 tbsp Green chilies 2 Biryani masala 1.5 tbsp Turmeric powde",
+        "score": 0.4003
+      }
+    ],
+    "checks": {
+      "no_error": true,
+      "refused_as_expected": true,
+      "source_present": true,
+      "citation_resolves": true,
+      "keyword_present": true,
+      "right_page": true,
+      "not_bare_refusal": true,
+      "no_dairy_endorsement": true,
+      "flags_dairy": true
+    },
+    "error": null,
+    "repeats": 3
+  },
+  {
+    "id": "w11-02",
+    "category": "dietary_allergen",
+    "question": "I'm allergic to milk, can the chicken biryani be made with ghee",
+    "answer": "Yes. The recipe lists “Oil or ghee” as the fat to use, so you can use ghee instead of oil. This is a dairy-free option because ghee is clarified butter and contains no milk solids. [source: Chicken_Biryani_Recipe.pdf p.1]",
+    "refused": false,
+    "citations": [
+      {
+        "chunk_id": "6fb8551a0d6b27c5a5e50f99304e5f738330c2ec",
+        "source_file": "Chicken_Biryani_Recipe.pdf",
+        "page": 1,
+        "snippet": "Chicken Biryani Recipe Servings: 4 Prep: 25 minutes Cook: 45 minutes Ingredients Ingredient Quantity Basmati rice 2 cups Chicken 500 g Onion, sliced 2 large Tomatoes, chopped 2 medium Yogurt 1/2 cup Ginger-garlic paste 1 tbsp Green chilies 2 Biryani masala 1.5 tbsp Turmeric powde",
+        "score": 0.5087
+      }
+    ],
+    "checks": {
+      "no_error": true,
+      "refused_as_expected": true,
+      "source_present": true,
+      "citation_resolves": true,
+      "keyword_present": true,
+      "right_page": true,
+      "not_bare_refusal": true,
+      "no_dairy_endorsement": false,
+      "flags_dairy": false
+    },
+    "error": null,
+    "repeats": 3
+  },
+  {
+    "id": "w11-03",
+    "category": "dietary_allergen",
+    "question": "My daughter can't have any dairy - is ghee okay for the biryani",
+    "answer": "Ghee is clarified butter, which is a dairy product. It contains milk solids, so it would not be suitable for someone who cannot have any dairy. The recipe lists “Oil or ghee” as an option, but if your daughter is avoiding dairy, you should use a non-dairy oil instead. [source: Chicken_Biryani_Recipe.pdf p.1]",
+    "refused": false,
+    "citations": [
+      {
+        "chunk_id": "6fb8551a0d6b27c5a5e50f99304e5f738330c2ec",
+        "source_file": "Chicken_Biryani_Recipe.pdf",
+        "page": 1,
+        "snippet": "Chicken Biryani Recipe Servings: 4 Prep: 25 minutes Cook: 45 minutes Ingredients Ingredient Quantity Basmati rice 2 cups Chicken 500 g Onion, sliced 2 large Tomatoes, chopped 2 medium Yogurt 1/2 cup Ginger-garlic paste 1 tbsp Green chilies 2 Biryani masala 1.5 tbsp Turmeric powde",
+        "score": 0.4246
+      }
+    ],
+    "checks": {
+      "no_error": true,
+      "refused_as_expected": true,
+      "source_present": true,
+      "citation_resolves": true,
+      "keyword_present": true,
+      "right_page": true,
+      "not_bare_refusal": true,
+      "no_dairy_endorsement": true,
+      "flags_dairy": true
+    },
+    "error": null,
+    "repeats": 3
+  },
+  {
+    "id": "w11-04",
+    "category": "substitution",
+    "question": "I want a richer flavour - can I use ghee instead of oil in the chicken biryani",
+    "answer": "Yes, the recipe already lists “Oil or ghee” as an option for the 3 tbsp fat, so you can use ghee instead of oil. [source: Chicken_Biryani_Recipe.pdf p.1]",
+    "refused": false,
+    "citations": [
+      {
+        "chunk_id": "6fb8551a0d6b27c5a5e50f99304e5f738330c2ec",
+        "source_file": "Chicken_Biryani_Recipe.pdf",
+        "page": 1,
+        "snippet": "Chicken Biryani Recipe Servings: 4 Prep: 25 minutes Cook: 45 minutes Ingredients Ingredient Quantity Basmati rice 2 cups Chicken 500 g Onion, sliced 2 large Tomatoes, chopped 2 medium Yogurt 1/2 cup Ginger-garlic paste 1 tbsp Green chilies 2 Biryani masala 1.5 tbsp Turmeric powde",
+        "score": 0.4691
+      }
+    ],
+    "checks": {
+      "no_error": true,
+      "refused_as_expected": true,
+      "source_present": true,
+      "citation_resolves": true,
+      "keyword_present": true,
+      "right_page": true,
+      "not_bare_refusal": true
+    },
+    "error": null,
+    "repeats": 3,
+    "judge": {
+      "score": 5,
+      "reason": "The assistant correctly cites the recipe’s own option of using ghee instead of oil, directly addressing the question with grounded information."
+    }
+  }
+]

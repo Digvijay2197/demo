@@ -4,9 +4,11 @@ from typing import List, Tuple
 
 from langchain_core.documents import Document
 
-from rag.config import SIMILARITY_THRESHOLD
+from rag.config import GROQ_MODEL, SIMILARITY_THRESHOLD
 from rag.generation.groq_service import generate_grounded_answer
-from rag.generation.prompt import REFUSAL_MESSAGE
+from rag.generation.prompt import PROMPT_VERSION, REFUSAL_MESSAGE
+from rag.observability.dairy_check import answer_flags
+from rag.observability.tracing import finish_trace, span, start_trace
 from rag.retrieval.retriever import has_sufficient_evidence, retrieve
 
 # Models sometimes render the citation with full-width brackets or smart
@@ -61,17 +63,53 @@ def _citations_from_results(results: List[Tuple[Document, float]]) -> List[dict]
     return citations
 
 
-def answer_question(question: str, hybrid: bool = None) -> dict:
-    results = retrieve(question, hybrid=hybrid)
+def _retrieved_ids(results: List[Tuple[Document, float]]) -> List[dict]:
+    return [
+        {
+            "chunk_id": d.metadata.get("chunk_id", ""),
+            "source_file": d.metadata.get("source_file", ""),
+            "page": int(d.metadata.get("page", 0) or 0),
+            "score": round(float(sc), 4),
+        }
+        for d, sc in results
+    ]
 
+
+def answer_question(question: str, hybrid: bool = None, user_id: str = "anon",
+                    session_id: str = "none") -> dict:
+    """Traced entry point: one JSON log line per call (see rag/observability)."""
+    start_trace(question, user_id, session_id, PROMPT_VERSION)
+    retrieved = None
+    try:
+        with span("retrieval") as sp:
+            results = retrieve(question, hybrid=hybrid)
+            retrieved = _retrieved_ids(results)
+            sp["n_chunks"] = len(results)
+        out = _answer_from_results(question, results)
+        finish_trace(result=out, retrieved=retrieved, answer_flags=_answer_flags(question, out))
+        return out
+    except Exception as exc:  # noqa: BLE001 - log the failure, then let the API layer map it
+        finish_trace(error=repr(exc)[:300], retrieved=retrieved)
+        raise
+
+
+def _answer_from_results(question: str, results: List[Tuple[Document, float]]) -> dict:
     if not has_sufficient_evidence(results):
         return {"answer": REFUSAL_MESSAGE, "citations": [], "refused": True}
 
-    answer = _normalise_answer(generate_grounded_answer(question, results))
+    with span("generation") as sp:
+        raw_answer = generate_grounded_answer(question, results)
+        sp["model"] = GROQ_MODEL
+    answer = _normalise_answer(raw_answer)
 
     if answer.startswith("I couldn't find enough information"):
         return {"answer": REFUSAL_MESSAGE, "citations": [], "refused": True}
 
+    with span("tools", tool="citation_resolver"):
+        return _finalise(answer, results)
+
+
+def _finalise(answer: str, results: List[Tuple[Document, float]]) -> dict:
     all_citations = _citations_from_results(results)
 
     # Which sources did the model actually cite? Match tolerantly on filename
@@ -92,3 +130,8 @@ def answer_question(question: str, hybrid: bool = None) -> dict:
         citations = [c for c in all_citations if c["score"] >= SIMILARITY_THRESHOLD][:2] or all_citations[:1]
 
     return {"answer": answer, "citations": citations, "refused": False}
+
+
+def _answer_flags(question: str, out: dict) -> dict:
+    """Output-side flags written into the trace (Week 11 bonus: makes the drill instant)."""
+    return answer_flags(question, out.get("answer") or "")

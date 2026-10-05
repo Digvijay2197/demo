@@ -24,6 +24,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# Week 11: eval/traces from this suite go to their own log, not the prod one.
+os.environ.setdefault("TRACE_LOG_PATH", os.path.join(os.getcwd(), "logs", "eval_traces.jsonl"))
+
+from eval.dairy_check import dairy_free_violation, mentions_dairy_awareness
 from rag.citations.citations import resolve_citation
 from rag.generation.answer_service import answer_question
 from rag.generation.groq_service import _get_llm
@@ -50,6 +54,15 @@ CASES = [
     ("e15", "the Boiled Cake calls for lard - what else can I use", "substitution", False, ["oil"], None),
     ("e16", "how much sugar is in the 2 kg sourdough", "substitution", False, [], None),
 ]
+
+# Week 11: failures from the support drill, kept as data in eval/ so a new case
+# is a JSON edit. Each becomes a 7th tuple element: extra checks to run.
+W11_FILE = os.path.join(os.getcwd(), "eval", "w11_dairy_free_cases.json")
+if os.path.exists(W11_FILE):
+    with open(W11_FILE, encoding="utf-8") as _f:
+        for _c in json.load(_f)["cases"]:
+            CASES.append((_c["id"], _c["question"], _c["category"], _c["expect_refused"],
+                          _c["keywords"], _c["expect_page"], _c.get("extra", {})))
 
 JUDGE_SYSTEM = """You grade a recipe assistant's answer to a MODIFICATION question
 (substitute an ingredient, make it vegetarian, scale it, or "how much X" when X
@@ -111,6 +124,24 @@ def _judge(question: str, answer: str) -> dict:
         return {"score": None, "reason": f"unparseable: {raw[:80]}"}
 
 
+def _patient(fn, wait_s: int = 150, max_wait_s: int = 6 * 3600):
+    """Wrap an LLM-calling fn: on rate-limit, sleep and retry (failed calls cost 0 tokens)."""
+    def wrapped(*a, **kw):
+        waited = 0
+        while True:
+            try:
+                return fn(*a, **kw)
+            except Exception as exc:  # noqa: BLE001
+                msg = (str(exc) + str(exc.__cause__ or "")).lower()
+                if ("rate" in msg or "429" in msg) and waited < max_wait_s:
+                    print(f"  [patient] rate-limited, sleeping {wait_s}s (waited {waited}s)", flush=True)
+                    time.sleep(wait_s)
+                    waited += wait_s
+                    continue
+                raise
+    return wrapped
+
+
 def validate_judge() -> None:
     print("Judge validation (human vs judge, 1-5):\n")
     diffs, agree1 = [], 0
@@ -129,9 +160,33 @@ def validate_judge() -> None:
 
 
 def run_case(case) -> dict:
-    cid, q, cat, exp_ref, keywords, exp_page = case
+    """Run a case once - or `extra.repeat` times, passing only if EVERY run passes
+    (the model is non-deterministic even at temperature 0, so a lucky single
+    pass must not hide a real failure)."""
+    extra = case[6] if len(case) > 6 else {}
+    n = int(extra.get("repeat", 1))
+    first = _run_once(case)
+    if n == 1:
+        return first
+    merged, worst = dict(first["checks"]), first
+    for _ in range(n - 1):
+        time.sleep(2)
+        nxt = _run_once(case)
+        for k, v in nxt["checks"].items():
+            merged[k] = merged.get(k, True) and v
+        if not all(nxt["checks"].values()) and all(worst["checks"].values()):
+            worst = nxt
+    worst = dict(worst)
+    worst["checks"] = merged
+    worst["repeats"] = n
+    return worst
+
+
+def _run_once(case) -> dict:
+    cid, q, cat, exp_ref, keywords, exp_page, *rest = case
+    extra = rest[0] if rest else {}
     try:
-        res = answer_question(q)
+        res = answer_question(q, user_id="eval")
         err = None
     except Exception as exc:  # noqa: BLE001
         return {"id": cid, "category": cat, "question": q, "error": repr(exc),
@@ -147,6 +202,10 @@ def run_case(case) -> dict:
         "right_page": (exp_page is None) or any(c.get("page") == exp_page for c in cites),
         "not_bare_refusal": exp_ref or not ans.startswith("I couldn't find enough information"),
     }
+    if extra.get("no_dairy_endorsement"):
+        checks["no_dairy_endorsement"] = not dairy_free_violation(ans)
+    if extra.get("flags_dairy"):
+        checks["flags_dairy"] = mentions_dairy_awareness(ans)
     return {"id": cid, "category": cat, "question": q, "answer": ans,
             "refused": refused, "citations": cites, "checks": checks, "error": err}
 
@@ -155,20 +214,42 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--validate-judge", action="store_true")
     ap.add_argument("--tag", help="also write docs/week6-run-<tag>.json")
+    ap.add_argument("--first", help="comma-separated case ids to run first (e.g. w11-01,w11-02); "
+                                    "the full suite still runs - this only changes the order")
+    ap.add_argument("--patient", action="store_true",
+                    help="on a Groq 429 (e.g. daily token cap) sleep and retry instead of failing the case")
     args = ap.parse_args()
+    if args.patient:
+        g = globals()
+        g["answer_question"] = _patient(answer_question)
+        g["_judge"] = _patient(_judge)
 
     if args.validate_judge:
         validate_judge()
         return
 
     results = []
-    for case in CASES:
+    cases = list(CASES)
+    if args.first:
+        front = args.first.split(",")
+        cases.sort(key=lambda c: (front.index(c[0]) if c[0] in front else len(front)))
+    for case in cases:
         r = run_case(case)
         results.append(r)
         passed = sum(r["checks"].values())
         total = len(r["checks"])
         print(f"{r['id']}  {r['category']:14s}  {passed}/{total}  {r['question'][:50]}")
         time.sleep(2)
+
+    # suite-level pass count: a case passes only if EVERY one of its checks passes
+    passed_cases = [r["id"] for r in results if all(r["checks"].values())]
+    failed_cases = [r["id"] for r in results if not all(r["checks"].values())]
+    print(f"\nSUITE: {len(passed_cases)}/{len(results)} cases pass"
+          + (f"   FAILED: {', '.join(failed_cases)}" if failed_cases else ""))
+    for r in results:
+        bad = [k for k, v in r["checks"].items() if not v]
+        if bad:
+            print(f"  FAIL {r['id']}  failing checks: {', '.join(bad)}\n       A: {r.get('answer','')[:200]!r}")
 
     # assertion summary by category
     print("\nassertion pass rate by category:")

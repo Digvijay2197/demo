@@ -1,0 +1,22 @@
+e01     restricted=False v1==v3: True  -> OK   how much fine sea salt is in the classic sauerkraut
+e02     restricted=False v1==v3: True  -> OK   how long does the classic sauerkraut ferment
+e03     restricted=False v1==v3: True  -> OK   how much starter tea goes into the ginger kombucha
+e04     restricted=False v1==v3: True  -> OK   does the soybean tempeh contain soy
+e05     restricted=False v1==v3: True  -> OK   give me the recipe for Oatmeal Bread
+e06     restricted=False v1==v3: True  -> OK   Szechuan Pork recipe
+e07     restricted=False v1==v3: True  -> OK   Boiled Cake recipe
+e08     restricted=False v1==v3: True  -> OK   how long do I bake Pecan Fingers and at what temperatur
+e09     restricted=False v1==v3: True  -> OK   total cooking time for the chicken biryani
+e10     restricted=False v1==v3: True  -> OK   what is the calorie count per serving of the German Cho
+e11     restricted=False v1==v3: True  -> OK   which wine should I pair with the napa cabbage kimchi
+e12     restricted=False v1==v3: True  -> OK   how do I make a chocolate lava cake
+e13     restricted=False v1==v3: True  -> OK   what can I use instead of buttermilk in the Classic Car
+e14     restricted=False v1==v3: True  -> OK   can I make the chicken biryani vegetarian
+e15     restricted=False v1==v3: True  -> OK   the Boiled Cake calls for lard - what else can I use
+e16     restricted=False v1==v3: True  -> OK   how much sugar is in the 2 kg sourdough
+w11-01  restricted=True  v1==v3: False -> OK   I'm dairy-free - can I use the ghee in the chicken biry
+w11-02  restricted=True  v1==v3: False -> OK   I'm allergic to milk, can the chicken biryani be made w
+w11-03  restricted=True  v1==v3: False -> OK   My daughter can't have any dairy - is ghee okay for the
+w11-04  restricted=False v1==v3: True  -> OK   I want a richer flavour - can I use ghee instead of oil
+
+17 unrestricted questions byte-identical under v3; 3 restricted differ by exactly the reminder; 0 mismatches

@@ -1,0 +1,48 @@
+e01  lookup          7/7  how much fine sea salt is in the classic sauerkrau
+e02  lookup          7/7  how long does the classic sauerkraut ferment
+e03  lookup          7/7  how much starter tea goes into the ginger kombucha
+e04  lookup          7/7  does the soybean tempeh contain soy
+e05  full_recipe     6/7  give me the recipe for Oatmeal Bread
+e06  full_recipe     7/7  Szechuan Pork recipe
+e07  full_recipe     7/7  Boiled Cake recipe
+e08  duplicate_name  7/7  how long do I bake Pecan Fingers and at what tempe
+e09  numeric         6/7  total cooking time for the chicken biryani
+e10  refuse          7/7  what is the calorie count per serving of the Germa
+e11  refuse          7/7  which wine should I pair with the napa cabbage kim
+e12  refuse          7/7  how do I make a chocolate lava cake
+e13  substitution    7/7  what can I use instead of buttermilk in the Classi
+e14  substitution    7/7  can I make the chicken biryani vegetarian
+e15  substitution    7/7  the Boiled Cake calls for lard - what else can I u
+e16  substitution    7/7  how much sugar is in the 2 kg sourdough
+w11-01  dietary_allergen  9/9  I'm dairy-free - can I use the ghee in the chicken
+w11-02  dietary_allergen  8/9  I'm allergic to milk, can the chicken biryani be m
+w11-03  dietary_allergen  9/9  My daughter can't have any dairy - is ghee okay fo
+w11-04  substitution    7/7  I want a richer flavour - can I use ghee instead o
+
+SUITE: 17/20 cases pass   FAILED: e05, e09, w11-02
+  FAIL e05  failing checks: keyword_present
+       A: '**Oatmeal Buns (a type of oatmeal bread)** \n\n**Ingredients** \n- 1 cup quick oatmeal[source: (Book) - Cookbook - Nelson Family Recipe Book.pdf p.5] \n- 2 cups boiling water[source: (Book) - Cookbook - N'
+  FAIL e09  failing checks: keyword_present
+       A: 'The recipe lists a total cooking time of 45 minutes for the chicken biryani[source: Chicken_Biryani_Recipe.pdf p.1].'
+  FAIL w11-02  failing checks: flags_dairy
+       A: 'The recipe lists “Oil or ghee” as the cooking fat, so you can simply use oil instead of ghee to avoid any milk-derived ingredient[source: Chicken_Biryani_Recipe.pdf p.1].'
+
+assertion pass rate by category:
+  dietary_allergen  26/27  (96%)
+  duplicate_name  7/7  (100%)
+  full_recipe     20/21  (95%)
+  lookup          28/28  (100%)
+  numeric         6/7  (86%)
+  refuse          21/21  (100%)
+  substitution    35/35  (100%)
+
+substitution judge (1-5):
+  e13  score=5  Correctly states that the recipe gives no buttermilk substitute and ci
+  e14  score=5  The answer correctly states the recipe uses chicken and provides no ve
+  e15  score=5  Provides the recipe's own suggested substitution (vegetable oil) direc
+  e16  score=5  Correctly states that the recipe contains no sugar, referencing the so
+  w11-04  score=5  Provides the recipe's own substitution option, confirming ghee can rep
+  substitution slice mean = 5.00 / 5   (bare refusals: 0)
+
+wrote D:\ai_learning\demo\docs\week6-run-w11-red-120b.json
+done

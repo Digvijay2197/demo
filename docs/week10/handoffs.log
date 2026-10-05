@@ -1,43 +1,34 @@
 # Week 10 hand-off log — per-hand-off token counts, one line per (request, hand-off)
-# 7 of the 10 Week 7/8 requests (r01-r07); r08-r10 excluded, see race_table.md.
-# columns: request_id  handoff  total_tokens  laps  outcome
+# columns: request_id  handoff  prompt_tokens  completion_tokens  total_tokens  laps  tool_calls  outcome
+r01_p4       orchestrator->nutrition_worker   prompt= 2516 completion=  344 total= 2860 laps=3 tool_calls=2 outcome=ok
+r01_p4       orchestrator->substitution_worker prompt= 4399 completion=  394 total= 4793 laps=6 tool_calls=3 outcome=ok
+r01_p4       orchestrator->synthesis          prompt=  258 completion=  141 total=  399 laps=1 tool_calls=0 outcome=ok
+r02_p8       orchestrator->nutrition_worker   prompt= 2522 completion=  341 total= 2863 laps=3 tool_calls=2 outcome=ok
+r02_p8       orchestrator->substitution_worker prompt= 4798 completion=  367 total= 5165 laps=7 tool_calls=3 outcome=ok
+r02_p8       orchestrator->synthesis          prompt=  263 completion=  181 total=  444 laps=1 tool_calls=0 outcome=ok
+r03_mac6     orchestrator->nutrition_worker   prompt= 2492 completion=  351 total= 2843 laps=3 tool_calls=2 outcome=ok
+r03_mac6     orchestrator->substitution_worker prompt=    0 completion=    0 total=    0 laps=9 tool_calls=0 outcome=budget_stop:wall_clock_s
+r04_mac4nut  orchestrator->nutrition_worker   prompt= 2504 completion=  336 total= 2840 laps=3 tool_calls=2 outcome=ok
+r04_mac4nut  orchestrator->substitution_worker prompt=    0 completion=    0 total=    0 laps=9 tool_calls=0 outcome=budget_stop:wall_clock_s
+r05_curry4   orchestrator->nutrition_worker   prompt= 2537 completion=  341 total= 2878 laps=3 tool_calls=2 outcome=ok
+r05_curry4   orchestrator->substitution_worker prompt= 1973 completion=  333 total= 2306 laps=4 tool_calls=1 outcome=ok
+r05_curry4   orchestrator->synthesis          prompt=  234 completion=  238 total=  472 laps=1 tool_calls=0 outcome=ok
+r06_curry2   orchestrator->nutrition_worker   prompt= 2543 completion=  350 total= 2893 laps=3 tool_calls=2 outcome=ok
+r06_curry2   orchestrator->substitution_worker prompt= 4005 completion=  364 total= 4369 laps=8 tool_calls=2 outcome=ok
+r06_curry2   orchestrator->synthesis          prompt=  234 completion=  238 total=  472 laps=1 tool_calls=0 outcome=ok
+r07_curry8   orchestrator->nutrition_worker   prompt= 2550 completion=  341 total= 2891 laps=3 tool_calls=2 outcome=ok
+r07_curry8   orchestrator->substitution_worker prompt=    0 completion=    0 total=    0 laps=9 tool_calls=0 outcome=budget_stop:wall_clock_s
+r08_bread8   orchestrator->nutrition_worker   prompt= 2530 completion=  342 total= 2872 laps=3 tool_calls=2 outcome=ok
+r08_bread8   orchestrator->substitution_worker prompt= 3153 completion=  257 total= 3410 laps=5 tool_calls=2 outcome=ok
+r08_bread8   orchestrator->synthesis          prompt=  241 completion=  134 total=  375 laps=1 tool_calls=0 outcome=ok
+r09_noodle4  orchestrator->nutrition_worker   prompt= 2528 completion=  338 total= 2866 laps=3 tool_calls=2 outcome=ok
+r09_noodle4  orchestrator->substitution_worker prompt=    0 completion=    0 total=    0 laps=9 tool_calls=0 outcome=budget_stop:wall_clock_s
+r10_cookie12 orchestrator->nutrition_worker   prompt= 2451 completion=  321 total= 2772 laps=3 tool_calls=2 outcome=ok
+r10_cookie12 orchestrator->substitution_worker prompt=    0 completion=    0 total=    0 laps=9 tool_calls=0 outcome=budget_stop:wall_clock_s
 
-r01_p4       orchestrator->nutrition_worker     total= 2860 laps=3 outcome=ok
-r01_p4       orchestrator->substitution_worker  total= 3478 laps=2 outcome=ok
-r01_p4       orchestrator->synthesis            total=  377 laps=1 outcome=ok
-                                                 (request total: 6715, judge: PASS)
+# totals by hand-off type, across all 10 requests
+#   orchestrator->nutrition_worker   total= 28578  (56.3% of orchestrator tokens)
+#   orchestrator->substitution_worker total= 20043  (39.5% of orchestrator tokens)
+#   orchestrator->synthesis          total=  2162  (4.3% of orchestrator tokens)
 
-r02_p8       orchestrator->nutrition_worker     total= 2863 laps=3 outcome=ok
-r02_p8       orchestrator->substitution_worker  total= 5946 laps=4 outcome=ok
-r02_p8       orchestrator->synthesis            total=  446 laps=1 outcome=ok
-                                                 (request total: 9255, judge: FAIL -- pipeline completed, dropped a substitution)
-
-r03_mac6     orchestrator->nutrition_worker     total= 2843 laps=3 outcome=ok
-r03_mac6     orchestrator->substitution_worker  total=    0 laps=0 outcome=budget_stop:wall_clock_s (93.6s >= 90.0s, zero successful laps)
-                                                 (request total: 2843, judge: FAIL -- never reached synthesis)
-
-r04_mac4nut  orchestrator->nutrition_worker     total= 2840 laps=3 outcome=ok
-r04_mac4nut  orchestrator->substitution_worker  total=    0 laps=0 outcome=budget_stop:wall_clock_s (91.3s >= 90.0s, zero successful laps)
-                                                 (request total: 2840, judge: FAIL -- never reached synthesis)
-
-r05_curry4   orchestrator->nutrition_worker     total= 2892 laps=3 outcome=ok
-r05_curry4   orchestrator->substitution_worker  total= 2234 laps=2 outcome=ok
-r05_curry4   orchestrator->synthesis            total=  472 laps=1 outcome=ok
-                                                 (request total: 5598, judge: PASS)
-
-r06_curry2   orchestrator->nutrition_worker     total= 2887 laps=3 outcome=ok
-r06_curry2   orchestrator->substitution_worker  total= 3539 laps=3 outcome=ok
-r06_curry2   orchestrator->synthesis            total=  493 laps=1 outcome=ok
-                                                 (request total: 6919, judge: FAIL -- pipeline completed, dropped a substitution)
-
-r07_curry8   orchestrator->nutrition_worker     total= 2891 laps=3 outcome=ok
-r07_curry8   orchestrator->substitution_worker  total=    0 laps=0 outcome=error:RateLimitError (transient; pre-dates the WorkerRuntimeError fix, see race_table.md)
-                                                 (request total: 2891, judge: FAIL -- never reached synthesis)
-
-# totals by hand-off type, across the 7 completed requests
-#   orchestrator->nutrition_worker    total= 20076  (54.2% of orchestrator tokens)
-#   orchestrator->substitution_worker total= 15197  (41.0% of orchestrator tokens)
-#   orchestrator->synthesis           total=  1788  (4.8% of orchestrator tokens)
-#   orchestrator grand total: 37061        single-agent grand total (same 7): 60672
-
-MULTIPLIER: 0.6x (orchestrator tokens / single-agent tokens, same 7 requests) -- attributed to orchestrator->nutrition_worker, 54.2% of all orchestrator tokens
+MULTIPLIER: 0.6x (orchestrator tokens / single-agent tokens) -- attributed to orchestrator->nutrition_worker, 56.3% of all tokens

@@ -262,9 +262,10 @@ def _write_race_table(single_rows, multi_rows, s, m, multiplier, dominant_type,
         "(max 10 laps / 24k tokens / $0.02 / 90s) for the whole request. The "
         "orchestrator gives each worker its OWN fresh `Budget()` with the "
         "same limits — three independent allowances, not one shared ceiling — "
-        "since none of the 10 requests came close to tripping any budget on "
-        "either arm, this did not decide the race, but it is a real "
-        "asymmetry worth naming rather than hiding.",
+        "so a worker budget stop (wall_clock_s) can fail a request outright; "
+        "aborted laps are logged with 0 tokens, so the orchestrator token "
+        "total and multiplier are a lower bound. Check handoffs.log for "
+        "budget_stop rows before trusting the multiplier.",
     ]
     with open(os.path.join(DOCS, "race_table.md"), "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
