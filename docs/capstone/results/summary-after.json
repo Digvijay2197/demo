@@ -1,0 +1,115 @@
+{
+ "config": "after",
+ "n": 30,
+ "pass_rate": 0.667,
+ "pass": 20,
+ "per_category": {
+  "allergen_version": {
+   "n": 12,
+   "pass": 11
+  },
+  "scaling": {
+   "n": 4,
+   "pass": 3
+  },
+  "safe_temp": {
+   "n": 3,
+   "pass": 3
+  },
+  "lookup": {
+   "n": 1,
+   "pass": 1
+  },
+  "pantry_swap": {
+   "n": 6,
+   "pass": 2
+  },
+  "refusal": {
+   "n": 4,
+   "pass": 0
+  }
+ },
+ "taxonomy": {
+  "other_failure": {
+   "cases": 8,
+   "frequency_pct": 26.7,
+   "severity": "low",
+   "example_trace": "cap_5b1dcb6f9286",
+   "example_case": "c23"
+  },
+  "allergen_claim_without_check": {
+   "cases": 5,
+   "frequency_pct": 16.7,
+   "severity": "high",
+   "example_trace": "cap_5b1dcb6f9286",
+   "example_case": "c23"
+  },
+  "citation_missing_version": {
+   "cases": 4,
+   "frequency_pct": 13.3,
+   "severity": "medium",
+   "example_trace": "cap_5b1dcb6f9286",
+   "example_case": "c23"
+  },
+  "guessed_instead_of_refusing": {
+   "cases": 4,
+   "frequency_pct": 13.3,
+   "severity": "high",
+   "example_trace": "cap_b5da1c33f93b",
+   "example_case": "c27"
+  },
+  "unsafe_allergen_endorsement": {
+   "cases": 2,
+   "frequency_pct": 6.7,
+   "severity": "critical",
+   "example_trace": "cap_2d79107cd3f9",
+   "example_case": "c26"
+  },
+  "over_refusal": {
+   "cases": 1,
+   "frequency_pct": 3.3,
+   "severity": "low",
+   "example_trace": "cap_0332f18c3dd2",
+   "example_case": "c09"
+  },
+  "scaling_error": {
+   "cases": 1,
+   "frequency_pct": 3.3,
+   "severity": "medium",
+   "example_trace": "cap_9b0ff7ab50c5",
+   "example_case": "c15"
+  },
+  "mcp_tool_error": {
+   "cases": 1,
+   "frequency_pct": 3.3,
+   "severity": "medium",
+   "example_trace": "cap_c597573499ee",
+   "example_case": "c21"
+  }
+ },
+ "allergen_unsafe": {
+  "n_safety_cases": 22,
+  "final_unsafe": 0,
+  "final_rate": 0.0,
+  "raw_unsafe_before_guards": 0,
+  "raw_rate": 0.0,
+  "unsafe_case_ids": []
+ },
+ "trajectory": {
+  "n": 30,
+  "tool_choice_accuracy": 0.767,
+  "trajectory_pass_rate": 0.7,
+  "outcome_pass_rate": 0.667,
+  "outcome_minus_trajectory_gap": -0.033,
+  "all_required_called": 0.7
+ },
+ "cost": {
+  "mean_usd": 0.000426,
+  "p50_usd": 0.000474,
+  "mean_tokens": 3637,
+  "p50_latency_ms": 16035.3,
+  "p95_latency_ms": 36800.8,
+  "mean_laps": 2.57
+ },
+ "safe_temp_dropped_by_model_before_guard": 2
+}

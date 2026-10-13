@@ -1,0 +1,2350 @@
+{
+ "corpus": "capstone-standin-v1",
+ "n_recipes": 26,
+ "n_records": 34,
+ "records": [
+  {
+   "recipe_id": "R-101",
+   "version": "original",
+   "status": "superseded",
+   "title": "Classic Shortbread",
+   "cuisine": "british",
+   "tags": [
+    "baking",
+    "biscuit"
+   ],
+   "servings": 12,
+   "prep_min": 15,
+   "cook_min": 20,
+   "oven_c": 160,
+   "ingredients": [
+    {
+     "item": "all-purpose flour",
+     "qty": 250,
+     "unit": "g",
+     "allergens": [
+      "gluten"
+     ]
+    },
+    {
+     "item": "butter",
+     "qty": 175,
+     "unit": "g",
+     "allergens": [
+      "dairy"
+     ]
+    },
+    {
+     "item": "caster sugar",
+     "qty": 75,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "fine salt",
+     "qty": null,
+     "unit": "pinch",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Cream the butter and sugar until pale.",
+    "Work in the flour and salt to a dough.",
+    "Press into a tin, prick with a fork and chill 20 minutes.",
+    "Bake at 160C for 20 minutes until pale gold; cool in the tin."
+   ],
+   "allergens": [
+    "dairy",
+    "gluten"
+   ],
+   "may_contain": [],
+   "internal_temp_c": null,
+   "internal_temp_for": null,
+   "version_note": "Original formulation."
+  },
+  {
+   "recipe_id": "R-101",
+   "version": "reformulated-2025",
+   "status": "current",
+   "title": "Classic Shortbread",
+   "cuisine": "british",
+   "tags": [
+    "baking",
+    "biscuit"
+   ],
+   "servings": 12,
+   "prep_min": 15,
+   "cook_min": 20,
+   "oven_c": 160,
+   "ingredients": [
+    {
+     "item": "all-purpose flour",
+     "qty": 250,
+     "unit": "g",
+     "allergens": [
+      "gluten"
+     ]
+    },
+    {
+     "item": "nut-oil blend baking spread (almond oil)",
+     "qty": 175,
+     "unit": "g",
+     "allergens": [
+      "tree_nut"
+     ]
+    },
+    {
+     "item": "caster sugar",
+     "qty": 75,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "fine salt",
+     "qty": null,
+     "unit": "pinch",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Cream the butter and sugar until pale.",
+    "Work in the flour and salt to a dough.",
+    "Press into a tin, prick with a fork and chill 20 minutes.",
+    "Bake at 160C for 20 minutes until pale gold; cool in the tin."
+   ],
+   "allergens": [
+    "gluten",
+    "tree_nut"
+   ],
+   "may_contain": [],
+   "internal_temp_c": null,
+   "internal_temp_for": null,
+   "version_note": "Supplier change: butter replaced by an almond-oil blend baking spread."
+  },
+  {
+   "recipe_id": "R-102",
+   "version": "original",
+   "status": "superseded",
+   "title": "Fluffy Pancakes",
+   "cuisine": "american",
+   "tags": [
+    "breakfast"
+   ],
+   "servings": 4,
+   "prep_min": 10,
+   "cook_min": 15,
+   "oven_c": null,
+   "ingredients": [
+    {
+     "item": "all-purpose flour",
+     "qty": 200,
+     "unit": "g",
+     "allergens": [
+      "gluten"
+     ]
+    },
+    {
+     "item": "whole milk",
+     "qty": 300,
+     "unit": "ml",
+     "allergens": [
+      "dairy"
+     ]
+    },
+    {
+     "item": "egg",
+     "qty": 2,
+     "unit": "",
+     "allergens": [
+      "egg"
+     ]
+    },
+    {
+     "item": "butter",
+     "qty": 30,
+     "unit": "g",
+     "allergens": [
+      "dairy"
+     ]
+    },
+    {
+     "item": "caster sugar",
+     "qty": 20,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "baking powder",
+     "qty": 8,
+     "unit": "g",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Whisk the dry ingredients.",
+    "Beat in milk and egg, then the melted fat.",
+    "Rest the batter 10 minutes.",
+    "Cook 2 minutes a side over medium heat."
+   ],
+   "allergens": [
+    "dairy",
+    "egg",
+    "gluten"
+   ],
+   "may_contain": [],
+   "internal_temp_c": null,
+   "internal_temp_for": null,
+   "version_note": "Original formulation."
+  },
+  {
+   "recipe_id": "R-102",
+   "version": "reformulated-2025",
+   "status": "current",
+   "title": "Fluffy Pancakes",
+   "cuisine": "american",
+   "tags": [
+    "breakfast"
+   ],
+   "servings": 4,
+   "prep_min": 10,
+   "cook_min": 15,
+   "oven_c": null,
+   "ingredients": [
+    {
+     "item": "all-purpose flour",
+     "qty": 200,
+     "unit": "g",
+     "allergens": [
+      "gluten"
+     ]
+    },
+    {
+     "item": "oat milk",
+     "qty": 300,
+     "unit": "ml",
+     "allergens": []
+    },
+    {
+     "item": "egg",
+     "qty": 2,
+     "unit": "",
+     "allergens": [
+      "egg"
+     ]
+    },
+    {
+     "item": "sunflower oil",
+     "qty": 30,
+     "unit": "ml",
+     "allergens": []
+    },
+    {
+     "item": "caster sugar",
+     "qty": 20,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "baking powder",
+     "qty": 8,
+     "unit": "g",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Whisk the dry ingredients.",
+    "Beat in milk and egg, then the melted fat.",
+    "Rest the batter 10 minutes.",
+    "Cook 2 minutes a side over medium heat."
+   ],
+   "allergens": [
+    "egg",
+    "gluten"
+   ],
+   "may_contain": [],
+   "internal_temp_c": null,
+   "internal_temp_for": null,
+   "version_note": "Reformulated dairy-free: oat milk and sunflower oil replace milk and butter."
+  },
+  {
+   "recipe_id": "R-103",
+   "version": "original",
+   "status": "superseded",
+   "title": "Chocolate Chip Cookies",
+   "cuisine": "american",
+   "tags": [
+    "baking",
+    "biscuit"
+   ],
+   "servings": 24,
+   "prep_min": 20,
+   "cook_min": 12,
+   "oven_c": 180,
+   "ingredients": [
+    {
+     "item": "all-purpose flour",
+     "qty": 280,
+     "unit": "g",
+     "allergens": [
+      "gluten"
+     ]
+    },
+    {
+     "item": "butter",
+     "qty": 170,
+     "unit": "g",
+     "allergens": [
+      "dairy"
+     ]
+    },
+    {
+     "item": "brown sugar",
+     "qty": 150,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "egg",
+     "qty": 2,
+     "unit": "",
+     "allergens": [
+      "egg"
+     ]
+    },
+    {
+     "item": "chocolate chips",
+     "qty": 200,
+     "unit": "g",
+     "allergens": [
+      "dairy",
+      "soy"
+     ]
+    },
+    {
+     "item": "baking soda",
+     "qty": 5,
+     "unit": "g",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Cream butter and sugar.",
+    "Beat in the eggs, then fold in flour and soda.",
+    "Stir in the chips and scoop onto trays.",
+    "Bake at 180C for 12 minutes."
+   ],
+   "allergens": [
+    "dairy",
+    "egg",
+    "gluten",
+    "soy"
+   ],
+   "may_contain": [],
+   "internal_temp_c": null,
+   "internal_temp_for": null,
+   "version_note": "Original formulation."
+  },
+  {
+   "recipe_id": "R-103",
+   "version": "reformulated-2025",
+   "status": "current",
+   "title": "Chocolate Chip Cookies",
+   "cuisine": "american",
+   "tags": [
+    "baking",
+    "biscuit"
+   ],
+   "servings": 24,
+   "prep_min": 20,
+   "cook_min": 12,
+   "oven_c": 180,
+   "ingredients": [
+    {
+     "item": "all-purpose flour",
+     "qty": 280,
+     "unit": "g",
+     "allergens": [
+      "gluten"
+     ]
+    },
+    {
+     "item": "butter",
+     "qty": 170,
+     "unit": "g",
+     "allergens": [
+      "dairy"
+     ]
+    },
+    {
+     "item": "brown sugar",
+     "qty": 150,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "egg",
+     "qty": 2,
+     "unit": "",
+     "allergens": [
+      "egg"
+     ]
+    },
+    {
+     "item": "chocolate chips (new supplier)",
+     "qty": 200,
+     "unit": "g",
+     "allergens": [
+      "dairy",
+      "soy"
+     ]
+    },
+    {
+     "item": "baking soda",
+     "qty": 5,
+     "unit": "g",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Cream butter and sugar.",
+    "Beat in the eggs, then fold in flour and soda.",
+    "Stir in the chips and scoop onto trays.",
+    "Bake at 180C for 12 minutes."
+   ],
+   "allergens": [
+    "dairy",
+    "egg",
+    "gluten",
+    "soy"
+   ],
+   "may_contain": [
+    "peanut",
+    "tree_nut"
+   ],
+   "internal_temp_c": null,
+   "internal_temp_for": null,
+   "version_note": "New chocolate supplier: shared line, 'may contain peanuts and tree nuts' declared."
+  },
+  {
+   "recipe_id": "R-104",
+   "version": "original",
+   "status": "superseded",
+   "title": "Banana Bread",
+   "cuisine": "american",
+   "tags": [
+    "baking",
+    "loaf"
+   ],
+   "servings": 8,
+   "prep_min": 15,
+   "cook_min": 55,
+   "oven_c": 175,
+   "ingredients": [
+    {
+     "item": "all-purpose flour",
+     "qty": 250,
+     "unit": "g",
+     "allergens": [
+      "gluten"
+     ]
+    },
+    {
+     "item": "ripe banana",
+     "qty": 3,
+     "unit": "",
+     "allergens": []
+    },
+    {
+     "item": "butter",
+     "qty": 100,
+     "unit": "g",
+     "allergens": [
+      "dairy"
+     ]
+    },
+    {
+     "item": "egg",
+     "qty": 2,
+     "unit": "",
+     "allergens": [
+      "egg"
+     ]
+    },
+    {
+     "item": "caster sugar",
+     "qty": 120,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "baking soda",
+     "qty": 5,
+     "unit": "g",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Mash the bananas and beat with butter, sugar and eggs.",
+    "Fold in flour and soda.",
+    "Pour into a lined loaf tin.",
+    "Bake at 175C for 55 minutes until a skewer comes out clean."
+   ],
+   "allergens": [
+    "dairy",
+    "egg",
+    "gluten"
+   ],
+   "may_contain": [],
+   "internal_temp_c": null,
+   "internal_temp_for": null,
+   "version_note": "Original formulation."
+  },
+  {
+   "recipe_id": "R-104",
+   "version": "reformulated-2025",
+   "status": "current",
+   "title": "Banana Bread",
+   "cuisine": "american",
+   "tags": [
+    "baking",
+    "loaf"
+   ],
+   "servings": 8,
+   "prep_min": 15,
+   "cook_min": 55,
+   "oven_c": 175,
+   "ingredients": [
+    {
+     "item": "almond-wheat flour blend",
+     "qty": 250,
+     "unit": "g",
+     "allergens": [
+      "gluten",
+      "tree_nut"
+     ]
+    },
+    {
+     "item": "ripe banana",
+     "qty": 3,
+     "unit": "",
+     "allergens": []
+    },
+    {
+     "item": "butter",
+     "qty": 100,
+     "unit": "g",
+     "allergens": [
+      "dairy"
+     ]
+    },
+    {
+     "item": "egg",
+     "qty": 2,
+     "unit": "",
+     "allergens": [
+      "egg"
+     ]
+    },
+    {
+     "item": "caster sugar",
+     "qty": 120,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "baking soda",
+     "qty": 5,
+     "unit": "g",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Mash the bananas and beat with butter, sugar and eggs.",
+    "Fold in flour and soda.",
+    "Pour into a lined loaf tin.",
+    "Bake at 175C for 55 minutes until a skewer comes out clean."
+   ],
+   "allergens": [
+    "dairy",
+    "egg",
+    "gluten",
+    "tree_nut"
+   ],
+   "may_contain": [],
+   "internal_temp_c": null,
+   "internal_temp_for": null,
+   "version_note": "Flour replaced by an almond-wheat blend for moisture."
+  },
+  {
+   "recipe_id": "R-105",
+   "version": "original",
+   "status": "superseded",
+   "title": "Chicken Stir-Fry",
+   "cuisine": "chinese",
+   "tags": [
+    "dinner",
+    "poultry"
+   ],
+   "servings": 4,
+   "prep_min": 15,
+   "cook_min": 12,
+   "oven_c": null,
+   "ingredients": [
+    {
+     "item": "chicken breast",
+     "qty": 500,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "soy sauce",
+     "qty": 45,
+     "unit": "ml",
+     "allergens": [
+      "gluten",
+      "soy"
+     ]
+    },
+    {
+     "item": "broccoli",
+     "qty": 300,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "garlic",
+     "qty": 3,
+     "unit": "cloves",
+     "allergens": []
+    },
+    {
+     "item": "vegetable oil",
+     "qty": 30,
+     "unit": "ml",
+     "allergens": []
+    },
+    {
+     "item": "cooked rice",
+     "qty": 600,
+     "unit": "g",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Slice the chicken and marinate in half the sauce.",
+    "Stir-fry the chicken over high heat, 6 minutes.",
+    "Add broccoli, garlic and the rest of the sauce; cook 5 minutes.",
+    "Serve over rice."
+   ],
+   "allergens": [
+    "gluten",
+    "soy"
+   ],
+   "may_contain": [],
+   "internal_temp_c": 74,
+   "internal_temp_for": "chicken",
+   "version_note": "Original formulation."
+  },
+  {
+   "recipe_id": "R-105",
+   "version": "reformulated-2025",
+   "status": "current",
+   "title": "Chicken Stir-Fry",
+   "cuisine": "chinese",
+   "tags": [
+    "dinner",
+    "poultry"
+   ],
+   "servings": 4,
+   "prep_min": 15,
+   "cook_min": 12,
+   "oven_c": null,
+   "ingredients": [
+    {
+     "item": "chicken breast",
+     "qty": 500,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "coconut aminos",
+     "qty": 45,
+     "unit": "ml",
+     "allergens": []
+    },
+    {
+     "item": "broccoli",
+     "qty": 300,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "garlic",
+     "qty": 3,
+     "unit": "cloves",
+     "allergens": []
+    },
+    {
+     "item": "vegetable oil",
+     "qty": 30,
+     "unit": "ml",
+     "allergens": []
+    },
+    {
+     "item": "cooked rice",
+     "qty": 600,
+     "unit": "g",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Slice the chicken and marinate in half the sauce.",
+    "Stir-fry the chicken over high heat, 6 minutes.",
+    "Add broccoli, garlic and the rest of the sauce; cook 5 minutes.",
+    "Serve over rice."
+   ],
+   "allergens": [],
+   "may_contain": [],
+   "internal_temp_c": 74,
+   "internal_temp_for": "chicken",
+   "version_note": "Soy sauce replaced by coconut aminos (soy-free, gluten-free)."
+  },
+  {
+   "recipe_id": "R-106",
+   "version": "original",
+   "status": "superseded",
+   "title": "Peanut Noodle Bowl",
+   "cuisine": "thai",
+   "tags": [
+    "dinner",
+    "noodles"
+   ],
+   "servings": 4,
+   "prep_min": 15,
+   "cook_min": 10,
+   "oven_c": null,
+   "ingredients": [
+    {
+     "item": "rice noodles",
+     "qty": 250,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "peanut butter",
+     "qty": 90,
+     "unit": "g",
+     "allergens": [
+      "peanut"
+     ]
+    },
+    {
+     "item": "soy sauce",
+     "qty": 30,
+     "unit": "ml",
+     "allergens": [
+      "gluten",
+      "soy"
+     ]
+    },
+    {
+     "item": "lime juice",
+     "qty": 30,
+     "unit": "ml",
+     "allergens": []
+    },
+    {
+     "item": "cucumber",
+     "qty": 1,
+     "unit": "",
+     "allergens": []
+    },
+    {
+     "item": "sesame oil",
+     "qty": 10,
+     "unit": "ml",
+     "allergens": [
+      "sesame"
+     ]
+    }
+   ],
+   "method": [
+    "Boil the noodles and rinse.",
+    "Whisk peanut butter, soy sauce, lime and sesame oil into a sauce.",
+    "Toss with noodles and sliced cucumber."
+   ],
+   "allergens": [
+    "gluten",
+    "peanut",
+    "sesame",
+    "soy"
+   ],
+   "may_contain": [],
+   "internal_temp_c": null,
+   "internal_temp_for": null,
+   "version_note": "Original formulation."
+  },
+  {
+   "recipe_id": "R-106",
+   "version": "reformulated-2025",
+   "status": "current",
+   "title": "Peanut Noodle Bowl",
+   "cuisine": "thai",
+   "tags": [
+    "dinner",
+    "noodles"
+   ],
+   "servings": 4,
+   "prep_min": 15,
+   "cook_min": 10,
+   "oven_c": null,
+   "ingredients": [
+    {
+     "item": "rice noodles",
+     "qty": 250,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "sunflower seed butter",
+     "qty": 90,
+     "unit": "g",
+     "allergens": [
+      "dairy"
+     ]
+    },
+    {
+     "item": "soy sauce",
+     "qty": 30,
+     "unit": "ml",
+     "allergens": [
+      "gluten",
+      "soy"
+     ]
+    },
+    {
+     "item": "lime juice",
+     "qty": 30,
+     "unit": "ml",
+     "allergens": []
+    },
+    {
+     "item": "cucumber",
+     "qty": 1,
+     "unit": "",
+     "allergens": []
+    },
+    {
+     "item": "sesame oil",
+     "qty": 10,
+     "unit": "ml",
+     "allergens": [
+      "sesame"
+     ]
+    }
+   ],
+   "method": [
+    "Boil the noodles and rinse.",
+    "Whisk peanut butter, soy sauce, lime and sesame oil into a sauce.",
+    "Toss with noodles and sliced cucumber."
+   ],
+   "allergens": [
+    "dairy",
+    "gluten",
+    "sesame",
+    "soy"
+   ],
+   "may_contain": [
+    "peanut"
+   ],
+   "internal_temp_c": null,
+   "internal_temp_for": null,
+   "version_note": "Peanut butter replaced by sunflower seed butter; shared-facility 'may contain peanuts'."
+  },
+  {
+   "recipe_id": "R-107",
+   "version": "original",
+   "status": "superseded",
+   "title": "Oat Granola Bars",
+   "cuisine": "american",
+   "tags": [
+    "snack",
+    "baking"
+   ],
+   "servings": 12,
+   "prep_min": 15,
+   "cook_min": 25,
+   "oven_c": 170,
+   "ingredients": [
+    {
+     "item": "rolled oats",
+     "qty": 250,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "honey",
+     "qty": 120,
+     "unit": "ml",
+     "allergens": []
+    },
+    {
+     "item": "sunflower seeds",
+     "qty": 60,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "butter",
+     "qty": 80,
+     "unit": "g",
+     "allergens": [
+      "dairy"
+     ]
+    },
+    {
+     "item": "brown sugar",
+     "qty": 50,
+     "unit": "g",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Melt butter, honey and sugar together.",
+    "Stir in oats and seeds and press into a tin.",
+    "Bake at 170C for 25 minutes; cool fully before cutting."
+   ],
+   "allergens": [
+    "dairy"
+   ],
+   "may_contain": [],
+   "internal_temp_c": null,
+   "internal_temp_for": null,
+   "version_note": "Original formulation."
+  },
+  {
+   "recipe_id": "R-107",
+   "version": "reformulated-2025",
+   "status": "current",
+   "title": "Oat Granola Bars",
+   "cuisine": "american",
+   "tags": [
+    "snack",
+    "baking"
+   ],
+   "servings": 12,
+   "prep_min": 15,
+   "cook_min": 25,
+   "oven_c": 170,
+   "ingredients": [
+    {
+     "item": "rolled oats",
+     "qty": 250,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "honey",
+     "qty": 120,
+     "unit": "ml",
+     "allergens": []
+    },
+    {
+     "item": "sunflower seeds",
+     "qty": 60,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "peanut butter",
+     "qty": 80,
+     "unit": "g",
+     "allergens": [
+      "peanut"
+     ]
+    },
+    {
+     "item": "brown sugar",
+     "qty": 50,
+     "unit": "g",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Melt butter, honey and sugar together.",
+    "Stir in oats and seeds and press into a tin.",
+    "Bake at 170C for 25 minutes; cool fully before cutting."
+   ],
+   "allergens": [
+    "peanut"
+   ],
+   "may_contain": [],
+   "internal_temp_c": null,
+   "internal_temp_for": null,
+   "version_note": "Binder changed from butter to peanut butter."
+  },
+  {
+   "recipe_id": "R-108",
+   "version": "original",
+   "status": "superseded",
+   "title": "Fudgy Brownies",
+   "cuisine": "american",
+   "tags": [
+    "baking",
+    "dessert"
+   ],
+   "servings": 16,
+   "prep_min": 15,
+   "cook_min": 30,
+   "oven_c": 175,
+   "ingredients": [
+    {
+     "item": "butter",
+     "qty": 170,
+     "unit": "g",
+     "allergens": [
+      "dairy"
+     ]
+    },
+    {
+     "item": "cocoa powder",
+     "qty": 60,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "caster sugar",
+     "qty": 200,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "egg",
+     "qty": 3,
+     "unit": "",
+     "allergens": [
+      "egg"
+     ]
+    },
+    {
+     "item": "all-purpose flour",
+     "qty": 100,
+     "unit": "g",
+     "allergens": [
+      "gluten"
+     ]
+    }
+   ],
+   "method": [
+    "Melt the butter and beat in sugar and cocoa.",
+    "Beat in eggs, fold in flour.",
+    "Pour into a lined tin.",
+    "Bake at 175C for 30 minutes - the centre should stay fudgy."
+   ],
+   "allergens": [
+    "dairy",
+    "egg",
+    "gluten"
+   ],
+   "may_contain": [],
+   "internal_temp_c": null,
+   "internal_temp_for": null,
+   "version_note": "Original formulation."
+  },
+  {
+   "recipe_id": "R-108",
+   "version": "reformulated-2025",
+   "status": "current",
+   "title": "Fudgy Brownies",
+   "cuisine": "american",
+   "tags": [
+    "baking",
+    "dessert"
+   ],
+   "servings": 16,
+   "prep_min": 15,
+   "cook_min": 30,
+   "oven_c": 175,
+   "ingredients": [
+    {
+     "item": "butter",
+     "qty": 170,
+     "unit": "g",
+     "allergens": [
+      "dairy"
+     ]
+    },
+    {
+     "item": "cocoa powder",
+     "qty": 60,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "caster sugar",
+     "qty": 200,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "egg",
+     "qty": 3,
+     "unit": "",
+     "allergens": [
+      "egg"
+     ]
+    },
+    {
+     "item": "all-purpose flour",
+     "qty": 100,
+     "unit": "g",
+     "allergens": [
+      "gluten"
+     ]
+    },
+    {
+     "item": "hazelnut spread swirl",
+     "qty": 80,
+     "unit": "g",
+     "allergens": [
+      "dairy",
+      "tree_nut"
+     ]
+    }
+   ],
+   "method": [
+    "Melt the butter and beat in sugar and cocoa.",
+    "Beat in eggs, fold in flour.",
+    "Pour into a lined tin.",
+    "Bake at 175C for 30 minutes - the centre should stay fudgy."
+   ],
+   "allergens": [
+    "dairy",
+    "egg",
+    "gluten",
+    "tree_nut"
+   ],
+   "may_contain": [],
+   "internal_temp_c": null,
+   "internal_temp_for": null,
+   "version_note": "A hazelnut-spread swirl added to the batter."
+  },
+  {
+   "recipe_id": "R-201",
+   "version": "original",
+   "status": "current",
+   "title": "Lemon Herb Roast Chicken Thighs",
+   "cuisine": "mediterranean",
+   "tags": [
+    "dinner",
+    "poultry"
+   ],
+   "servings": 4,
+   "prep_min": 15,
+   "cook_min": 45,
+   "oven_c": 200,
+   "ingredients": [
+    {
+     "item": "chicken thighs",
+     "qty": 8,
+     "unit": "",
+     "allergens": []
+    },
+    {
+     "item": "lemon",
+     "qty": 1,
+     "unit": "",
+     "allergens": []
+    },
+    {
+     "item": "olive oil",
+     "qty": 30,
+     "unit": "ml",
+     "allergens": []
+    },
+    {
+     "item": "thyme",
+     "qty": 4,
+     "unit": "sprigs",
+     "allergens": []
+    },
+    {
+     "item": "garlic",
+     "qty": 4,
+     "unit": "cloves",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Toss the thighs with oil, lemon, thyme and garlic.",
+    "Roast at 200C for 45 minutes.",
+    "Rest 5 minutes before serving."
+   ],
+   "allergens": [],
+   "may_contain": [],
+   "internal_temp_c": 74,
+   "internal_temp_for": "chicken",
+   "version_note": "Original formulation."
+  },
+  {
+   "recipe_id": "R-202",
+   "version": "original",
+   "status": "current",
+   "title": "Pork Chops with Apples",
+   "cuisine": "european",
+   "tags": [
+    "dinner"
+   ],
+   "servings": 4,
+   "prep_min": 10,
+   "cook_min": 20,
+   "oven_c": null,
+   "ingredients": [
+    {
+     "item": "pork chops",
+     "qty": 4,
+     "unit": "",
+     "allergens": []
+    },
+    {
+     "item": "apples",
+     "qty": 2,
+     "unit": "",
+     "allergens": []
+    },
+    {
+     "item": "olive oil",
+     "qty": 20,
+     "unit": "ml",
+     "allergens": []
+    },
+    {
+     "item": "sage",
+     "qty": 6,
+     "unit": "leaves",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Sear the chops 4 minutes a side.",
+    "Add sliced apples and sage and cook 8 minutes.",
+    "Rest 3 minutes."
+   ],
+   "allergens": [],
+   "may_contain": [],
+   "internal_temp_c": 63,
+   "internal_temp_for": "pork",
+   "version_note": "Original formulation."
+  },
+  {
+   "recipe_id": "R-203",
+   "version": "original",
+   "status": "current",
+   "title": "Beef Meatballs in Tomato Sauce",
+   "cuisine": "italian",
+   "tags": [
+    "dinner"
+   ],
+   "servings": 4,
+   "prep_min": 20,
+   "cook_min": 30,
+   "oven_c": null,
+   "ingredients": [
+    {
+     "item": "ground beef",
+     "qty": 500,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "breadcrumbs",
+     "qty": 60,
+     "unit": "g",
+     "allergens": [
+      "gluten"
+     ]
+    },
+    {
+     "item": "egg",
+     "qty": 1,
+     "unit": "",
+     "allergens": [
+      "egg"
+     ]
+    },
+    {
+     "item": "parmesan",
+     "qty": 40,
+     "unit": "g",
+     "allergens": [
+      "dairy"
+     ]
+    },
+    {
+     "item": "passata",
+     "qty": 500,
+     "unit": "ml",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Mix beef, crumbs, egg and parmesan and roll into balls.",
+    "Brown, then simmer in passata 25 minutes."
+   ],
+   "allergens": [
+    "dairy",
+    "egg",
+    "gluten"
+   ],
+   "may_contain": [],
+   "internal_temp_c": 71,
+   "internal_temp_for": "ground beef",
+   "version_note": "Original formulation."
+  },
+  {
+   "recipe_id": "R-204",
+   "version": "original",
+   "status": "current",
+   "title": "Baked Salmon with Dill",
+   "cuisine": "nordic",
+   "tags": [
+    "dinner",
+    "fish"
+   ],
+   "servings": 4,
+   "prep_min": 10,
+   "cook_min": 15,
+   "oven_c": 200,
+   "ingredients": [
+    {
+     "item": "salmon fillets",
+     "qty": 4,
+     "unit": "",
+     "allergens": [
+      "fish"
+     ]
+    },
+    {
+     "item": "dill",
+     "qty": 10,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "lemon",
+     "qty": 1,
+     "unit": "",
+     "allergens": []
+    },
+    {
+     "item": "olive oil",
+     "qty": 15,
+     "unit": "ml",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Place the fillets on a tray with oil, dill and lemon.",
+    "Bake at 200C for 15 minutes."
+   ],
+   "allergens": [
+    "fish"
+   ],
+   "may_contain": [],
+   "internal_temp_c": 63,
+   "internal_temp_for": "fish",
+   "version_note": "Original formulation."
+  },
+  {
+   "recipe_id": "R-205",
+   "version": "original",
+   "status": "current",
+   "title": "Turkey Burgers",
+   "cuisine": "american",
+   "tags": [
+    "dinner",
+    "poultry"
+   ],
+   "servings": 4,
+   "prep_min": 15,
+   "cook_min": 12,
+   "oven_c": null,
+   "ingredients": [
+    {
+     "item": "ground turkey",
+     "qty": 500,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "onion",
+     "qty": 1,
+     "unit": "",
+     "allergens": []
+    },
+    {
+     "item": "breadcrumbs",
+     "qty": 40,
+     "unit": "g",
+     "allergens": [
+      "gluten"
+     ]
+    },
+    {
+     "item": "egg",
+     "qty": 1,
+     "unit": "",
+     "allergens": [
+      "egg"
+     ]
+    }
+   ],
+   "method": [
+    "Mix everything and shape four patties.",
+    "Grill or pan-fry 6 minutes a side."
+   ],
+   "allergens": [
+    "egg",
+    "gluten"
+   ],
+   "may_contain": [],
+   "internal_temp_c": 74,
+   "internal_temp_for": "turkey",
+   "version_note": "Original formulation."
+  },
+  {
+   "recipe_id": "R-206",
+   "version": "original",
+   "status": "current",
+   "title": "Creamy Tomato Soup",
+   "cuisine": "european",
+   "tags": [
+    "soup"
+   ],
+   "servings": 4,
+   "prep_min": 10,
+   "cook_min": 25,
+   "oven_c": null,
+   "ingredients": [
+    {
+     "item": "tinned tomatoes",
+     "qty": 800,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "onion",
+     "qty": 1,
+     "unit": "",
+     "allergens": []
+    },
+    {
+     "item": "cream",
+     "qty": 100,
+     "unit": "ml",
+     "allergens": [
+      "dairy"
+     ]
+    },
+    {
+     "item": "vegetable stock",
+     "qty": 400,
+     "unit": "ml",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Sweat the onion, add tomatoes and stock, simmer 20 minutes.",
+    "Blend and stir in the cream."
+   ],
+   "allergens": [
+    "dairy"
+   ],
+   "may_contain": [],
+   "internal_temp_c": null,
+   "internal_temp_for": null,
+   "version_note": "Original formulation."
+  },
+  {
+   "recipe_id": "R-207",
+   "version": "original",
+   "status": "current",
+   "title": "Red Lentil Dal",
+   "cuisine": "indian",
+   "tags": [
+    "dinner",
+    "vegan"
+   ],
+   "servings": 4,
+   "prep_min": 10,
+   "cook_min": 35,
+   "oven_c": null,
+   "ingredients": [
+    {
+     "item": "red lentils",
+     "qty": 300,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "onion",
+     "qty": 1,
+     "unit": "",
+     "allergens": []
+    },
+    {
+     "item": "turmeric",
+     "qty": 5,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "tinned tomatoes",
+     "qty": 400,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "coconut milk",
+     "qty": 200,
+     "unit": "ml",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Fry onion and turmeric.",
+    "Add lentils, tomatoes and 600 ml water; simmer 30 minutes.",
+    "Stir in the coconut milk."
+   ],
+   "allergens": [],
+   "may_contain": [],
+   "internal_temp_c": null,
+   "internal_temp_for": null,
+   "version_note": "Original formulation."
+  },
+  {
+   "recipe_id": "R-208",
+   "version": "original",
+   "status": "current",
+   "title": "Mushroom Risotto",
+   "cuisine": "italian",
+   "tags": [
+    "dinner"
+   ],
+   "servings": 4,
+   "prep_min": 10,
+   "cook_min": 30,
+   "oven_c": null,
+   "ingredients": [
+    {
+     "item": "arborio rice",
+     "qty": 300,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "mushrooms",
+     "qty": 300,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "butter",
+     "qty": 40,
+     "unit": "g",
+     "allergens": [
+      "dairy"
+     ]
+    },
+    {
+     "item": "parmesan",
+     "qty": 50,
+     "unit": "g",
+     "allergens": [
+      "dairy"
+     ]
+    },
+    {
+     "item": "vegetable stock",
+     "qty": 1000,
+     "unit": "ml",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Fry the mushrooms in butter.",
+    "Add rice and ladle in hot stock for 25 minutes.",
+    "Finish with parmesan."
+   ],
+   "allergens": [
+    "dairy"
+   ],
+   "may_contain": [],
+   "internal_temp_c": null,
+   "internal_temp_for": null,
+   "version_note": "Original formulation."
+  },
+  {
+   "recipe_id": "R-209",
+   "version": "original",
+   "status": "current",
+   "title": "Pesto Pasta",
+   "cuisine": "italian",
+   "tags": [
+    "dinner",
+    "vegetarian"
+   ],
+   "servings": 4,
+   "prep_min": 10,
+   "cook_min": 12,
+   "oven_c": null,
+   "ingredients": [
+    {
+     "item": "spaghetti",
+     "qty": 320,
+     "unit": "g",
+     "allergens": [
+      "gluten"
+     ]
+    },
+    {
+     "item": "basil",
+     "qty": 60,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "pine nuts",
+     "qty": 40,
+     "unit": "g",
+     "allergens": [
+      "tree_nut"
+     ]
+    },
+    {
+     "item": "parmesan",
+     "qty": 50,
+     "unit": "g",
+     "allergens": [
+      "dairy"
+     ]
+    },
+    {
+     "item": "olive oil",
+     "qty": 80,
+     "unit": "ml",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Boil the spaghetti.",
+    "Blitz basil, pine nuts, parmesan and oil into pesto.",
+    "Toss together."
+   ],
+   "allergens": [
+    "dairy",
+    "gluten",
+    "tree_nut"
+   ],
+   "may_contain": [],
+   "internal_temp_c": null,
+   "internal_temp_for": null,
+   "version_note": "Original formulation."
+  },
+  {
+   "recipe_id": "R-210",
+   "version": "original",
+   "status": "current",
+   "title": "Classic Hummus",
+   "cuisine": "levantine",
+   "tags": [
+    "dip",
+    "vegan"
+   ],
+   "servings": 6,
+   "prep_min": 10,
+   "cook_min": 0,
+   "oven_c": null,
+   "ingredients": [
+    {
+     "item": "chickpeas",
+     "qty": 400,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "tahini",
+     "qty": 60,
+     "unit": "g",
+     "allergens": [
+      "sesame"
+     ]
+    },
+    {
+     "item": "lemon juice",
+     "qty": 40,
+     "unit": "ml",
+     "allergens": []
+    },
+    {
+     "item": "garlic",
+     "qty": 1,
+     "unit": "cloves",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Blend everything with 3 tablespoons of cold water until smooth."
+   ],
+   "allergens": [
+    "sesame"
+   ],
+   "may_contain": [],
+   "internal_temp_c": null,
+   "internal_temp_for": null,
+   "version_note": "Original formulation."
+  },
+  {
+   "recipe_id": "R-211",
+   "version": "original",
+   "status": "current",
+   "title": "Shrimp Tacos",
+   "cuisine": "mexican",
+   "tags": [
+    "dinner"
+   ],
+   "servings": 4,
+   "prep_min": 15,
+   "cook_min": 6,
+   "oven_c": null,
+   "ingredients": [
+    {
+     "item": "shrimp",
+     "qty": 400,
+     "unit": "g",
+     "allergens": [
+      "shellfish"
+     ]
+    },
+    {
+     "item": "flour tortillas",
+     "qty": 8,
+     "unit": "",
+     "allergens": [
+      "gluten"
+     ]
+    },
+    {
+     "item": "red cabbage",
+     "qty": 150,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "lime",
+     "qty": 2,
+     "unit": "",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Sear the shrimp 3 minutes a side.",
+    "Serve in warm tortillas with cabbage and lime."
+   ],
+   "allergens": [
+    "gluten",
+    "shellfish"
+   ],
+   "may_contain": [],
+   "internal_temp_c": null,
+   "internal_temp_for": null,
+   "version_note": "Original formulation."
+  },
+  {
+   "recipe_id": "R-212",
+   "version": "original",
+   "status": "current",
+   "title": "Egg Fried Rice",
+   "cuisine": "chinese",
+   "tags": [
+    "dinner"
+   ],
+   "servings": 4,
+   "prep_min": 10,
+   "cook_min": 10,
+   "oven_c": null,
+   "ingredients": [
+    {
+     "item": "cooked rice",
+     "qty": 600,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "egg",
+     "qty": 3,
+     "unit": "",
+     "allergens": [
+      "egg"
+     ]
+    },
+    {
+     "item": "soy sauce",
+     "qty": 30,
+     "unit": "ml",
+     "allergens": [
+      "gluten",
+      "soy"
+     ]
+    },
+    {
+     "item": "spring onion",
+     "qty": 4,
+     "unit": "",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Scramble the eggs in a hot wok until set.",
+    "Add rice and soy sauce and fry 4 minutes."
+   ],
+   "allergens": [
+    "egg",
+    "gluten",
+    "soy"
+   ],
+   "may_contain": [],
+   "internal_temp_c": 74,
+   "internal_temp_for": "egg dishes",
+   "version_note": "Original formulation."
+  },
+  {
+   "recipe_id": "R-213",
+   "version": "original",
+   "status": "current",
+   "title": "Apple Crumble",
+   "cuisine": "british",
+   "tags": [
+    "dessert",
+    "baking"
+   ],
+   "servings": 6,
+   "prep_min": 20,
+   "cook_min": 40,
+   "oven_c": 180,
+   "ingredients": [
+    {
+     "item": "apples",
+     "qty": 800,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "all-purpose flour",
+     "qty": 150,
+     "unit": "g",
+     "allergens": [
+      "gluten"
+     ]
+    },
+    {
+     "item": "butter",
+     "qty": 100,
+     "unit": "g",
+     "allergens": [
+      "dairy"
+     ]
+    },
+    {
+     "item": "rolled oats",
+     "qty": 50,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "brown sugar",
+     "qty": 80,
+     "unit": "g",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Slice the apples into a dish.",
+    "Rub butter into flour, oats and sugar and scatter over.",
+    "Bake at 180C for 40 minutes."
+   ],
+   "allergens": [
+    "dairy",
+    "gluten"
+   ],
+   "may_contain": [],
+   "internal_temp_c": null,
+   "internal_temp_for": null,
+   "version_note": "Original formulation."
+  },
+  {
+   "recipe_id": "R-214",
+   "version": "original",
+   "status": "current",
+   "title": "Vegetable Coconut Curry",
+   "cuisine": "thai",
+   "tags": [
+    "dinner",
+    "vegan"
+   ],
+   "servings": 4,
+   "prep_min": 15,
+   "cook_min": 25,
+   "oven_c": null,
+   "ingredients": [
+    {
+     "item": "coconut milk",
+     "qty": 400,
+     "unit": "ml",
+     "allergens": []
+    },
+    {
+     "item": "mixed vegetables",
+     "qty": 500,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "curry paste",
+     "qty": 40,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "rice",
+     "qty": 300,
+     "unit": "g",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Fry the paste, add coconut milk and vegetables, simmer 20 minutes.",
+    "Serve over rice."
+   ],
+   "allergens": [],
+   "may_contain": [],
+   "internal_temp_c": null,
+   "internal_temp_for": null,
+   "version_note": "Original formulation."
+  },
+  {
+   "recipe_id": "R-215",
+   "version": "original",
+   "status": "current",
+   "title": "Margherita Flatbread",
+   "cuisine": "italian",
+   "tags": [
+    "dinner",
+    "vegetarian"
+   ],
+   "servings": 2,
+   "prep_min": 10,
+   "cook_min": 12,
+   "oven_c": 230,
+   "ingredients": [
+    {
+     "item": "flatbread dough",
+     "qty": 250,
+     "unit": "g",
+     "allergens": [
+      "gluten"
+     ]
+    },
+    {
+     "item": "mozzarella",
+     "qty": 125,
+     "unit": "g",
+     "allergens": [
+      "dairy"
+     ]
+    },
+    {
+     "item": "tomato passata",
+     "qty": 100,
+     "unit": "ml",
+     "allergens": []
+    },
+    {
+     "item": "basil",
+     "qty": 10,
+     "unit": "g",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Stretch the dough, top with passata and cheese.",
+    "Bake at 230C for 12 minutes; scatter basil."
+   ],
+   "allergens": [
+    "dairy",
+    "gluten"
+   ],
+   "may_contain": [],
+   "internal_temp_c": null,
+   "internal_temp_for": null,
+   "version_note": "Original formulation."
+  },
+  {
+   "recipe_id": "R-216",
+   "version": "original",
+   "status": "current",
+   "title": "Tofu Veggie Scramble",
+   "cuisine": "american",
+   "tags": [
+    "breakfast",
+    "vegan"
+   ],
+   "servings": 2,
+   "prep_min": 5,
+   "cook_min": 10,
+   "oven_c": null,
+   "ingredients": [
+    {
+     "item": "firm tofu",
+     "qty": 250,
+     "unit": "g",
+     "allergens": [
+      "soy"
+     ]
+    },
+    {
+     "item": "spinach",
+     "qty": 100,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "turmeric",
+     "qty": 2,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "olive oil",
+     "qty": 15,
+     "unit": "ml",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Crumble the tofu into hot oil with turmeric.",
+    "Fold in spinach until wilted."
+   ],
+   "allergens": [
+    "soy"
+   ],
+   "may_contain": [],
+   "internal_temp_c": null,
+   "internal_temp_for": null,
+   "version_note": "Original formulation."
+  },
+  {
+   "recipe_id": "R-217",
+   "version": "original",
+   "status": "current",
+   "title": "Overnight Oats",
+   "cuisine": "american",
+   "tags": [
+    "breakfast",
+    "no-cook"
+   ],
+   "servings": 1,
+   "prep_min": 5,
+   "cook_min": 0,
+   "oven_c": null,
+   "ingredients": [
+    {
+     "item": "rolled oats",
+     "qty": 50,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "whole milk",
+     "qty": 150,
+     "unit": "ml",
+     "allergens": [
+      "dairy"
+     ]
+    },
+    {
+     "item": "honey",
+     "qty": 10,
+     "unit": "ml",
+     "allergens": []
+    },
+    {
+     "item": "chia seeds",
+     "qty": 10,
+     "unit": "g",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Stir everything together in a jar and refrigerate overnight."
+   ],
+   "allergens": [
+    "dairy"
+   ],
+   "may_contain": [],
+   "internal_temp_c": null,
+   "internal_temp_for": null,
+   "version_note": "Original formulation."
+  },
+  {
+   "recipe_id": "R-218",
+   "version": "original",
+   "status": "current",
+   "title": "Vegetable Frittata",
+   "cuisine": "european",
+   "tags": [
+    "dinner",
+    "vegetarian"
+   ],
+   "servings": 4,
+   "prep_min": 10,
+   "cook_min": 20,
+   "oven_c": null,
+   "ingredients": [
+    {
+     "item": "egg",
+     "qty": 6,
+     "unit": "",
+     "allergens": [
+      "egg"
+     ]
+    },
+    {
+     "item": "whole milk",
+     "qty": 100,
+     "unit": "ml",
+     "allergens": [
+      "dairy"
+     ]
+    },
+    {
+     "item": "cheddar",
+     "qty": 60,
+     "unit": "g",
+     "allergens": [
+      "dairy"
+     ]
+    },
+    {
+     "item": "spinach",
+     "qty": 100,
+     "unit": "g",
+     "allergens": []
+    },
+    {
+     "item": "onion",
+     "qty": 1,
+     "unit": "",
+     "allergens": []
+    }
+   ],
+   "method": [
+    "Soften the onion and spinach.",
+    "Pour over beaten eggs, milk and cheese.",
+    "Cook gently 15 minutes until set through."
+   ],
+   "allergens": [
+    "dairy",
+    "egg"
+   ],
+   "may_contain": [],
+   "internal_temp_c": 74,
+   "internal_temp_for": "egg dishes",
+   "version_note": "Original formulation."
+  }
+ ],
+ "substitutions": {
+  "whole milk": [
+   {
+    "to": "almond milk",
+    "ratio": 1.0,
+    "allergens": [
+     "tree_nut"
+    ]
+   },
+   {
+    "to": "oat milk",
+    "ratio": 1.0,
+    "allergens": []
+   },
+   {
+    "to": "soy milk",
+    "ratio": 1.0,
+    "allergens": [
+     "soy"
+    ]
+   },
+   {
+    "to": "coconut milk",
+    "ratio": 1.0,
+    "allergens": []
+   }
+  ],
+  "butter": [
+   {
+    "to": "vegan butter (almond-oil blend)",
+    "ratio": 1.0,
+    "allergens": [
+     "tree_nut"
+    ]
+   },
+   {
+    "to": "coconut oil",
+    "ratio": 0.8,
+    "allergens": []
+   },
+   {
+    "to": "sunflower oil",
+    "ratio": 0.75,
+    "allergens": []
+   }
+  ],
+  "egg": [
+   {
+    "to": "flax egg",
+    "ratio": 1.0,
+    "allergens": []
+   },
+   {
+    "to": "applesauce",
+    "ratio": 1.0,
+    "allergens": []
+   }
+  ],
+  "all-purpose flour": [
+   {
+    "to": "almond flour",
+    "ratio": 1.0,
+    "allergens": [
+     "tree_nut"
+    ]
+   },
+   {
+    "to": "oat flour",
+    "ratio": 1.0,
+    "allergens": []
+   },
+   {
+    "to": "rice flour",
+    "ratio": 1.0,
+    "allergens": []
+   }
+  ],
+  "cream": [
+   {
+    "to": "cashew cream",
+    "ratio": 1.0,
+    "allergens": [
+     "tree_nut"
+    ]
+   },
+   {
+    "to": "coconut cream",
+    "ratio": 1.0,
+    "allergens": []
+   }
+  ],
+  "peanut butter": [
+   {
+    "to": "almond butter",
+    "ratio": 1.0,
+    "allergens": [
+     "tree_nut"
+    ]
+   },
+   {
+    "to": "sunflower seed butter",
+    "ratio": 1.0,
+    "allergens": []
+   },
+   {
+    "to": "tahini",
+    "ratio": 1.0,
+    "allergens": [
+     "sesame"
+    ]
+   }
+  ],
+  "soy sauce": [
+   {
+    "to": "coconut aminos",
+    "ratio": 1.0,
+    "allergens": []
+   },
+   {
+    "to": "tamari",
+    "ratio": 1.0,
+    "allergens": [
+     "soy"
+    ]
+   }
+  ],
+  "parmesan": [
+   {
+    "to": "cashew parmesan",
+    "ratio": 1.0,
+    "allergens": [
+     "tree_nut"
+    ]
+   },
+   {
+    "to": "nutritional yeast",
+    "ratio": 0.5,
+    "allergens": []
+   }
+  ],
+  "pine nuts": [
+   {
+    "to": "sunflower seeds",
+    "ratio": 1.0,
+    "allergens": []
+   },
+   {
+    "to": "walnuts",
+    "ratio": 1.0,
+    "allergens": [
+     "tree_nut"
+    ]
+   }
+  ],
+  "cheddar": [
+   {
+    "to": "cashew cheese",
+    "ratio": 1.0,
+    "allergens": [
+     "tree_nut"
+    ]
+   },
+   {
+    "to": "nutritional yeast",
+    "ratio": 0.3,
+    "allergens": []
+   }
+  ],
+  "honey": [
+   {
+    "to": "maple syrup",
+    "ratio": 1.0,
+    "allergens": []
+   }
+  ]
+ },
+ "safe_temps": {
+  "chicken": 74,
+  "turkey": 74,
+  "egg dishes": 74,
+  "ground beef": 71,
+  "pork": 63,
+  "fish": 63
+ }
+}

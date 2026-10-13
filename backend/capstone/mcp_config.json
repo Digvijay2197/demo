@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "recipe-allergen": {
+      "transport": "stdio",
+      "command": "python",
+      "args": ["-m", "capstone.mcp_server"],
+      "cwd": "."
+    }
+  }
+}

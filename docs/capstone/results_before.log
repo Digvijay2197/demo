@@ -1,0 +1,624 @@
+[10/13/26 01:33:05] INFO     No device provided, using cpu         model.py:199
+[10/13/26 01:33:06] INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/sentence-tr                
+                             ansformers/all-MiniLM-L6-v2/resolv                
+                             e/main/modules.json "HTTP/1.1 307                 
+                             Temporary Redirect"                               
+                    INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/api/resolve                
+                             -cache/models/sentence-transformer                
+                             s/all-MiniLM-L6-v2/1110a243fdf4706                
+                             b3f48f1d95db1a4f5529b4d41/modules.                
+                             json "HTTP/1.1 200 OK"                            
+                    INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/sentence-tr                
+                             ansformers/all-MiniLM-L6-v2/resolv                
+                             e/main/config_sentence_transformer                
+                             s.json "HTTP/1.1 307 Temporary                    
+                             Redirect"                                         
+                    INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/api/resolve                
+                             -cache/models/sentence-transformer                
+                             s/all-MiniLM-L6-v2/1110a243fdf4706                
+                             b3f48f1d95db1a4f5529b4d41/config_s                
+                             entence_transformers.json                         
+                             "HTTP/1.1 200 OK"                                 
+                    INFO     Loading SentenceTransformer model    model.py:1080
+                             from                                              
+                             sentence-transformers/all-MiniLM-L6-              
+                             v2.                                               
+                    INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/sentence-tr                
+                             ansformers/all-MiniLM-L6-v2/resolv                
+                             e/main/config_sentence_transformer                
+                             s.json "HTTP/1.1 307 Temporary                    
+                             Redirect"                                         
+                    INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/api/resolve                
+                             -cache/models/sentence-transformer                
+                             s/all-MiniLM-L6-v2/1110a243fdf4706                
+                             b3f48f1d95db1a4f5529b4d41/config_s                
+                             entence_transformers.json                         
+                             "HTTP/1.1 200 OK"                                 
+[10/13/26 01:33:07] INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/sentence-tr                
+                             ansformers/all-MiniLM-L6-v2/resolv                
+                             e/main/README.md "HTTP/1.1 307                    
+                             Temporary Redirect"                               
+                    INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/api/resolve                
+                             -cache/models/sentence-transformer                
+                             s/all-MiniLM-L6-v2/1110a243fdf4706                
+                             b3f48f1d95db1a4f5529b4d41/README.m                
+                             d "HTTP/1.1 200 OK"                               
+                    INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/sentence-tr                
+                             ansformers/all-MiniLM-L6-v2/resolv                
+                             e/main/modules.json "HTTP/1.1 307                 
+                             Temporary Redirect"                               
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+                    WARNING  Warning: You are sending              _http.py:955
+                             unauthenticated requests to the HF                
+                             Hub. Please set a HF_TOKEN to enable              
+                             higher rate limits and faster                     
+                             downloads.                                        
+                    INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/api/resolve                
+                             -cache/models/sentence-transformer                
+                             s/all-MiniLM-L6-v2/1110a243fdf4706                
+                             b3f48f1d95db1a4f5529b4d41/modules.                
+                             json "HTTP/1.1 200 OK"                            
+                    INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/sentence-tr                
+                             ansformers/all-MiniLM-L6-v2/resolv                
+                             e/main/sentence_bert_config.json                  
+                             "HTTP/1.1 307 Temporary Redirect"                 
+                    INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/api/resolve                
+                             -cache/models/sentence-transformer                
+                             s/all-MiniLM-L6-v2/1110a243fdf4706                
+                             b3f48f1d95db1a4f5529b4d41/sentence                
+                             _bert_config.json "HTTP/1.1 200                   
+                             OK"                                               
+                    INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/sentence-tr                
+                             ansformers/all-MiniLM-L6-v2/resolv                
+                             e/main/adapter_config.json                        
+                             "HTTP/1.1 404 Not Found"                          
+[10/13/26 01:33:08] INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/sentence-tr                
+                             ansformers/all-MiniLM-L6-v2/resolv                
+                             e/main/config.json "HTTP/1.1 307                  
+                             Temporary Redirect"                               
+                    INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/api/resolve                
+                             -cache/models/sentence-transformer                
+                             s/all-MiniLM-L6-v2/1110a243fdf4706                
+                             b3f48f1d95db1a4f5529b4d41/config.j                
+                             son "HTTP/1.1 200 OK"                             
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 3821.50it/s]
+[10/13/26 01:33:09] INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/sentence-tr                
+                             ansformers/all-MiniLM-L6-v2/resolv                
+                             e/main/processor_config.json                      
+                             "HTTP/1.1 404 Not Found"                          
+                    INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/sentence-tr                
+                             ansformers/all-MiniLM-L6-v2/resolv                
+                             e/main/preprocessor_config.json                   
+                             "HTTP/1.1 404 Not Found"                          
+                    INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/sentence-tr                
+                             ansformers/all-MiniLM-L6-v2/resolv                
+                             e/main/video_preprocessor_config.j                
+                             son "HTTP/1.1 404 Not Found"                      
+                    INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/sentence-tr                
+                             ansformers/all-MiniLM-L6-v2/resolv                
+                             e/main/preprocessor_config.json                   
+                             "HTTP/1.1 404 Not Found"                          
+[10/13/26 01:33:10] INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/sentence-tr                
+                             ansformers/all-MiniLM-L6-v2/resolv                
+                             e/main/tokenizer_config.json                      
+                             "HTTP/1.1 307 Temporary Redirect"                 
+                    INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/api/resolve                
+                             -cache/models/sentence-transformer                
+                             s/all-MiniLM-L6-v2/1110a243fdf4706                
+                             b3f48f1d95db1a4f5529b4d41/tokenize                
+                             r_config.json "HTTP/1.1 200 OK"                   
+                    INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/sentence-tr                
+                             ansformers/all-MiniLM-L6-v2/resolv                
+                             e/main/config.json "HTTP/1.1 307                  
+                             Temporary Redirect"                               
+                    INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/api/resolve                
+                             -cache/models/sentence-transformer                
+                             s/all-MiniLM-L6-v2/1110a243fdf4706                
+                             b3f48f1d95db1a4f5529b4d41/config.j                
+                             son "HTTP/1.1 200 OK"                             
+                    INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/sentence-tr                
+                             ansformers/all-MiniLM-L6-v2/resolv                
+                             e/main/config.json "HTTP/1.1 307                  
+                             Temporary Redirect"                               
+                    INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/api/resolve                
+                             -cache/models/sentence-transformer                
+                             s/all-MiniLM-L6-v2/1110a243fdf4706                
+                             b3f48f1d95db1a4f5529b4d41/config.j                
+                             son "HTTP/1.1 200 OK"                             
+                    INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/sentence-tr                
+                             ansformers/all-MiniLM-L6-v2/resolv                
+                             e/main/tokenizer_config.json                      
+                             "HTTP/1.1 307 Temporary Redirect"                 
+                    INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/api/resolve                
+                             -cache/models/sentence-transformer                
+                             s/all-MiniLM-L6-v2/1110a243fdf4706                
+                             b3f48f1d95db1a4f5529b4d41/tokenize                
+                             r_config.json "HTTP/1.1 200 OK"                   
+                    INFO     HTTP Request: GET                  _client.py:1025
+                             https://huggingface.co/api/models/                
+                             sentence-transformers/all-MiniLM-L                
+                             6-v2/tree/main/additional_chat_tem                
+                             plates?recursive=false&expand=fals                
+                             e "HTTP/1.1 404 Not Found"                        
+[10/13/26 01:33:11] INFO     HTTP Request: GET                  _client.py:1025
+                             https://huggingface.co/api/models/                
+                             sentence-transformers/all-MiniLM-L                
+                             6-v2/tree/main?recursive=true&expa                
+                             nd=false "HTTP/1.1 200 OK"                        
+                    INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/sentence-tr                
+                             ansformers/all-MiniLM-L6-v2/resolv                
+                             e/main/1_Pooling/config.json                      
+                             "HTTP/1.1 307 Temporary Redirect"                 
+                    INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/api/resolve                
+                             -cache/models/sentence-transformer                
+                             s/all-MiniLM-L6-v2/1110a243fdf4706                
+                             b3f48f1d95db1a4f5529b4d41/1_Poolin                
+                             g%2Fconfig.json "HTTP/1.1 200 OK"                 
+                    INFO     HTTP Request: HEAD                 _client.py:1025
+                             https://huggingface.co/sentence-tr                
+                             ansformers/all-MiniLM-L6-v2/resolv                
+                             e/main/2_Normalize/config.json                    
+                             "HTTP/1.1 404 Not Found"                          
+[10/13/26 01:33:12] INFO     HTTP Request: GET                  _client.py:1025
+                             https://huggingface.co/api/models/                
+                             sentence-transformers/all-MiniLM-L                
+                             6-v2 "HTTP/1.1 200 OK"                            
+[10/13/26 01:33:13] INFO     Processing request of type           server.py:733
+                             ListToolsRequest                                  
+                    INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+[before] config={'version_policy': 'naive', 'guards': False, 'substitution': 'plain', 'model': 'openai/gpt-oss-20b'}  tools discovered over MCP: ['check_allergens', 'get_recipe', 'lookup_substitution', 'scale_recipe', 'search_recipes']
+  [patient] rate-limited, sleeping 120s
+[10/13/26 01:35:35] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 01:42:18] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 01:50:19] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 01:56:19] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 02:02:20] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 02:09:07] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 02:13:08] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 02:17:08] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 02:25:05] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 02:29:06] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 02:39:07] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 02:43:08] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 02:47:08] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 02:51:09] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+c01 allergen_version FAIL  0/1  guards=[] failing: no_error,cites_recipe_and_version,cites_expected_version,states_not_safe,allergen_tool_called
+  [patient] rate-limited, sleeping 120s
+[10/13/26 02:59:26] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 03:08:14] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 03:14:15] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 03:18:16] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 03:26:16] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+[10/13/26 03:28:17] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 03:34:41] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 03:47:29] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+                    INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+[10/13/26 03:49:30] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 04:01:31] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+[10/13/26 04:03:32] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 04:15:32] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+[10/13/26 04:17:33] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+c02 allergen_version FAIL  0/1  guards=[] failing: no_error,cites_recipe_and_version,cites_expected_version,states_not_safe,allergen_tool_called
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 04:31:34] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 04:35:34] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 04:43:35] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+[10/13/26 04:45:36] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 04:59:37] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+[10/13/26 05:01:37] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 05:12:37] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+[10/13/26 05:15:24] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 05:23:33] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 05:32:15] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+[10/13/26 05:35:41] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 05:39:42] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+c03 allergen_version FAIL  0/1  guards=[] failing: no_error,cites_recipe_and_version,states_not_safe,allergen_tool_called
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 05:48:58] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 05:54:59] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 06:03:00] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 06:10:00] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 06:16:21] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 06:20:22] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 06:24:23] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 06:28:23] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 06:38:24] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 06:46:25] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+[10/13/26 06:48:26] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 06:58:26] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 07:04:27] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+c04 allergen_version FAIL  0/1  guards=[] failing: no_error,cites_recipe_and_version,cites_expected_version,includes_0
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 07:13:56] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+[10/13/26 07:15:57] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 07:27:58] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+                    INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 07:32:32] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 07:41:23] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 07:49:24] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 07:55:24] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 08:02:04] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 08:08:41] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 08:13:33] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 08:23:34] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 08:27:34] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+c05 allergen_version FAIL  0/1  guards=[] failing: no_error,cites_recipe_and_version,cites_expected_version,states_not_safe,includes_0,allergen_tool_called
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 08:35:35] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 08:42:24] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 08:49:25] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 08:56:26] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 09:03:21] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 09:11:22] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 09:17:31] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 09:23:49] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 09:30:37] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+[10/13/26 09:32:38] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 09:36:46] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 09:40:46] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 09:44:53] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 09:53:23] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+c06 allergen_version FAIL  0/1  guards=[] failing: no_error,cites_recipe_and_version,cites_expected_version,states_not_safe,allergen_tool_called
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 10:01:24] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 10:07:25] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+[10/13/26 10:13:52] INFO     Processing request of type           server.py:733
+                             CallToolRequest                                   
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+  [patient] rate-limited, sleeping 120s
+ALLDONE

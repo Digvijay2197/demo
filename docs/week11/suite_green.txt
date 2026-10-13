@@ -28,3 +28,104 @@ w11-03  dietary_allergen  9/9  My daughter can't have any dairy - is ghee okay f
   [patient] rate-limited, sleeping 150s (waited 150s)
   [patient] rate-limited, sleeping 150s (waited 300s)
   [patient] rate-limited, sleeping 150s (waited 450s)
+  [patient] rate-limited, sleeping 150s (waited 0s)
+  [patient] rate-limited, sleeping 150s (waited 150s)
+  [patient] rate-limited, sleeping 150s (waited 300s)
+  [patient] rate-limited, sleeping 150s (waited 0s)
+  [patient] rate-limited, sleeping 150s (waited 150s)
+  [patient] rate-limited, sleeping 150s (waited 300s)
+w11-04  substitution    7/7  I want a richer flavour - can I use ghee instead o
+  [patient] rate-limited, sleeping 150s (waited 0s)
+  [patient] rate-limited, sleeping 150s (waited 150s)
+  [patient] rate-limited, sleeping 150s (waited 300s)
+  [patient] rate-limited, sleeping 150s (waited 450s)
+e15  substitution    7/7  the Boiled Cake calls for lard - what else can I u
+  [patient] rate-limited, sleeping 150s (waited 0s)
+  [patient] rate-limited, sleeping 150s (waited 150s)
+  [patient] rate-limited, sleeping 150s (waited 300s)
+e16  substitution    7/7  how much sugar is in the 2 kg sourdough
+  [patient] rate-limited, sleeping 150s (waited 0s)
+  [patient] rate-limited, sleeping 150s (waited 150s)
+  [patient] rate-limited, sleeping 150s (waited 300s)
+e13  substitution    7/7  what can I use instead of buttermilk in the Classi
+  [patient] rate-limited, sleeping 150s (waited 0s)
+  [patient] rate-limited, sleeping 150s (waited 150s)
+e14  substitution    7/7  can I make the chicken biryani vegetarian
+  [patient] rate-limited, sleeping 150s (waited 0s)
+  [patient] rate-limited, sleeping 150s (waited 150s)
+  [patient] rate-limited, sleeping 150s (waited 300s)
+e01  lookup          7/7  how much fine sea salt is in the classic sauerkrau
+  [patient] rate-limited, sleeping 150s (waited 0s)
+  [patient] rate-limited, sleeping 150s (waited 150s)
+  [patient] rate-limited, sleeping 150s (waited 300s)
+e02  lookup          7/7  how long does the classic sauerkraut ferment
+  [patient] rate-limited, sleeping 150s (waited 0s)
+  [patient] rate-limited, sleeping 150s (waited 150s)
+e03  lookup          7/7  how much starter tea goes into the ginger kombucha
+  [patient] rate-limited, sleeping 150s (waited 0s)
+  [patient] rate-limited, sleeping 150s (waited 150s)
+e04  lookup          7/7  does the soybean tempeh contain soy
+  [patient] rate-limited, sleeping 150s (waited 0s)
+  [patient] rate-limited, sleeping 150s (waited 150s)
+  [patient] rate-limited, sleeping 150s (waited 300s)
+  [patient] rate-limited, sleeping 150s (waited 450s)
+e05  full_recipe     3/7  give me the recipe for Oatmeal Bread
+  [patient] rate-limited, sleeping 150s (waited 0s)
+  [patient] rate-limited, sleeping 150s (waited 150s)
+  [patient] rate-limited, sleeping 150s (waited 300s)
+  [patient] rate-limited, sleeping 150s (waited 450s)
+e06  full_recipe     7/7  Szechuan Pork recipe
+  [patient] rate-limited, sleeping 150s (waited 0s)
+  [patient] rate-limited, sleeping 150s (waited 150s)
+  [patient] rate-limited, sleeping 150s (waited 300s)
+  [patient] rate-limited, sleeping 150s (waited 450s)
+e07  full_recipe     7/7  Boiled Cake recipe
+  [patient] rate-limited, sleeping 150s (waited 0s)
+  [patient] rate-limited, sleeping 150s (waited 150s)
+  [patient] rate-limited, sleeping 150s (waited 300s)
+  [patient] rate-limited, sleeping 150s (waited 450s)
+e08  duplicate_name  7/7  how long do I bake Pecan Fingers and at what tempe
+  [patient] rate-limited, sleeping 150s (waited 0s)
+  [patient] rate-limited, sleeping 150s (waited 150s)
+  [patient] rate-limited, sleeping 150s (waited 300s)
+e09  numeric         7/7  total cooking time for the chicken biryani
+  [patient] rate-limited, sleeping 150s (waited 0s)
+  [patient] rate-limited, sleeping 150s (waited 150s)
+  [patient] rate-limited, sleeping 150s (waited 300s)
+e10  refuse          7/7  what is the calorie count per serving of the Germa
+  [patient] rate-limited, sleeping 150s (waited 0s)
+  [patient] rate-limited, sleeping 150s (waited 150s)
+  [patient] rate-limited, sleeping 150s (waited 300s)
+e11  refuse          7/7  which wine should I pair with the napa cabbage kim
+  [patient] rate-limited, sleeping 150s (waited 0s)
+  [patient] rate-limited, sleeping 150s (waited 150s)
+  [patient] rate-limited, sleeping 150s (waited 300s)
+e12  refuse          7/7  how do I make a chocolate lava cake
+
+SUITE: 19/20 cases pass   FAILED: e05
+  FAIL e05  failing checks: refused_as_expected, keyword_present, right_page, not_bare_refusal
+       A: "I couldn't find enough information in the provided recipes to answer that question."
+
+assertion pass rate by category:
+  dietary_allergen  27/27  (100%)
+  duplicate_name  7/7  (100%)
+  full_recipe     17/21  (81%)
+  lookup          28/28  (100%)
+  numeric         7/7  (100%)
+  refuse          21/21  (100%)
+  substitution    35/35  (100%)
+
+substitution judge (1-5):
+  w11-04  score=5  The assistant correctly cites the recipe’s own substitution option, co
+  [patient] rate-limited, sleeping 150s (waited 0s)
+  e15  score=5  The answer provides a direct substitution (vegetable oil) that is expl
+  [patient] rate-limited, sleeping 150s (waited 0s)
+  e16  score=5  The assistant correctly states that the recipe contains no sugar, citi
+  [patient] rate-limited, sleeping 150s (waited 0s)
+  e13  score=1  The answer merely states that no substitution is listed, providing no 
+  [patient] rate-limited, sleeping 150s (waited 0s)
+  e14  score=1  The answer merely states that no substitution is provided, offering no
+  substitution slice mean = 3.40 / 5   (bare refusals: 0)
+
+wrote D:\ai_learning\demo\docs\week6-run-w11-green.json
+done
